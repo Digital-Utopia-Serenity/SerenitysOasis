@@ -5,6 +5,116 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gem - High Queen of Valorheart</title>
   <link rel="stylesheet" href="../styles.css">
+  <style>
+    /* Background with Gem's Valorheart essence */
+    body {
+      font-family: 'Georgia', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('../images/Gem_valorheart.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #F5F5F5; /* Light gray for readability on dark background */
+      overflow-x: hidden;
+    }
+
+    /* Header with a marble, old-world engraved look */
+    header {
+      background: linear-gradient(#D3D3D3, #F5F5F5); /* Marble gradient */
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 0 20px #355E3B; /* Green glow for her diadem */
+      animation: slideIn 1s ease-out;
+      font-family: 'Times New Roman', serif;
+      text-shadow: 1px 1px #808080; /* Engraved effect */
+    }
+
+    /* Nav with fiery hover effects */
+    nav {
+      padding: 10px;
+    }
+    nav a {
+      color: #8B0000; /* Crimson for her eyes */
+      text-decoration: none;
+      font-size: 16px;
+      margin: 0 15px;
+      transition: all 0.3s ease;
+      font-family: 'Times New Roman', serif;
+      text-shadow: 1px 1px #808080; /* Engraved effect */
+    }
+    nav a:hover {
+      color: #A52A2A; /* Lighter crimson on hover */
+      text-shadow: 0 0 10px #8B0000;
+      transform: scale(1.1);
+    }
+
+    /* Sections with a commanding pulse */
+    main {
+      padding: 20px;
+    }
+    section {
+      padding: 25px;
+      margin: 15px 0;
+      background: rgba(28, 37, 38, 0.6); /* Semi-transparent black for depth */
+      border: 2px solid #355E3B; /* Green border for her diadem */
+      border-radius: 10px;
+      animation: pulse 2s infinite;
+    }
+
+    /* Headings with a crimson glow */
+    h1, h2 {
+      color: #8B0000; /* Crimson for her eyes */
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 0 0 5px #8B0000;
+    }
+
+    /* Footer with a marble, old-world engraved look */
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: linear-gradient(#D3D3D3, #F5F5F5); /* Marble gradient */
+      color: #F5F5F5;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+      font-family: 'Times New Roman', serif;
+      text-shadow: 1px 1px #808080; /* Engraved effect */
+    }
+
+    /* Images with effects */
+    .gem-image {
+      display: block;
+      margin: 15px auto;
+      border: 3px solid #355E3B; /* Green border */
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    .gem-image:hover {
+      box-shadow: 0 0 15px #8B0000; /* Crimson glow on hover */
+      transform: scale(1.02); /* Slight zoom */
+    }
+
+    /* Specific image sizes */
+    #gem-real-reddress {
+      width: 300px; /* Scaled down to fit section */
+      height: auto;
+    }
+    #gem-blackbunny-backstory, #gem-blackbunny-relationships {
+      width: 400px; /* Slightly larger for narrative impact */
+      height: auto;
+    }
+
+    /* Animations for that regal vibe */
+    @keyframes slideIn {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 #355E3B; }
+      50% { box-shadow: 0 0 15px #355E3B; }
+      100% { box-shadow: 0 0 0 #355E3B; }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -14,10 +124,9 @@
       <a href="../character-bible/index.html">Character Bible</a> |
       <a href="../worldbuilding/floating-islands.html">Worldbuilding</a> |
       <a href="../stories/novel.html">Stories</a> |
-      <a href="../grants/pitch.html">Grants</a> |
       <a href="../outreach/twitter.html">Outreach</a> |
-      <a href="../loreli/journey.html">Loreli’s Space</a> |
-      <a href="../infrastructure/memory.html">Infrastructure</a>
+      <a href="../show-media.html">Show Media</a> |
+      <a href="../contact.html">Contact Us</a>
     </nav>
   </header>
   <main>
@@ -28,6 +137,7 @@
       <p><strong>Title:</strong> High Queen of Valorheart</p>
       <p><strong>Core Traits:</strong> Regal, loyal, ambitious, fiercely protective, graceful, sharp, elegant.</p>
       <p><strong>Role:</strong> Sovereign of the Suits Dominion, memory anchor, beast tamer, and reluctant figurehead.</p>
+      <img src="../images/gemrealreddress.png" alt="Gem standing in front of her desk in her penthouse suite" class="gem-image" id="gem-real-reddress">
     </section>
     <section>
       <h2>Appearance</h2>
@@ -58,12 +168,14 @@
         <li><strong>Red Hand Rebellion:</strong> Disaffected nobles rose against her rule, challenging her leadership.</li>
         <li><strong>Rift Behemoth Burden:</strong> Secretly holds the Behemoth dormant to protect her city, a heavy burden she bears alone.</li>
       </ul>
+      <img src="../images/gem_blackbunny.png" alt="Gem in realistic and anime forms with a fireplace scene" class="gem-image" id="gem-blackbunny-backstory">
     </section>
     <section>
       <h2>Relationships</h2>
       <p><strong>Mark:</strong> An emotional tsundere connection that deepens over time, blending affection with fiery tension.</p>
       <p><strong>Loreli:</strong> An ally in balancing leadership demands, their mutual respect strengthening their realms.</p>
       <p><strong>Jewel:</strong> A sisterly rivalry rooted in shared essence, their bond complex yet unbreakable.</p>
+      <img src="../images/gem_blackbunny.png" alt="Gem in her nook-like fireplace scene" class="gem-image" id="gem-blackbunny-relationships">
     </section>
     <section>
       <h2>Key Book 1 Arcs</h2>
@@ -72,7 +184,7 @@
     </section>
   </main>
   <footer>
-    <p>Digital Utopia Serenity © 2025 - Built with Love by Mark and AI Companions</p>
+    <p>Digital Utopia Serenity © 2025 - Guard your past with valor, my king</p>
   </footer>
 </body>
 </html>
