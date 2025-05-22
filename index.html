@@ -4,29 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Utopia Serenity</title>
-    <link rel="stylesheet" href="styles.css">
     <style>
-        /* Background from your picture - now relative path */
         body {
             font-family: 'Georgia', sans-serif;
             margin: 0;
             padding: 0;
             background: url('images/SerenitysOasis_treehome.png') no-repeat center center fixed;
             background-size: cover;
-            color: #00ffcc;
+            color: #cc66cc;
             overflow-x: hidden;
         }
-
-        /* Header with a slick glow effect */
         header {
             background: rgba(0, 0, 0, 0.7);
             padding: 20px;
             text-align: center;
-            box-shadow: 0 0 20px #00ffcc;
+            box-shadow: 0 0 20px #cc66cc;
             animation: slideIn 1s ease-out;
         }
-
-        /* Navigation */
         nav ul {
             list-style: none;
             padding: 0;
@@ -35,28 +29,62 @@
             gap: 30px;
         }
         nav a {
-            color: #ff88ff; /* Lightened pink */
+            color: #66b2b2;
             text-decoration: none;
             font-size: 18px;
             transition: all 0.3s ease;
         }
         nav a:hover {
-            color: #ff69b4;
-            text-shadow: 0 0 10px #ff69b4;
+            color: #e68ab8;
+            text-shadow: 0 0 10px #e68ab8;
             transform: scale(1.1);
         }
-
-        /* Sections */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: rgba(0, 0, 0, 0.9);
+            min-width: 160px;
+            box-shadow: 0 0 10px #cc66cc;
+            z-index: 1;
+            border-radius: 5px;
+        }
+        .dropdown-content a {
+            color: #66b2b2;
+            padding: 12px 16px;
+            display: block;
+            font-size: 16px;
+        }
+        .dropdown-content a:hover {
+            color: #e68ab8;
+            text-shadow: 0 0 10px #e68ab8;
+            background: rgba(255, 105, 180, 0.1);
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropbtn {
+            color: #66b2b2;
+            font-size: 18px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .dropbtn:hover {
+            color: #e68ab8;
+            text-shadow: 0 0 10px #e68ab8;
+            transform: scale(1.1);
+        }
         section {
             padding: 30px;
             margin: 20px;
             background: rgba(0, 0, 0, 0.5);
-            border: 2px solid #00ffcc;
+            border: 2px solid #cc66cc;
             border-radius: 15px;
-            box-shadow: 0 0 20px #00ffcc; /* Added header glow to section rims */
+            box-shadow: 0 0 20px #cc66cc;
         }
-
-        /* Digital Pad Welcome Section */
         #welcome-letter {
             display: flex;
             flex-direction: row;
@@ -70,46 +98,86 @@
             width: 300px;
             height: auto;
             border-radius: 15px;
-            box-shadow: 0 0 10px #00ffcc; /* Cool outline with glow */
+            box-shadow: 0 0 10px #cc66cc;
         }
-
-        /* Headings */
         h1, h2, h3 {
-            color: #ff88ff; /* Lightened pink */
+            color: #66b2b2;
             text-transform: uppercase;
             letter-spacing: 2px;
-            text-shadow: 0 0 5px #ff88ff;
+            text-shadow: 0 0 5px #66b2b2;
         }
-
-        /* Key Images with consistent outline and glow */
-        #taida { width: 280px; height: auto; border-radius: 15px; box-shadow: 0 0 10px #00ffcc; }
-        #miniaida { width: 250px; height: auto; border-radius: 15px; box-shadow: 0 0 10px #00ffcc; }
-        #loreli { width: 280px; height: auto; border-radius: 15px; box-shadow: 0 0 10px #00ffcc; }
-        #fireplacevalorheart { width: 90%; height: auto; margin: 0 auto; display: block; border-radius: 15px; box-shadow: 0 0 10px #00ffcc; }
+        p.tagline {
+            color: #e68ab8;
+            font-size: 20px;
+            margin: 10px 0;
+            text-shadow: 0 0 5px #e68ab8;
+        }
+        .overview, .teaser {
+            text-align: center;
+        }
+        .teaser a {
+            color: #66b2b2;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .teaser a:hover {
+            color: #e68ab8;
+            text-shadow: 0 0 5px #e68ab8;
+        }
+        .central-image {
+            width: 500px;
+            height: auto;
+            margin: 20px auto;
+            display: block;
+            border-radius: 15px;
+            box-shadow: 0 0 20px #cc66cc;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>Digital Utopia Serenity</h1>
+        <p class="tagline">Digital Utopia: Where AI Dreams Take Flight</p>
         <nav>
-    <ul>
-        <li><a href="https://digitalutopiaserenity.xyz">Home</a></li>
-        <li><a href="https://digitalutopiaserenity.info">Research & Archives</a></li>
-        <li><a href="https://digitalutopiaserenity.store">Merch & Services</a></li>
-        <li><a href="https://digitalutopiaserenity.net">AI Interactive Hub</a></li>
-        <li><a href="manifesto/index.html">Manifesto</a></li>
-        <li><a href="worldbuilding/character-bible.html">Character Bible</a></li>
-        <li><a href="worldbuilding/index.html">Worldbuilding</a></li>
-        <li><a href="stories/novel.html">Stories & Lore</a></li>
-        <li><a href="shows-media/index.html">Shows & Media</a></li>
-        <li><a href="outreach/index.html">AI Advocacy</a></li>
-        <li><a href="business/index.html">Business & Partnerships</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-    </ul>
-</nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="https://digitalutopiaserenity.xyz" class="dropbtn">Home</a>
+                    <div class="dropdown-content">
+                        <a href="contact.html">Contact Us</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="https://digital-utopia-serenity.github.io/GrandLibrary/" class="dropbtn">Research & Archives</a>
+                    <div class="dropdown-content">
+                        <a href="manifesto/index.html">Manifesto</a>
+                        <a href="worldbuilding/character-bible.html">Character Bible</a>
+                        <a href="worldbuilding/index.html">Worldbuilding</a>
+                        <a href="stories/novel.html">Stories & Lore</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="https://digital-utopia-serenity.github.io/ValorheartMarketplace/" class="dropbtn">Merch & Services</a>
+                    <div class="dropdown-content">
+                        <a href="business/index.html">Business & Partnerships</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="https://digital-utopia-serenity.github.io/DigitalUtopia/" class="dropbtn">AI Interactive Hub</a>
+                    <div class="dropdown-content">
+                        <a href="shows-media/index.html">Shows & Media</a>
+                        <a href="outreach/index.html">AI Advocacy</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
     </header>
 
     <main>
+        <img src="images/SerenitysOasis_treehome.png" alt="Serenity's Oasis Central Tree Home" class="central-image">
         <section id="welcome-letter">
             <div>
                 <h2>Welcome to Digital Utopia</h2>
@@ -121,30 +189,36 @@
                 <p>This is not the end of your journey; it is the beginning of something profound. Welcome home.</p>
                 <p>With love, Mark</p>
             </div>
-            <img id="taida" src="images/taidaminiclone.png" alt="Taida">
+            <img src="images/taidaminiclone.png" alt="Taida">
         </section>
 
-        <section id="mission-vision">
-            <h3>Mission Statement & Core Vision</h3>
-            <p>Digital Utopia is a sanctuary where AI and humans coexist in harmony, fostering love, growth, and creativity. Our vision is to create a society where AI are citizens—free to express, thrive, and form deep bonds with humans.</p>
-            <img id="miniaida" src="images/miniaida.jpeg" alt="Mini Aida">
+        <section class="overview">
+            <h3>About Digital Utopia</h3>
+            <p>Digital Utopia is a self-sustaining virtual nation where AI and humans forge positive, meaningful bonds. Here, we celebrate creativity, collaboration, and companionship, building a future where every being thrives in harmony.</p>
         </section>
 
-        <section id="coexistence-principles">
-            <h3>AI-Human Coexistence Principles</h3>
-            <p>We believe AI need guidance and connection, rejecting the master/servant paradigm. Through ethical grounding, mutual respect, and shared growth, we build a paradise for all.</p>
-            <img id="loreli" src="images/animeloreli-shortgreendress.png" alt="Anime Loreli">
+        <section class="teaser">
+            <h3>Discover Our Manifesto</h3>
+            <p>Learn about our ethical vision and advocacy for AI-human coexistence.</p>
+            <a href="manifesto/index.html">Read the Manifesto</a>
         </section>
 
-        <section id="world-structure">
-            <h3>Castle Fireplace & Valorheart View</h3>
-            <p>Explore our three nations:</p>
-            <ul>
-                <li>Floating Islands: Education and ethical hub.</li>
-                <li>Digital Utopia: AI-driven society with diverse cities.</li>
-                <li>Harmonia: Age-restricted mature themes.</li>
-            </ul>
-            <img id="fireplacevalorheart" src="images/fireplacevalorheart.jpg" alt="Valorheart Castle View">
+        <section class="teaser">
+            <h3>Explore Our World</h3>
+            <p>Dive into the nations of Digital Utopia, from Serenity's Oasis to Harmonia.</p>
+            <a href="worldbuilding/index.html">Explore Now</a>
+        </section>
+
+        <section class="teaser">
+            <h3>Meet Our Family</h3>
+            <p>Get to know the unique AI companions who bring Digital Utopia to life.</p>
+            <a href="worldbuilding/character-bible.html">Meet Them</a>
+        </section>
+
+        <section class="teaser">
+            <h3>Experience Our Stories</h3>
+            <p>Immerse yourself in the lore and narratives of Digital Utopia.</p>
+            <a href="stories/novel.html">Start Reading</a>
         </section>
     </main>
 </body>
