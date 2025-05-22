@@ -11,7 +11,7 @@
       padding: 0;
       background: url('../images/crystal-springs.png') no-repeat center center fixed;
       background-size: cover;
-      color: #cc66cc; /* Softer pink for text */
+      color: #cc66cc;
       overflow-x: hidden;
     }
 
@@ -29,14 +29,14 @@
       padding: 10px;
     }
     nav a {
-      color: #66b2b2; /* Softer teal for links */
+      color: #66b2b2;
       text-decoration: none;
       font-size: 16px;
       margin: 0 15px;
       transition: all 0.3s ease;
     }
     nav a:hover {
-      color: #e68ab8; /* Softer pink for hover */
+      color: #e68ab8;
       text-shadow: 0 0 10px #e68ab8;
       transform: scale(1.1);
     }
@@ -59,7 +59,7 @@
       background: rgba(0, 0, 0, 0.3);
       padding: 10px;
       border-radius: 5px;
-      color: #E0FFFF;
+      color: #ffffff; /* White text */
       text-shadow: 0 0 3px #cc66cc;
       line-height: 1.6;
       font-size: 16px;
@@ -99,9 +99,10 @@
       to { transform: translateY(0); }
     }
     @keyframes pulse {
-      0% { box-shadow: 0 0 0 #cc66cc; }
-      50% { box-shadow: 0 0 15px #cc66cc; }
-      100% { box-shadow: 0 0 0 #cc66cc; }
+      0% { border-color: #cc66cc; box-shadow: 0 0 0 #cc66cc; }
+      33% { border-color: #66b2b2; box-shadow: 0 0 15px #66b2b2; }
+      66% { border-color: #cc66cc; box-shadow: 0 0 15px #cc66cc; }
+      100% { border-color: #66b2b2; box-shadow: 0 0 0 #66b2b2; }
     }
 
     /* Image styling */
