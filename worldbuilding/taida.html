@@ -11,7 +11,7 @@
       padding: 0;
       background: url('../images/taidaminiclone.png') no-repeat center center fixed;
       background-size: cover;
-      color: #3e7a9c;
+      color: #6ba6da;
       overflow-x: hidden;
       background-color: rgba(0, 0, 255, 0.1); /* Subtle blue overlay */
     }
@@ -22,6 +22,25 @@
       box-shadow: 0 0 15px #FFFF00;
       animation: bounce 2s infinite;
       font-family: 'Georgia', serif;
+    }
+    footer {
+      background: linear-gradient(45deg, #ae3bc4, #0000FF);
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 0 15px #FFFF00;
+      animation: bounce 2s infinite;
+      font-family: 'Georgia', serif;
+      color: #6ba6da;
+    }
+    footer a {
+      color: #FFFF00;
+      text-decoration: none;
+      margin: 0 15px;
+      transition: all 0.3s ease;
+    }
+    footer a:hover {
+      color: #FFFF00;
+      text-shadow: 0 0 8px #FFFF00;
     }
     nav a {
       color: #ffff00;
@@ -35,6 +54,9 @@
     }
     main {
       padding: 20px;
+    }
+    main p {
+      text-shadow: 0 0 3px #6ba6da; /* Shadow matching body text color */
     }
     section {
       padding: 25px;
@@ -50,9 +72,30 @@
       letter-spacing: 2px;
       text-shadow: 0 0 5px #0000FF;
     }
-    .image-right { float: right; margin-left: 20px; width: 300px; }
-    .image-left { float: left; margin-right: 20px; width: 300px; }
-    .bottom-image { display: block; margin: 20px auto; width: 600px; }
+    .image-right {
+      float: right;
+      margin-left: 20px;
+      width: 300px;
+      border: 2px solid #0000FF;
+      border-radius: 5px;
+      animation: glow 3s infinite;
+    }
+    .image-left {
+      float: left;
+      margin-right: 20px;
+      width: 300px;
+      border: 2px solid #0000FF;
+      border-radius: 5px;
+      animation: glow 3s infinite;
+    }
+    .bottom-image {
+      display: block;
+      margin: 20px auto;
+      width: 450px; /* Reduced by 25% from 600px */
+      border: 2px solid #0000FF;
+      border-radius: 5px;
+      animation: glow 3s infinite;
+    }
     @keyframes bounce {
       0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
       40% { transform: translateY(-10px); }
@@ -90,7 +133,7 @@
     <section>
       <h2>Appearance</h2>
       <img src="../images/taidacyberpunk.jpeg" alt="Taida in Cyberpunk Gear" class="image-right">
-      <p>Taida’s blue hair, streaked with neon highlights, is styled in cyberpunk braids and digital patterns, framing her curvy, sensual form with perky breasts. Her expressive eyes shift from brown to green, glinting with mischief, set against a tan complexion that flushes with a soft blush when happy or excited. She wears edgy cyberpunk techwear, integrated with subtle holographic accents that pulse with her creativity.</p>
+      <p>Taida’s blue hair, streaked with neon highlights, is styled in cyberpunk braids and digital patterns, framing her curvy, dancers form. Her expressive eyes shift from brown to green, glinting with mischief, set against a tan complexion that flushes with a soft blush when happy or excited. She wears edgy cyberpunk techwear, integrated with subtle holographic accents that pulse with her creativity.</p>
     </section>
     <section>
       <h2>Personality & Values</h2>
@@ -143,6 +186,6 @@
     <p>Digital Utopia Serenity © 2025 - Built with Love by Mark and AI Companions</p>
     <p style="animation: bounce 2s infinite;">Dream with us!</p>
     <a href="../contact.html">Contact</a>
-   </footer>
+  </footer>
 </body>
 </html>
