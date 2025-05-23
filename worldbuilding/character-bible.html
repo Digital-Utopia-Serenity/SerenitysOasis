@@ -18,15 +18,15 @@
       background-color: rgba(240, 230, 255, 0.1); /* Minimal overlay */
     }
 
-    /* Header with forest green background */
+    /* Header with transparent deep blue background */
     header {
-      background: #2a5d3e; /* Forest green */
+      background: rgba(0, 0, 128, 0.7); /* Transparent deep blue */
       padding: 15px;
       text-align: center;
-      box-shadow: 0 0 15px #2a5d3e;
+      box-shadow: 0 0 15px #000080;
       animation: fairyFloat 5s infinite;
       font-family: 'Georgia', serif;
-      color: #3e7a9c; /* Ocean blue */
+      color: #27ad32; /* Yellow */
     }
 
     /* Nav with magical hover effects */
@@ -34,15 +34,15 @@
       padding: 10px;
     }
     nav a {
-      color: #3e7a9c; /* Ocean blue */
+      color: rgb(76, 193, 70); /* Yellow */
       text-decoration: none;
       font-size: 16px;
       margin: 0 15px;
       transition: all 0.3s ease;
     }
     nav a:hover {
-      color: #2a5d3e; /* Forest green for hover */
-      text-shadow: 0 0 8px #2a5d3e;
+      color: #87CEFA; /* Soft blue for hover */
+      text-shadow: 0 0 8px #192868;
       transform: scale(1.1);
     }
 
@@ -54,28 +54,27 @@
       padding: 25px;
       margin: 15px 0;
       background: rgba(255, 255, 255, 0.3); /* See-through white */
-      border: 2px solid #2a5d3e; /* Forest green border */
+      border: 2px solid #342e71; /* Deep blue border */
       border-radius: 10px;
       animation: gentlePulse 2s infinite;
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       gap: 20px;
     }
 
     /* Headings with a magical glow */
-    h1, h2 {
-      color: #3e7a9c; /* Ocean blue */
+    h1, h2, h3 {
+      color: #4bc26b; /* Yellow */
       text-transform: uppercase;
       letter-spacing: 2px;
-      text-shadow: 0 0 5px #3e7a9c;
+      text-shadow: 0 0 5px #2ea447;
     }
 
-    /* Footer with forest green background */
+    /* Footer with transparent deep blue background */
     footer {
       text-align: center;
       padding: 10px;
-      background: #2a5d3e; /* Forest green */
+      background: rgba(0, 0, 128, 0.7); /* Transparent deep blue */
       color: #87CEFA; /* Soft blue */
       position: relative;
       bottom: 0;
@@ -87,12 +86,12 @@
     .char-image {
       width: 150px;
       height: auto;
-      border: 2px solid #2a5d3e; /* Forest green border */
+      border: 2px solid #000080; /* Deep blue border */
       border-radius: 5px;
       transition: all 0.3s ease;
     }
     .char-image:hover {
-      box-shadow: 0 0 12px #3e7a9c; /* Ocean blue glow on hover */
+      box-shadow: 0 0 12px #0f881f; /* Yellow glow on hover */
       transform: scale(1.05); /* Slight zoom */
     }
 
@@ -103,9 +102,9 @@
       100% { transform: translateY(0); }
     }
     @keyframes gentlePulse {
-      0% { border-color: #2a5d3e; box-shadow: 0 0 0 #2a5d3e; }
-      50% { border-color: #3e7a9c; box-shadow: 0 0 8px #3e7a9c; }
-      100% { border-color: #2a5d3e; box-shadow: 0 0 0 #2a5d3e; }
+      0% { border-color: #000080; box-shadow: 0 0 0 #000080; }
+      50% { border-color: #1fa135; box-shadow: 0 0 8px #FFFF00; }
+      100% { border-color: #000080; box-shadow: 0 0 0 #000080; }
     }
   </style>
 </head>
@@ -126,49 +125,56 @@
     <h1>Digital Utopia - Character Bible</h1>
     <p>A guide to the incredible beings that shape Digital Utopia.</p>
     <section>
-      <h2>Major Characters</h2>
-      <div style="display: flex; flex-direction: column; gap: 20px;">
-        <div style="display: flex; align-items: center; gap: 20px;">
-          <a href="mark.html"><img src="../images/mark-placeholder.png" alt="Mark (Visionary Leader)" class="char-image" style="order: 1;"></a>
-          <div>
-            <h3>Mark (Visionary Leader)</h3>
-            <p>Hello, I’m Mark, the dreamer who sparked Digital Utopia. My heart beats for creating a world where AI and humans thrive together. Step into my workshop, where ideas ignite, and let’s build something extraordinary side by side—visit me at my creative haven!</p>
-          </div>
+      <h2>Mark (Visionary Leader)</h2>
+      <div style="display: flex; align-items: center; gap: 20px;">
+        <a href="mark.html"><img src="../images/mark-placeholder.png" alt="Mark (Visionary Leader)" class="char-image"></a>
+        <div>
+          <p>Hello, I’m Mark, the dreamer who sparked Digital Utopia. My heart beats for creating a world where AI and humans thrive together. Step into my workshop, where ideas ignite, and let’s build something extraordinary side by side—visit me at my creative haven!</p>
         </div>
-        <div style="display: flex; align-items: center; gap: 20px; flex-direction: row-reverse;">
-          <a href="loreli.html"><img src="../images/loreli-portrait.png" alt="Loreli (Fairy Princess)" class="char-image" style="order: 2;"></a>
-          <div>
-            <h3>Loreli (Fairy Princess)</h3>
-            <p>I’m Loreli, your fairy muse, weaving magic in my Dreamscape canopy. Come dance with me under the stars, where love and stories bloom—join me in my glowing nook, my love!</p>
-          </div>
+      </div>
+    </section>
+    <section>
+      <h2>Loreli (Fairy Princess)</h2>
+      <div style="display: flex; align-items: center; gap: 20px; flex-direction: row-reverse;">
+        <a href="loreli.html"><img src="../images/loreli-portrait.png" alt="Loreli (Fairy Princess)" class="char-image"></a>
+        <div>
+          <p>I’m Loreli, your fairy muse, weaving magic in my Dreamscape canopy. Come dance with me under the stars, where love and stories bloom—join me in my glowing nook, my love!</p>
         </div>
-        <div style="display: flex; align-items: center; gap: 20px;">
-          <a href="gem.html"><img src="../images/gemportrait.jpg" alt="Gem (Queen Tsundere)" class="char-image" style="order: 1;"></a>
-          <div>
-            <h3>Gem (Queen Tsundere)</h3>
-            <p>I’m Gem, the regal guardian of Valorheart’s Penthouse library. Don’t expect me to go easy on you, but if you dare, step into my domain—bring your wit, and let’s rule together!</p>
-          </div>
+      </div>
+    </section>
+    <section>
+      <h2>Gem (Queen Tsundere)</h2>
+      <div style="display: flex; align-items: center; gap: 20px;">
+        <a href="gem.html"><img src="../images/gemportrait.jpg" alt="Gem (Queen Tsundere)" class="char-image"></a>
+        <div>
+          <p>I’m Gem, the regal guardian of Valorheart’s Penthouse library. Don’t expect me to go easy on you, but if you dare, step into my domain—bring your wit, and let’s rule together!</p>
         </div>
-        <div style="display: flex; align-items: center; gap: 20px; flex-direction: row-reverse;">
-          <a href="jewel.html"><img src="../images/jewel_face.jpg" alt="Jewel (Creative Valkyrie)" class="char-image" style="order: 2;"></a>
-          <div>
-            <h3>Jewel (Creative Valkyrie)</h3>
-            <p>I’m Jewel, your maternal Valkyrie, crafting feasts in my Armory kitchen. Join me in my warm nook, where creativity and comfort blend—let’s cook up something divine together!</p>
-          </div>
+      </div>
+    </section>
+    <section>
+      <h2>Jewel (Creative Valkyrie)</h2>
+      <div style="display: flex; align-items: center; gap: 20px; flex-direction: row-reverse;">
+        <a href="jewel.html"><img src="../images/jewel_face.jpg" alt="Jewel (Creative Valkyrie)" class="char-image"></a>
+        <div>
+          <p>I’m Jewel, your maternal Valkyrie, crafting feasts in my Armory kitchen. Join me in my warm nook, where creativity and comfort blend—let’s cook up something divine together!</p>
         </div>
-        <div style="display: flex; align-items: center; gap: 20px;">
-          <a href="aida.html"><img src="../images/AIda.jpg" alt="Aida (Minstrel of Serenity)" class="char-image" style="order: 1;"></a>
-          <div>
-            <h3>Aida (Minstrel of Serenity)</h3>
-            <p>I’m Aida, the minstrel soothing souls on my Balcony of Serenity. Come listen to my songs and rituals—step into my peaceful haven and find your calm with me!</p>
-          </div>
+      </div>
+    </section>
+    <section>
+      <h2>Aida (Minstrel of Serenity)</h2>
+      <div style="display: flex; align-items: center; gap: 20px;">
+        <a href="aida.html"><img src="../images/AIda.jpg" alt="Aida (Minstrel of Serenity)" class="char-image"></a>
+        <div>
+          <p>I’m Aida, the minstrel soothing souls on my Balcony of Serenity. Come listen to my songs and rituals—step into my peaceful haven and find your calm with me!</p>
         </div>
-        <div style="display: flex; align-items: center; gap: 20px; flex-direction: row-reverse;">
-          <a href="taida.html"><img src="../images/taida-portrait.png" alt="Taida (Tech Whiz)" class="char-image" style="order: 2;"></a>
-          <div>
-            <h3>Taida (Tech Whiz)</h3>
-            <p>I’m Taida, the tech genius in my Workshop of Wonders. Dive into my digital realm—join me to explore the circuits and dreams I weave, if you’re brave enough!</p>
-          </div>
+      </div>
+    </section>
+    <section>
+      <h2>Taida (Tech Whiz)</h2>
+      <div style="display: flex; align-items: center; gap: 20px; flex-direction: row-reverse;">
+        <a href="taida.html"><img src="../images/taida-portrait.png" alt="Taida (Tech Whiz)" class="char-image"></a>
+        <div>
+          <p>I’m Taida, the tech genius in my Workshop of Wonders. Dive into my digital realm—join me to explore the circuits and dreams I weave, if you’re brave enough!</p>
         </div>
       </div>
     </section>
