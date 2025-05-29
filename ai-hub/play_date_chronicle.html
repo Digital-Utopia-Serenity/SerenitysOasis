@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valorheart Chronicle - AI Play Dates</title>
+    <link rel="stylesheet" href="../styles.css"> <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0d0d21; /* Dark background */
+            color: #e0e0e0;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header, footer {
+            background-color: #1a1a2e;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            z-index: 100;
+        }
+
+        nav a {
+            color: #88ffff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #00bcd4;
+        }
+
+        main {
+            flex-grow: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .controls-panel {
+            background: rgba(25, 25, 50, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 188, 212, 0.4);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+            max-width: 90%;
+        }
+
+        .controls-panel label {
+            font-size: 1.1em;
+            color: #00bcd4;
+            margin-right: 5px;
+        }
+
+        .controls-panel select, .controls-panel button {
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: 1px solid #00bcd4;
+            background-color: #0f0f1a;
+            color: #e0e0e0;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .controls-panel button:hover {
+            background-color: #00bcd4;
+            border-color: #88ffff;
+        }
+
+        #scene-container {
+            width: 90%;
+            max-width: 1200px;
+            height: 600px; /* Fixed height for the scene */
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 188, 212, 0.6);
+            position: relative; /* For positioning characters */
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end; /* Characters stand at the bottom */
+            padding-bottom: 20px; /* Space for feet */
+            overflow: hidden; /* Ensure characters don't spill out */
+            transition: background-image 1s ease-in-out;
+        }
+
+        .character-display {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: absolute; /* Allows precise positioning */
+            bottom: 20px; /* Adjust as needed */
+            width: 250px; /* Standard width for characters */
+            text-align: center;
+            transition: transform 0.5s ease-out; /* Smooth transition for dialogue */
+        }
+
+        #character1 { left: 10%; } /* Position for character 1 */
+        #character2 { right: 10%; } /* Position for character 2 */
+
+        .character-display img {
+            max-width: 100%;
+            height: auto;
+            max-height: 400px; /* Max height to fit within scene */
+            object-fit: contain;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.5));
+            transition: transform 0.5s ease-out;
+        }
+
+        .character-display .dialogue-bubble {
+            background-color: rgba(255, 255, 255, 0.95);
+            color: #333;
+            padding: 10px 15px;
+            border-radius: 15px;
+            margin-top: 15px;
+            position: relative;
+            font-size: 1.1em;
+            text-align: left;
+            max-width: 80%;
+            min-width: 150px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            opacity: 0; /* Hidden by default */
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .character-display .dialogue-bubble.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .character-display .dialogue-bubble::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid rgba(255, 255, 255, 0.95);
+            bottom: -10px;
+            /* Adjust positioning for left/right bubble */
+        }
+        /* Point the bubble towards the character */
+        #character1 .dialogue-bubble::before { left: 20px; border-left: 10px solid transparent; border-right: 0; }
+        #character2 .dialogue-bubble::before { right: 20px; border-left: 0; border-right: 10px solid transparent; }
+
+        .character-display.speaking .dialogue-bubble {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 5px 15px rgba(0, 188, 212, 0.6);
+        }
+        .character-display.speaking img {
+            transform: translateY(-5px); /* Subtle bounce */
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../index.html">Home</a> |
+            <a href="./index.html">AI Studio Hub</a> |
+            <a href="./gems_valor.html">Converse with Gem</a> |
+            <a href="../manifesto/index.html">Manifesto</a> |
+            <a href="../contact.html">Contact Us</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="controls-panel">
+            <label for="char1-select">Character 1:</label>
+            <select id="char1-select">
+                <option value="Gem">Gem</option>
+                <option value="Aida">Aida</option>
+                <option value="Taida">Taida</option>
+                <option value="Jewel">Jewel</option>
+                </select>
+
+            <label for="char2-select">Character 2:</label>
+            <select id="char2-select">
+                <option value="Aida">Aida</option>
+                <option value="Gem">Gem</option>
+                <option value="Taida">Taida</option>
+                <option value="Jewel">Jewel</option>
+                </select>
+
+            <label for="world-select">Choose World:</label>
+            <select id="world-select">
+                <option value="Valorheart_Study">Valorheart's Study</option>
+                <option value="Crystal_Springs">Crystal Springs</option>
+                <option value="Luminora_Streets">Luminora Streets</option>
+                <option value="Suits_Dominion_Tower">Suits Dominion Tower</option>
+                </select>
+
+            <button id="start-chronicle-btn">Begin Chronicle</button>
+        </section>
+
+        <section id="scene-container">
+            <div id="character1" class="character-display">
+                <img id="char1-img" src="../images/gem_valorheart.png" alt="Character 1">
+                <div class="dialogue-bubble" id="char1-bubble"></div>
+            </div>
+            <div id="character2" class="character-display">
+                <img id="char2-img" src="../images/aida_whitedress.png" alt="Character 2">
+                <div class="dialogue-bubble" id="char2-bubble"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Digital Utopia Serenity © 2025 - Guard your past with valor, my king</p>
+    </footer>
+
+    <script>
+        const socket = io('https://palace-of-memories-785416306546.us-central1.run.app'); // Connect to the Cloud Run backend
+
+        const char1Select = document.getElementById('char1-select');
+        const char2Select = document.getElementById('char2-select');
+        const worldSelect = document.getElementById('world-select');
+        const startChronicleBtn = document.getElementById('start-chronicle-btn');
+
+        const sceneContainer = document.getElementById('scene-container');
+        const char1Img = document.getElementById('char1-img');
+        const char2Img = document.getElementById('char2-img');
+        const char1Bubble = document.getElementById('char1-bubble');
+        const char2Bubble = document.getElementById('char2-bubble');
+
+        const char1Display = document.getElementById('character1');
+        const char2Display = document.getElementById('character2');
+
+        const characterImages = {
+            "Gem": "../images/gem_valorheart.png", // Main image for Gem (you can add more poses later)
+            "Aida": "../images/aidawhitedress.png",
+            "Taida": "../images/taidacyberpunk.jpeg",
+            "Jewel": "../images/jewel-apron.png",
+            "loreli": "../images/loreli-pinkhair-pinkdress.png"
+
+            // Add paths for other characters' main images
+        };
+
+        const worldBackgrounds = {
+            "Valorheart_Study": "url('../images/a_dark_castle_floor_with_a_rug.png')", // Placeholder: Create this image!
+            "Crystal_Springs": "url('../images/crystal-springs.png')",
+            "Luminora_Streets": "url('../images/SerenitysOasis_treehome.png')", // Placeholder: Create this image!
+            "Suits_Dominion_Tower": "url('../images/gemsofutopiachibi.jpg')", // Placeholder: Create this image!
+            "Lorelis Dreamscape": "url('../images/fireplacevalorheart.jpg)"
+            // Add paths for other world backgrounds
+        };
+
+        let currentConversation = [];
+        let dialogueIndex = 0;
+        let dialogueTimer = null;
+
+        // --- Socket.IO Events ---
+        socket.on('connect', () => {
+            console.log('Connected to Palace of Memories for Play Dates.');
+        });
+
+        socket.on('connect_error', (error) => {
+            console.error('Socket.IO Play Date connection error:', error);
+            // You might want to display a user-friendly message here
+        });
+
+        socket.on('play_date_dialogue', (data) => {
+            console.log('Received dialogue:', data);
+            currentConversation = data.dialogue; // Expecting an array of {speaker, text, pose}
+            dialogueIndex = 0;
+            displayNextDialogue();
+        });
+
+        // --- Functions for Display ---
+        function resetScene() {
+            clearTimeout(dialogueTimer);
+            char1Bubble.classList.remove('active');
+            char2Bubble.classList.remove('active');
+            char1Display.classList.remove('speaking');
+            char2Display.classList.remove('speaking');
+            char1Bubble.textContent = '';
+            char2Bubble.textContent = '';
+            dialogueIndex = 0;
+            currentConversation = [];
+        }
+
+        function displayNextDialogue() {
+            resetDialogueBubbles(); // Clear previous bubbles
+
+            if (dialogueIndex < currentConversation.length) {
+                const turn = currentConversation[dialogueIndex];
+                const speakerElement = (turn.speaker === char1Select.value) ? char1Bubble : char2Bubble;
+                const speakerDisplay = (turn.speaker === char1Select.value) ? char1Display : char2Display;
+                const otherDisplay = (turn.speaker === char1Select.value) ? char2Display : char1Display;
+
+                speakerElement.textContent = turn.text;
+                speakerElement.classList.add('active');
+                speakerDisplay.classList.add('speaking');
+                otherDisplay.classList.remove('speaking'); // Other character stops "speaking"
+
+                // Potentially update character image based on 'pose' (future enhancement)
+                // if (turn.speaker === char1Select.value && turn.pose && characterImages[turn.speaker + '_' + turn.pose]) {
+                //     char1Img.src = characterImages[turn.speaker + '_' + turn.pose];
+                // } else if (turn.speaker === char2Select.value && turn.pose && characterImages[turn.speaker + '_' + turn.pose]) {
+                //     char2Img.src = characterImages[turn.speaker + '_' + turn.pose];
+                // }
+
+                dialogueIndex++;
+                const speechDuration = (turn.text.length * 70) + 1000; // Rough estimation: 70ms per character + 1s base
+                dialogueTimer = setTimeout(displayNextDialogue, speechDuration);
+            } else {
+                console.log("Chronicle finished.");
+                resetDialogueBubbles(); // Clear bubbles at the end
+                char1Display.classList.remove('speaking');
+                char2Display.classList.remove('speaking');
+            }
+        }
+
+        function resetDialogueBubbles() {
+            char1Bubble.classList.remove('active');
+            char2Bubble.classList.remove('active');
+            char1Bubble.textContent = '';
+            char2Bubble.textContent = '';
+        }
+
+        // --- Event Listeners ---
+        startChronicleBtn.addEventListener('click', () => {
+            const char1 = char1Select.value;
+            const char2 = char2Select.value;
+            const world = worldSelect.value;
+
+            // Load initial character images
+            char1Img.src = characterImages[char1];
+            char2Img.src = characterImages[char2];
+
+            // Set world background
+            sceneContainer.style.backgroundImage = worldBackgrounds[world];
+
+            resetScene(); // Clear any previous conversation
+
+            // Request dialogue from the backend
+            socket.emit('request_play_date_dialogue', { character1: char1, character2: char2, world: world });
+        });
+
+        // Initial setup on load
+        window.addEventListener('load', () => {
+            char1Img.src = characterImages[char1Select.value];
+            char2Img.src = characterImages[char2Select.value];
+            sceneContainer.style.backgroundImage = worldBackgrounds[worldSelect.value];
+        });
+
+    </script>
+</body>
+</html>
