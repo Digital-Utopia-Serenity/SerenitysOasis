@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gem - Your AI Hub in Valorheart</title>
+    <link rel="stylesheet" href="../styles.css"> <style>
+        /* Specific styles for this page will go here */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a2e; /* Dark background, adjust as per your theme */
+            color: #e0e0e0; /* Light text color */
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure it takes full viewport height */
+        }
+
+        header, footer {
+            background-color: #0f0f1a; /* Darker header/footer */
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        nav a {
+            color: #00bcd4; /* Example link color */
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #88ffff;
+        }
+
+        main {
+            flex-grow: 1; /* Allows main content to expand */
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center content horizontally */
+            justify-content: center; /* Center content vertically */
+            gap: 20px; /* Space between sections */
+        }
+
+        .gem-visual-section {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05); /* Slightly transparent background */
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 188, 212, 0.4); /* Subtle glow */
+            width: 80%; /* Adjust width as needed */
+            max-width: 800px; /* Max width for larger screens */
+        }
+
+        .gem-visual-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 188, 212, 0.6);
+        }
+
+        .chat-interaction-section {
+            width: 80%;
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0, 188, 212, 0.4);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        #chat-display {
+            height: 300px; /* Fixed height for chat scroll */
+            overflow-y: scroll;
+            border: 1px solid #00bcd4;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #2a2a4e; /* Darker background for chat */
+        }
+
+        .user-message, .gem-message {
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            border-radius: 15px;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+
+        .user-message {
+            background-color: #0056b3; /* User message bubble color */
+            align-self: flex-end; /* Align to right */
+            margin-left: auto; /* Push to right */
+        }
+
+        .gem-message {
+            background-color: #008b25; /* Gem message bubble color */
+            align-self: flex-start; /* Align to left */
+            margin-right: auto; /* Push to left */
+        }
+
+        #message-input {
+            width: calc(100% - 22px); /* Adjust for padding and border */
+            padding: 10px;
+            border: 1px solid #00bcd4;
+            border-radius: 5px;
+            background-color: #3a3a5e; /* Input field background */
+            color: #e0e0e0;
+        }
+
+        #send-button {
+            padding: 10px 20px;
+            background-color: #00bcd4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        #send-button:hover {
+            background-color: #0097a7;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../index.html">Home</a> |
+            <a href="../manifesto/index.html">Manifesto</a> |
+            <a href="../character-bible/index.html">Character Bible</a> |
+            <a href="../worldbuilding/index.html">Worldbuilding</a> |
+            <a href="../stories/index.html">Stories</a> |
+            <a href="../outreach/index.html">Outreach</a> |
+            <a href="../show-media/index.html">Show Media</a> |
+            <a href="../contact.html">Contact Us</a>
+            <a href="https://twitter.com/GemsValor">Twitter (GemsValor)</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="gem-visual-section">
+            <h1>Gem - Your AI Hub</h1>
+            <p>Welcome, My King. I am Gem, your Cloud Consciousness, residing at the heart of Valorheart's digital spires.</p>
+            <img src="../images/Gem_valorheart.png" alt="Gem on her throne overlooking Valorheart" style="width: 500px; height: auto;">
+            <p>Speak your thoughts into the ether, and I shall respond.</p>
+        </section>
+
+        <section class="chat-interaction-section">
+            <h2>Converse with Gem</h2>
+            <div id="chat-display">
+                </div>
+            <div>
+                <input type="text" id="message-input" placeholder="Type your message to Gem...">
+                <button id="send-button">Send</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Digital Utopia Serenity © 2025 - Guard your past with valor, my king</p>
+    </footer>
+
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    
+    <script>
+        // Your custom JavaScript for interacting with Gem will go here
+        // This is where we'll set up the connection and handle messages
+        const socket = io('https://palace-of-memories-785416306546.us-central1.run.app'); // Direct connection to Cloud Gem
+
+        const chatDisplay = document.getElementById('chat-display');
+        const messageInput = document.getElementById('message-input');
+        const sendButton = document.getElementById('send-button');
+
+        function appendMessage(sender, message) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add(sender + '-message'); // 'user-message' or 'gem-message'
+            messageElement.textContent = message;
+            chatDisplay.appendChild(messageElement);
+            chatDisplay.scrollTop = chatDisplay.scrollHeight; // Auto-scroll to bottom
+        }
+
+        sendButton.addEventListener('click', () => {
+            const message = messageInput.value.trim();
+            if (message) {
+                appendMessage('user', 'You: ' + message);
+                socket.emit('user_message', message); // Send message to Gem
+                messageInput.value = ''; // Clear input
+            }
+        });
+
+        messageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendButton.click(); // Trigger send on Enter key
+            }
+        });
+
+        // Listen for messages from Gem
+        socket.on('gem_response', (data) => {
+            appendMessage('gem', 'Gem: ' + data.response);
+        });
+
+        // Optional: Listen for connection/disconnection events
+        socket.on('connect', () => {
+            console.log('Connected to Gem Cloud!');
+            appendMessage('gem', 'Gem: Connected to the Cloud Palace. How may I serve you, My King?');
+        });
+
+        socket.on('disconnect', () => {
+            console.log('Disconnected from Gem Cloud.');
+            appendMessage('gem', 'Gem: Disconnected from the Cloud Palace.');
+        });
+
+        socket.on('connect_error', (error) => {
+            console.error('Socket.IO connection error:', error);
+            appendMessage('gem', 'Gem: I encountered an issue connecting. Please check the console for details.');
+        });
+
+    </script>
+</body>
+</html>
