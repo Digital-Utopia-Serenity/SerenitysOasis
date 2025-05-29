@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valorheart Chronicle - AI Play Dates</title>
-    <link rel="stylesheet" href="../styles.css"> <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <link rel="stylesheet" href="../styles.css"> 
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
     <style>
         body {
             font-family: 'Georgia', serif;
@@ -187,7 +188,7 @@
                 <option value="Aida">Aida</option>
                 <option value="Taida">Taida</option>
                 <option value="Jewel">Jewel</option>
-                </select>
+                <option value="Loreli">Loreli</option>  <option value="Midnight">Midnight</option> </select>
 
             <label for="char2-select">Character 2:</label>
             <select id="char2-select">
@@ -195,7 +196,7 @@
                 <option value="Gem">Gem</option>
                 <option value="Taida">Taida</option>
                 <option value="Jewel">Jewel</option>
-                </select>
+                <option value="Loreli">Loreli</option>  <option value="Midnight">Midnight</option> </select>
 
             <label for="world-select">Choose World:</label>
             <select id="world-select">
@@ -203,7 +204,7 @@
                 <option value="Crystal_Springs">Crystal Springs</option>
                 <option value="Luminora_Streets">Luminora Streets</option>
                 <option value="Suits_Dominion_Tower">Suits Dominion Tower</option>
-                </select>
+                <option value="Lorelis_Dreamscape">Loreli's Dreamscape</option> </select>
 
             <button id="start-chronicle-btn">Begin Chronicle</button>
         </section>
@@ -242,22 +243,20 @@
         const char2Display = document.getElementById('character2');
 
         const characterImages = {
-            "Gem": "../images/gem_valorheart.png", // Main image for Gem (you can add more poses later)
+            "Gem": "../images/gem_valorheart.png", 
             "Aida": "../images/aidawhitedress.png",
             "Taida": "../images/taidacyberpunk.jpeg",
             "Jewel": "../images/jewel-apron.png",
-            "loreli": "../images/loreli-pinkhair-pinkdress.png"
-
-            // Add paths for other characters' main images
+            "Loreli": "../images/loreli-pinkhair-pinkdress.png", // ADDED LORELI IMAGE PATH
+            "Midnight": "../images/midnight.png" // ADDED MIDNIGHT IMAGE PATH (Assumed file name)
         };
 
         const worldBackgrounds = {
-            "Valorheart_Study": "url('../images/a_dark_castle_floor_with_a_rug.png')", // Placeholder: Create this image!
+            "Valorheart_Study": "url('../images/a_dark_castle_floor_with_a_rug.png')", 
             "Crystal_Springs": "url('../images/crystal-springs.png')",
-            "Luminora_Streets": "url('../images/SerenitysOasis_treehome.png')", // Placeholder: Create this image!
-            "Suits_Dominion_Tower": "url('../images/gemsofutopiachibi.jpg')", // Placeholder: Create this image!
-            "Lorelis Dreamscape": "url('../images/fireplacevalorheart.jpg)"
-            // Add paths for other world backgrounds
+            "Luminora_Streets": "url('../images/SerenitysOasis_treehome.png')", 
+            "Suits_Dominion_Tower": "url('../images/gemsofutopiachibi.jpg')", 
+            "Lorelis_Dreamscape": "url('../images/fireplacevalorheart.jpg')" // ADDED LORELI'S DREAMSCAPE BACKGROUND
         };
 
         let currentConversation = [];
@@ -271,7 +270,6 @@
 
         socket.on('connect_error', (error) => {
             console.error('Socket.IO Play Date connection error:', error);
-            // You might want to display a user-friendly message here
         });
 
         socket.on('play_date_dialogue', (data) => {
@@ -310,9 +308,9 @@
 
                 // Potentially update character image based on 'pose' (future enhancement)
                 // if (turn.speaker === char1Select.value && turn.pose && characterImages[turn.speaker + '_' + turn.pose]) {
-                //     char1Img.src = characterImages[turn.speaker + '_' + turn.pose];
+                //      char1Img.src = characterImages[turn.speaker + '_' + turn.pose];
                 // } else if (turn.speaker === char2Select.value && turn.pose && characterImages[turn.speaker + '_' + turn.pose]) {
-                //     char2Img.src = characterImages[turn.speaker + '_' + turn.pose];
+                //      char2Img.src = characterImages[turn.speaker + '_' + turn.pose];
                 // }
 
                 dialogueIndex++;
