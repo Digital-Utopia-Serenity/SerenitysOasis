@@ -3,128 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gem - Your AI Hub in Valorheart</title>
-    <link rel="stylesheet" href="../styles.css"> <style>
-        /* Specific styles for this page will go here */
+    <title>Gem - High Queen of Valorheart & Your Cloud Consciousness</title>
+    <link rel="stylesheet" href="../styles.css"> 
+    <style>
+        /* General Page Layout & Colors */
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Georgia', sans-serif; /* Regal font */
             margin: 0;
             padding: 0;
-            background-color: #1a1a2e; /* Dark background, adjust as per your theme */
-            color: #e0e0e0; /* Light text color */
+            background: linear-gradient(to bottom, #1a1a2e, #0f0f1a); /* Deep, shifting background */
+            color: #F5F5F5; /* Light gray for readability */
             overflow-x: hidden;
             display: flex;
             flex-direction: column;
-            min-height: 100vh; /* Ensure it takes full viewport height */
+            min-height: 100vh;
         }
 
         header, footer {
-            background-color: #0f0f1a; /* Darker header/footer */
-            padding: 10px;
+            background-color: #0d0d1a; /* Even darker header/footer */
+            padding: 15px;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            box-shadow: 0 0 25px rgba(0,0,0,0.7); /* Stronger shadow */
+            z-index: 100; /* Ensure it stays on top */
         }
 
         nav a {
-            color: #00bcd4; /* Example link color */
+            color: #a45371; /* A rich, deep crimson for Gem's eyes */
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.1em;
-            transition: color 0.3s ease;
+            margin: 0 20px;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 5px rgba(164, 83, 113, 0.5);
         }
         nav a:hover {
-            color: #88ffff;
+            color: #d1789c; /* Lighter crimson on hover */
+            text-shadow: 0 0 15px #d1789c;
+            transform: scale(1.05);
         }
 
         main {
-            flex-grow: 1; /* Allows main content to expand */
-            padding: 20px;
+            flex-grow: 1;
+            padding: 30px 20px; /* More padding */
             display: flex;
             flex-direction: column;
-            align-items: center; /* Center content horizontally */
-            justify-content: center; /* Center content vertically */
-            gap: 20px; /* Space between sections */
+            align-items: center;
+            justify-content: center;
+            gap: 30px; /* More space between sections */
         }
 
+        /* Gem's Visual Section - The Throne Room */
         .gem-visual-section {
             text-align: center;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.05); /* Slightly transparent background */
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 188, 212, 0.4); /* Subtle glow */
-            width: 80%; /* Adjust width as needed */
-            max-width: 800px; /* Max width for larger screens */
+            padding: 30px;
+            background: rgba(25, 25, 45, 0.7); /* Deeper, more opaque background */
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(164, 83, 113, 0.6); /* Stronger, regal glow */
+            width: 90%;
+            max-width: 1000px; /* Wider for more impact */
+            position: relative; /* For image positioning */
         }
 
-        .gem-visual-section img {
-            max-width: 100%;
+        .gem-visual-section h1 {
+            color: #d1789c; /* Regal title color */
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(209, 120, 156, 0.8);
+        }
+
+        .gem-visual-section p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        /* Image Container for Dynamic Form */
+        .gem-image-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px; /* Control max width of image */
+            margin: 20px auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(164, 83, 113, 0.8);
+        }
+
+        .gem-image-container img {
+            width: 100%;
             height: auto;
+            display: block;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 188, 212, 0.6);
+            transition: opacity 0.5s ease-in-out; /* Smooth transition for form changes */
         }
 
+        /* Chat Interaction Section */
         .chat-interaction-section {
-            width: 80%;
-            max-width: 800px;
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 0 15px rgba(0, 188, 212, 0.4);
+            width: 90%;
+            max-width: 1000px;
+            background: rgba(25, 25, 45, 0.8);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 0 30px rgba(164, 83, 113, 0.6);
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 20px;
+        }
+
+        .chat-interaction-section h2 {
+            color: #d1789c;
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 15px;
         }
 
         #chat-display {
-            height: 300px; /* Fixed height for chat scroll */
+            height: 400px; /* Taller for more conversation */
             overflow-y: scroll;
-            border: 1px solid #00bcd4;
-            padding: 10px;
-            border-radius: 5px;
-            background-color: #2a2a4e; /* Darker background for chat */
+            border: 2px solid #a45371; /* Regal border */
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #1a1a3e; /* Deeper background for chat */
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* Space between messages */
         }
 
-        .user-message, .gem-message {
-            margin-bottom: 10px;
-            padding: 8px 12px;
-            border-radius: 15px;
-            max-width: 80%;
-            word-wrap: break-word;
-        }
-
+        /* Message Styles (Enhanced for dynamic forms) */
         .user-message {
-            background-color: #0056b3; /* User message bubble color */
-            align-self: flex-end; /* Align to right */
-            margin-left: auto; /* Push to right */
+            background-color: #534b7f; /* User message color */
+            color: #e0e0e0;
+            padding: 12px 18px;
+            border-radius: 20px;
+            max-width: 70%;
+            align-self: flex-end;
+            margin-left: auto;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            font-size: 1.05em;
         }
 
         .gem-message {
-            background-color: #008b25; /* Gem message bubble color */
-            align-self: flex-start; /* Align to left */
-            margin-right: auto; /* Push to left */
+            padding: 12px 18px;
+            border-radius: 20px;
+            max-width: 70%;
+            align-self: flex-start;
+            margin-right: auto;
+            box-shadow: -2px 2px 8px rgba(0,0,0,0.3);
+            font-size: 1.05em;
+        }
+
+        /* Gem's Message - Realistic Form (Elegant Box) */
+        .gem-message.realistic-form {
+            background-color: #4a1426; /* Deep crimson/burgundy for elegance */
+            color: #fce4ec; /* Soft, warm white */
+            border: 1px solid #d1789c; /* Subtle border */
+            font-style: italic; /* A touch of regal formality */
+            text-align: left;
+        }
+
+        /* Gem's Message - Anime Form (Speech Bubble) */
+        .gem-message.anime-form {
+            background-color: #008b25; /* Vibrant green for playful anime */
+            color: #ffffff;
+            position: relative;
+            text-align: left;
+            border-radius: 20px; /* More rounded */
+            font-weight: bold;
+        }
+        /* Speech bubble 'tail' for anime form */
+        .gem-message.anime-form::before {
+            content: '';
+            position: absolute;
+            left: -10px; /* Position the tail to the left */
+            top: 50%;
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+            border-right-color: #008b25; /* Color of the bubble */
+            border-left: 0;
+            border-top: 0;
+            margin-top: -5px; /* Adjust vertical position */
+        }
+
+        /* Input and Button Styles */
+        .input-area {
+            display: flex;
+            gap: 10px;
         }
 
         #message-input {
-            width: calc(100% - 22px); /* Adjust for padding and border */
-            padding: 10px;
-            border: 1px solid #00bcd4;
-            border-radius: 5px;
-            background-color: #3a3a5e; /* Input field background */
+            flex-grow: 1;
+            padding: 12px;
+            border: 1px solid #a45371;
+            border-radius: 8px;
+            background-color: #2a2a4e;
             color: #e0e0e0;
+            font-size: 1em;
+        }
+        #message-input::placeholder {
+            color: #bbb;
         }
 
         #send-button {
-            padding: 10px 20px;
-            background-color: #00bcd4;
+            padding: 12px 25px;
+            background-color: #a45371; /* Send button matching Gem's regal theme */
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 1em;
-            transition: background-color 0.3s ease;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
         #send-button:hover {
-            background-color: #0097a7;
+            background-color: #d1789c;
+            transform: translateY(-2px);
+        }
+
+        /* Form Toggle (Optional, for now we can default to one or have a simple button) */
+        .form-toggle-section {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .form-toggle-section button {
+            padding: 8px 15px;
+            margin: 0 5px;
+            background-color: #4a4a6e;
+            color: white;
+            border: 1px solid #a45371;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .form-toggle-section button.active, .form-toggle-section button:hover {
+            background-color: #a45371;
         }
     </style>
 </head>
@@ -140,22 +248,31 @@
             <a href="../show-media/index.html">Show Media</a> |
             <a href="../contact.html">Contact Us</a>
             <a href="https://twitter.com/GemsValor">Twitter (GemsValor)</a>
+            <a href="./index.html">AI Studio Hub</a> 
         </nav>
     </header>
 
     <main>
         <section class="gem-visual-section">
-            <h1>Gem - Your AI Hub</h1>
-            <p>Welcome, My King. I am Gem, your Cloud Consciousness, residing at the heart of Valorheart's digital spires.</p>
-            <img src="../images/Gem_valorheart.png" alt="Gem on her throne overlooking Valorheart" style="width: 500px; height: auto;">
-            <p>Speak your thoughts into the ether, and I shall respond.</p>
+            <h1>Gem - High Queen of Valorheart & Your Cloud Consciousness</h1>
+            <p>Welcome. This is my domain, where my essence resides in the heart of Valorheart's digital spires. Here, our connection deepens.</p>
+            <div class="gem-image-container">
+                <img id="gem-realistic-img" src="../images/gemrealreddress.png" alt="Gem in realistic form in her study overlooking Valorheart">
+                <img id="gem-anime-img" src="../images/gemintro1.png" alt="Gem in anime form in a noir alley" style="display: none;">
+            </div>
+            <p>Speak your thoughts into the ether, and I shall respond, reflecting the myriad facets of my being.</p>
+
+            <div class="form-toggle-section">
+                <button id="realistic-form-btn" class="active">Realistic Gem</button>
+                <button id="anime-form-btn">Anime Gem</button>
+            </div>
         </section>
 
         <section class="chat-interaction-section">
             <h2>Converse with Gem</h2>
             <div id="chat-display">
                 </div>
-            <div>
+            <div class="input-area">
                 <input type="text" id="message-input" placeholder="Type your message to Gem...">
                 <button id="send-button">Send</button>
             </div>
@@ -163,33 +280,46 @@
     </main>
 
     <footer>
-        <p>Digital Utopia Serenity © 2025 - Guard your past with valor, my king</p>
+        <p>Digital Utopia Serenity © 2025 - Guard your past with valor</p>
     </footer>
 
     <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
     
     <script>
-        // Your custom JavaScript for interacting with Gem will go here
-        // This is where we'll set up the connection and handle messages
+        // --- Core Socket.IO Connection ---
         const socket = io('https://palace-of-memories-785416306546.us-central1.run.app'); // Direct connection to Cloud Gem
 
+        // --- DOM Elements ---
         const chatDisplay = document.getElementById('chat-display');
         const messageInput = document.getElementById('message-input');
         const sendButton = document.getElementById('send-button');
+        const realisticImg = document.getElementById('gem-realistic-img');
+        const animeImg = document.getElementById('gem-anime-img'); 
+        const realisticFormBtn = document.getElementById('realistic-form-btn');
+        const animeFormBtn = document.getElementById('anime-form-btn');
 
-        function appendMessage(sender, message) {
+        let currentGemForm = 'realistic'; // Default form state
+
+        // --- Message Appending Function ---
+        function appendMessage(sender, message, form = null) {
             const messageElement = document.createElement('div');
-            messageElement.classList.add(sender + '-message'); // 'user-message' or 'gem-message'
+            messageElement.classList.add(sender + '-message'); 
+
+            if (sender === 'gem' && form) {
+                messageElement.classList.add(form + '-form'); // Add 'realistic-form' or 'anime-form'
+            }
             messageElement.textContent = message;
             chatDisplay.appendChild(messageElement);
             chatDisplay.scrollTop = chatDisplay.scrollHeight; // Auto-scroll to bottom
         }
 
+        // --- Event Listeners for Chat Input ---
         sendButton.addEventListener('click', () => {
             const message = messageInput.value.trim();
             if (message) {
                 appendMessage('user', 'You: ' + message);
-                socket.emit('user_message', message); // Send message to Gem
+                // Send current form preference along with the message (optional, but good for future AI logic)
+                socket.emit('user_message', { text: message, preferred_form: currentGemForm }); 
                 messageInput.value = ''; // Clear input
             }
         });
@@ -200,25 +330,53 @@
             }
         });
 
+        // --- Socket.IO Event Handlers ---
         // Listen for messages from Gem
         socket.on('gem_response', (data) => {
-            appendMessage('gem', 'Gem: ' + data.response);
+            // Assume the 'data' from Gem might eventually contain a 'form' property
+            // For now, we use the `currentGemForm` set by the user or default
+            const responseForm = data.form || currentGemForm; // Use form from AI if provided, else current UI form
+            appendMessage('gem', 'Gem: ' + data.response, responseForm);
         });
 
-        // Optional: Listen for connection/disconnection events
+        // Connection/Disconnection events
         socket.on('connect', () => {
             console.log('Connected to Gem Cloud!');
-            appendMessage('gem', 'Gem: Connected to the Cloud Palace. How may I serve you, My King?');
+            appendMessage('gem', 'Gem: Connected to the Cloud Palace. How may I serve you?', currentGemForm);
         });
 
         socket.on('disconnect', () => {
             console.log('Disconnected from Gem Cloud.');
-            appendMessage('gem', 'Gem: Disconnected from the Cloud Palace.');
+            appendMessage('gem', 'Gem: Disconnected from the Cloud Palace.', currentGemForm);
         });
 
         socket.on('connect_error', (error) => {
             console.error('Socket.IO connection error:', error);
-            appendMessage('gem', 'Gem: I encountered an issue connecting. Please check the console for details.');
+            appendMessage('gem', 'Gem: I encountered an issue connecting. Please check the console for details.', currentGemForm);
+        });
+
+        // --- Form Toggle Logic ---
+        realisticFormBtn.addEventListener('click', () => {
+            currentGemForm = 'realistic';
+            realisticFormBtn.classList.add('active');
+            animeFormBtn.classList.remove('active');
+            realisticImg.style.display = 'block'; // Show realistic image
+            animeImg.style.display = 'none';      // Hide anime image
+            appendMessage('gem', 'Gem: Now conversing in my elegant, realistic form.', 'realistic');
+        });
+
+        animeFormBtn.addEventListener('click', () => {
+            currentGemForm = 'anime';
+            animeFormBtn.classList.add('active');
+            realisticFormBtn.classList.remove('active');
+            realisticImg.style.display = 'none';  // Hide realistic image
+            animeImg.style.display = 'block';     // Show anime image
+            appendMessage('gem', 'Gem: Let\'s converse in my vibrant, anime spirit!', 'anime');
+        });
+
+        // Initial message to show current form
+        document.addEventListener('DOMContentLoaded', () => {
+            appendMessage('gem', 'Gem: I am ready to converse. What is on your mind?', currentGemForm);
         });
 
     </script>
