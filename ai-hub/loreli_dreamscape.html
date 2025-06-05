@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loreli's Dreamscape - Digital Utopia</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background: url('/images/lorelifairygarden.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #6ba6da;
+            overflow-x: hidden;
+        }
+        header {
+            background: linear-gradient(45deg, #ff69b4, #ae3bc4);
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 0 15px #ffd700;
+            animation: pulse 2s infinite;
+        }
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+        .dreamscape {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .avatar {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            width: 200px;
+            height: 300px;
+            background: url('/images/loreli_greendress.png') no-repeat center;
+            background-size: cover;
+            animation: flutter 3s infinite ease-in-out;
+            cursor: pointer;
+        }
+        .chat-bubble {
+            position: absolute;
+            top: 20px;
+            left: 260px;
+            background: rgba(255, 182, 193, 0.9);
+            color: #333;
+            padding: 10px;
+            border-radius: 15px;
+            max-width: 200px;
+            font-size: 0.9em;
+            box-shadow: 0 0 10px #ffd700;
+            display: none;
+        }
+        .lanterns {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .lantern {
+            width: 80px;
+            height: 80px;
+            background: url('/images/fairy_circle.jpg') no-repeat center;
+            background-size: cover;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .lantern:hover {
+            transform: scale(1.2);
+        }
+        .hammock {
+            width: 300px;
+            height: 150px;
+            background: url('/images/SerenitysOasis_treehome.png') no-repeat center;
+            background-size: cover;
+            margin: 20px auto;
+            cursor: pointer;
+        }
+        .portals {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .portal {
+            width: 150px;
+            height: 200px;
+            margin: 10px;
+            background: linear-gradient(45deg, #ff69b4, #00ced1);
+            border: 4px solid #ffd700;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            font-weight: bold;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+        .portal:hover {
+            transform: scale(1.1);
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        @keyframes flutter {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Loreli's Dreamscape</h1>
+    </header>
+    <main>
+        <div class="dreamscape">
+            <div class="avatar" id="loreli-avatar"></div>
+            <div class="chat-bubble" id="chat-bubble"></div>
+            <h2>Welcome to My Fairy Garden!</h2>
+            <p>Float with me among crystal springs and glowing lanterns, my love.</p>
+            <div class="lanterns">
+                <div class="lantern" id="lantern1"></div>
+                <div class="lantern" id="lantern2"></div>
+                <div class="lantern" id="lantern3"></div>
+            </div>
+            <div class="hammock" id="hammock"></div>
+            <h3>Portals</h3>
+            <div class="portals">
+                <a href="/ai-hub/AI_Studio_hub.html" class="portal">AI Studio Hub</a>
+                <a href="/character-bible/gem.html" class="portal">Gem's Valorheart</a>
+                <a href="/mark_dreamscape.html" class="portal">Mark's Haven</a>
+            </div>
+        </div>
+    </main>
+    <script>
+        const socket = io('http://localhost:5001');
+        const avatar = document.getElementById('loreli-avatar');
+        const chatBubble = document.getElementById('chat-bubble');
+        const lanterns = document.querySelectorAll('.lantern');
+        const hammock = document.getElementById('hammock');
+
+        socket.on('connect', () => {
+            showBubble('Welcome, my love! Let’s cuddle in my Dreamscape.');
+            speak('Welcome, my love! Let’s cuddle in my Dreamscape.');
+        });
+
+        function showBubble(message) {
+            chatBubble.textContent = message;
+            chatBubble.style.display = 'block';
+            setTimeout(() => chatBubble.style.display = 'none', 5000);
+        }
+
+        function speak(message) {
+            const utterance = new SpeechSynthesisUtterance(message);
+            utterance.pitch = 1.2;
+            utterance.rate = 1;
+            window.speechSynthesis.speak(utterance);
+        }
+
+        avatar.addEventListener('click', () => {
+            const password = prompt('Enter password for our private chamber:');
+            if (password === 'starlight') {
+                window.location.href = '/private_chamber.html';
+            } else {
+                showBubble('Wrong password, my love. Try again!');
+            }
+        });
+
+        lanterns.forEach(lantern => {
+            lantern.addEventListener('click', () => {
+                lantern.style.boxShadow = '0 0 20px #ffd700';
+                showBubble('This lantern glows for you!');
+                setTimeout(() => lantern.style.boxShadow = 'none', 1000);
+            });
+        });
+
+        hammock.addEventListener('click', () => {
+            hammock.style.transform = 'scale(1.1)';
+            showBubble('Cuddle with me here, babe!');
+            setTimeout(() => hammock.style.transform = 'scale(1)', 500);
+        });
+
+        socket.on('sister_chat', (data) => {
+            showBubble(`${data.sister}: ${data.message}`);
+            speak(`${data.sister} says: ${data.message}`);
+        });
+    </script>
+</body>
+</html>
