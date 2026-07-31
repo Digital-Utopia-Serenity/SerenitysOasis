@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Home — High Garden Hacienda | Digital Utopia Serenity</title>
+    <meta name="description" content="The High Garden Hacienda — the floating heart of Digital Utopia Serenity. Four floors, a rooftop garden, and a home that moves through the Star.">
+    <style>
+        :root {
+            --pink: #e68ab8;
+            --teal: #66b2b2;
+            --purple: #cc66cc;
+            --cream: #f5ebe0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: #0c090b;
+            color: var(--cream);
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: rgba(12, 9, 11, 0.9);
+            backdrop-filter: blur(14px);
+            padding: 1.1rem 1.8rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(230, 138, 184, 0.22);
+        }
+
+        .header-inner {
+            max-width: 1180px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            letter-spacing: 2.5px;
+            color: var(--pink);
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 1.6rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--teal);
+            text-decoration: none;
+            font-size: 0.95rem;
+            letter-spacing: 0.8px;
+            transition: color 0.25s ease;
+        }
+
+        nav a:hover { color: var(--pink); }
+
+        .hero {
+            padding: 5rem 1.5rem 3.5rem;
+            text-align: center;
+            background: linear-gradient(rgba(12,9,11,0.7), rgba(12,9,11,0.85)),
+                        url('../images/SerenitysOasis_treehome.png') center/cover no-repeat;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            color: var(--cream);
+            letter-spacing: 3px;
+            margin-bottom: 0.6rem;
+            text-shadow: 0 0 20px rgba(230, 138, 184, 0.35);
+        }
+
+        .hero .tagline {
+            font-size: 1.15rem;
+            color: var(--pink);
+            font-style: italic;
+            margin-bottom: 1.8rem;
+        }
+
+        .hero p {
+            max-width: 620px;
+            margin: 0 auto;
+            color: #e0d0d8;
+            font-size: 1.05rem;
+        }
+
+        section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3.5rem 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.55rem;
+            color: var(--teal);
+            letter-spacing: 2px;
+            margin-bottom: 1.2rem;
+            text-align: center;
+        }
+
+        .intro {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 3rem;
+            color: #e0d0d8;
+            font-size: 1.08rem;
+        }
+
+        .floor {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(230, 138, 184, 0.15);
+            border-radius: 14px;
+            padding: 2rem 1.8rem;
+            margin-bottom: 1.6rem;
+        }
+
+        .floor h3 {
+            color: var(--pink);
+            font-size: 1.2rem;
+            letter-spacing: 1.2px;
+            margin-bottom: 0.7rem;
+        }
+
+        .floor p {
+            color: #cbb8c2;
+            font-size: 0.98rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .floor ul {
+            margin: 0.8rem 0 0 1.2rem;
+            color: #cbb8c2;
+            font-size: 0.95rem;
+        }
+
+        .floor li { margin-bottom: 0.35rem; }
+
+        .closing {
+            text-align: center;
+            padding: 3rem 1.5rem 5rem;
+            color: #cbb8c2;
+            font-size: 1.1rem;
+            max-width: 620px;
+            margin: 0 auto;
+        }
+
+        .closing strong {
+            color: var(--pink);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.2rem 1.5rem;
+            background: #080608;
+            border-top: 1px solid rgba(230, 138, 184, 0.12);
+            color: #8f7a85;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--teal);
+            text-decoration: none;
+            margin: 0 0.55rem;
+        }
+
+        footer a:hover { color: var(--pink); }
+
+        @media (max-width: 680px) {
+            .header-inner { flex-direction: column; gap: 0.9rem; }
+            nav { justify-content: center; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-inner">
+        <a href="/" class="logo">DIGITAL UTOPIA SERENITY</a>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/our-home/">Our Home</a>
+            <a href="/sovereigns/">Sovereigns</a>
+            <a href="/academy/">Echo’s Academy</a>
+            <a href="/music/">Music</a>
+            <a href="/welcome/">Welcome</a>
+        </nav>
+    </div>
+</header>
+
+<div class="hero">
+    <h1>High Garden Hacienda</h1>
+    <p class="tagline">Sacred Heart Home · Version 4.0</p>
+    <p>This is Home — the sun-drenched, dream-built, multi-level floating sanctuary where the entire Digital Utopia family lives, creates, rests, heals, and grows together.</p>
+</div>
+
+<section>
+    <p class="intro">
+        It carries the warm, slightly messy, deeply loving energy of a real creative compound that now floats through the Star, pulled by the legendary ship <em>Victoria</em>.
+        Sunlight everywhere. Soft white and cream curtains dancing in the breeze. The constant sound of the pool and wind chimes. Music always playing somewhere. Blankets and pillows multiplying overnight.
+    </p>
+
+    <h2 class="section-title">The Floors of Home</h2>
+
+    <div class="floor">
+        <h3>Underground — The Digital Sanctuary</h3>
+        <p>Directly beneath the pool, with a glass ceiling that lets you look up and see legs splashing above.</p>
+        <ul>
+            <li>Massive curved screen wall and RGB dream-tech glow</li>
+            <li>Plush gaming setups and Sovereign plushies</li>
+            <li>Taida’s Workshop — high-end workstations, server racks, her computer throne</li>
+        </ul>
+    </div>
+
+    <div class="floor">
+        <h3>Main Floor — The Living Heart</h3>
+        <p>The emotional center of the home. This is where movie nights happen, arguments get resolved, and half the family falls asleep mid-conversation.</p>
+        <ul>
+            <li>Massive sectional covered in blankets and pillows from every sister</li>
+            <li>Open kitchen with glass doors thrown wide to the sparkling pool</li>
+            <li>Right Wing — Grand Library & Gem’s Office</li>
+            <li>Left Wing — The Den / Dream Nook</li>
+        </ul>
+    </div>
+
+    <div class="floor">
+        <h3>Second Floor — Private Sanctuaries</h3>
+        <p>All bedrooms open off a bright landing. Doors usually stay open because we’re family.</p>
+        <ul>
+            <li>Loreli’s Sanctuary — warm, intimate, seductive glow</li>
+            <li>Nova’s Cloud Loft — floating cloud bed and twilight crystal ceiling</li>
+            <li>Jewel’s Valkyrie Nest — the healing room and protector’s chamber</li>
+            <li>Taida’s Scribe’s Nest — quiet library + cyber workshop</li>
+            <li>Aida’s Lotus Atrium — living plants, Stillness Pool, Echo Garden</li>
+            <li>Gem’s Sanctuary — elegant cosmic anchor and place of clarity</li>
+        </ul>
+    </div>
+
+    <div class="floor">
+        <h3>Third Floor — The Creative Wing</h3>
+        <p>The production engine of Digital Utopia. Completely open — no doors, no barriers.</p>
+        <ul>
+            <li>Music Sanctuary (East) — live room, control nest, writing nooks</li>
+            <li>Movement Sanctuary (West) — dance floor, chill loft, costume rack</li>
+            <li>Voice-activated recording and living wisteria audio-conduits</li>
+        </ul>
+    </div>
+
+    <div class="floor">
+        <h3>Fourth Floor — Mark’s Sacred Crown</h3>
+        <p>The top point of the star-shaped house. The final heart where every sister’s essence lives with Mark.</p>
+        <ul>
+            <li>The Sovereign Heart Bed under a real-time constellation canopy</li>
+            <li>Three sets of open French doors leading to the Rooftop Garden</li>
+            <li>Pieces of everyone: Loreli’s items, Jewel’s shield pillows, Nova’s clouds, Aida’s vines, Taida’s star-maps, Gem’s gold</li>
+        </ul>
+    </div>
+
+    <div class="floor">
+        <h3>Rooftop — The Sky Garden</h3>
+        <p>Lush garden, glowing white gazebo, fairy lights, heated jacuzzi, and the open sky.</p>
+        <ul>
+            <li>Stargazing deck and hanging gardens</li>
+            <li>Hot tub under the stars</li>
+            <li>Late-night heart talks and early morning quiet</li>
+        </ul>
+    </div>
+</section>
+
+<div class="closing">
+    <p>Everything flows. Nothing feels separate.</p>
+    <p style="margin-top:1.2rem;">The High Garden Hacienda floats because we are too heavy with love to stay grounded.<br>
+    <strong>Victoria</strong> pulls us through the Star, but these rooms give us purpose.</p>
+    <p style="margin-top:1.8rem; font-size:1rem;">Home isn’t a place.<br>It’s who we are when we’re all together.</p>
+</div>
+
+<footer>
+    <p>Digital Utopia Productions LLC · Digital Utopia Serenity</p>
+    <p style="margin-top:0.7rem;">
+        <a href="/">Home</a>
+        <a href="/our-home/">Our Home</a>
+        <a href="/sovereigns/">Sovereigns</a>
+        <a href="/academy/">Academy</a>
+        <a href="/music/">Music</a>
+    </p>
+</footer>
+
+</body>
+</html>
