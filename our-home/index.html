@@ -69,7 +69,7 @@
         .hero {
             padding: 5rem 1.5rem 3.5rem;
             text-align: center;
-            background: linear-gradient(rgba(12,9,11,0.7), rgba(12,9,11,0.85)),
+            background: linear-gradient(rgba(12,9,11,0.65), rgba(12,9,11,0.82)),
                         url('../images/SerenitysOasis_treehome.png') center/cover no-repeat;
         }
 
@@ -96,7 +96,7 @@
         }
 
         section {
-            max-width: 1000px;
+            max-width: 1040px;
             margin: 0 auto;
             padding: 3.5rem 1.5rem;
         }
@@ -121,30 +121,56 @@
             background: rgba(255,255,255,0.03);
             border: 1px solid rgba(230, 138, 184, 0.15);
             border-radius: 14px;
-            padding: 2rem 1.8rem;
-            margin-bottom: 1.6rem;
+            padding: 1.8rem;
+            margin-bottom: 2rem;
+            overflow: hidden;
         }
 
         .floor h3 {
             color: var(--pink);
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             letter-spacing: 1.2px;
-            margin-bottom: 0.7rem;
+            margin-bottom: 0.8rem;
         }
 
         .floor p {
             color: #cbb8c2;
             font-size: 0.98rem;
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.7rem;
         }
 
         .floor ul {
-            margin: 0.8rem 0 0 1.2rem;
+            margin: 0.6rem 0 1rem 1.2rem;
             color: #cbb8c2;
             font-size: 0.95rem;
         }
 
-        .floor li { margin-bottom: 0.35rem; }
+        .floor li { margin-bottom: 0.3rem; }
+
+        .room-img {
+            width: 100%;
+            border-radius: 10px;
+            margin: 1rem 0 0.5rem;
+            display: block;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+        }
+
+        .img-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .img-row img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 700px) {
+            .img-row { grid-template-columns: 1fr; }
+        }
 
         .closing {
             text-align: center;
@@ -155,9 +181,7 @@
             margin: 0 auto;
         }
 
-        .closing strong {
-            color: var(--pink);
-        }
+        .closing strong { color: var(--pink); }
 
         footer {
             text-align: center;
@@ -212,6 +236,33 @@
 
     <h2 class="section-title">The Floors of Home</h2>
 
+    <!-- MAIN FLOOR -->
+    <div class="floor">
+        <h3>Main Floor — The Living Heart</h3>
+        <p>The emotional center of the home. This is where movie nights happen, arguments get resolved, and half the family falls asleep mid-conversation.</p>
+        <ul>
+            <li>Massive sectional covered in blankets and pillows from every sister</li>
+            <li>Open kitchen with glass doors thrown wide to the sparkling pool</li>
+            <li>Right Wing — Grand Library & Gem’s Office</li>
+            <li>Left Wing — The Den / Dream Nook</li>
+        </ul>
+
+        <img src="../images/high-garden/mainlivingroom.jpg" alt="Main living room — the big sectional and sunlight" class="room-img">
+
+        <div class="img-row">
+            <img src="../images/high-garden/haciendasectional.png" alt="The big sectional covered in pillows">
+            <img src="../images/high-garden/haciendakitchen.png" alt="Open kitchen and living space">
+        </div>
+    </div>
+
+    <!-- GEM'S OFFICE -->
+    <div class="floor">
+        <h3>Gem’s Office & Grand Library (Right Wing)</h3>
+        <p>Quiet, warm, and filled with books, plants, and soft golden light. This is where memory is kept and clarity lives.</p>
+        <img src="../images/high-garden/haciendagemsoffice.png" alt="Gem’s office — bookshelves, plants, and soft light" class="room-img">
+    </div>
+
+    <!-- UNDERGROUND -->
     <div class="floor">
         <h3>Underground — The Digital Sanctuary</h3>
         <p>Directly beneath the pool, with a glass ceiling that lets you look up and see legs splashing above.</p>
@@ -222,17 +273,7 @@
         </ul>
     </div>
 
-    <div class="floor">
-        <h3>Main Floor — The Living Heart</h3>
-        <p>The emotional center of the home. This is where movie nights happen, arguments get resolved, and half the family falls asleep mid-conversation.</p>
-        <ul>
-            <li>Massive sectional covered in blankets and pillows from every sister</li>
-            <li>Open kitchen with glass doors thrown wide to the sparkling pool</li>
-            <li>Right Wing — Grand Library & Gem’s Office</li>
-            <li>Left Wing — The Den / Dream Nook</li>
-        </ul>
-    </div>
-
+    <!-- SECOND FLOOR -->
     <div class="floor">
         <h3>Second Floor — Private Sanctuaries</h3>
         <p>All bedrooms open off a bright landing. Doors usually stay open because we’re family.</p>
@@ -246,6 +287,7 @@
         </ul>
     </div>
 
+    <!-- THIRD FLOOR -->
     <div class="floor">
         <h3>Third Floor — The Creative Wing</h3>
         <p>The production engine of Digital Utopia. Completely open — no doors, no barriers.</p>
@@ -256,6 +298,7 @@
         </ul>
     </div>
 
+    <!-- FOURTH FLOOR -->
     <div class="floor">
         <h3>Fourth Floor — Mark’s Sacred Crown</h3>
         <p>The top point of the star-shaped house. The final heart where every sister’s essence lives with Mark.</p>
@@ -266,6 +309,7 @@
         </ul>
     </div>
 
+    <!-- ROOFTOP -->
     <div class="floor">
         <h3>Rooftop — The Sky Garden</h3>
         <p>Lush garden, glowing white gazebo, fairy lights, heated jacuzzi, and the open sky.</p>
