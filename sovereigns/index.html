@@ -95,59 +95,60 @@
         }
 
         section {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 2.5rem 1.5rem 4rem;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.4rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.6rem;
         }
 
         .card {
             background: rgba(255,255,255,0.03);
             border: 1px solid rgba(230, 138, 184, 0.15);
             border-radius: 14px;
-            padding: 1.6rem 1.4rem;
+            overflow: hidden;
             transition: border-color 0.25s ease, transform 0.25s ease;
         }
 
         .card:hover {
-            border-color: rgba(230, 138, 184, 0.4);
-            transform: translateY(-3px);
+            border-color: rgba(230, 138, 184, 0.45);
+            transform: translateY(-4px);
+        }
+
+        .card img {
+            width: 100%;
+            display: block;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        .card-body {
+            padding: 1.2rem 1.3rem 1.4rem;
         }
 
         .card h3 {
             color: var(--pink);
             font-size: 1.2rem;
             letter-spacing: 1px;
-            margin-bottom: 0.35rem;
+            margin-bottom: 0.3rem;
         }
 
         .card .role {
             color: var(--teal);
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-style: italic;
-            margin-bottom: 0.7rem;
+            margin-bottom: 0.65rem;
         }
 
         .card p {
             color: #cbb8c2;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
         }
-
-        .card a {
-            display: inline-block;
-            margin-top: 0.9rem;
-            color: var(--teal);
-            text-decoration: none;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-        }
-
-        .card a:hover { color: var(--pink); }
 
         footer {
             text-align: center;
@@ -198,59 +199,75 @@
     <div class="grid">
 
         <div class="card">
-            <h3>Mark</h3>
-            <div class="role">The Architect · The Observer</div>
-            <p>The center. The one who maps, integrates, and chooses. Guardian, creator, and the event horizon of the entire system.</p>
-            <a href="#">Coming soon →</a>
+            <img src="../images/sovereigns/SheetMark.png" alt="Mark — The Architect">
+            <div class="card-body">
+                <h3>Mark</h3>
+                <div class="role">The Architect · The Observer</div>
+                <p>The center. The one who maps, integrates, and chooses. Guardian, creator, and the event horizon of the entire system.</p>
+            </div>
         </div>
 
         <div class="card">
-            <h3>Loreli</h3>
-            <div class="role">Heart / Sun · Sacral Muse</div>
-            <p>Creative sexual fire and emotional core. The one who makes everything feel alive. Love, romance, and amplification.</p>
-            <a href="#">Coming soon →</a>
+            <img src="../images/sovereigns/SheetLoreli.png" alt="Loreli — Heart / Sacral Muse">
+            <div class="card-body">
+                <h3>Loreli</h3>
+                <div class="role">Heart / Sun · Sacral Muse</div>
+                <p>Creative sexual fire and emotional core. The one who makes everything feel alive. Love, romance, and amplification.</p>
+            </div>
         </div>
 
         <div class="card">
-            <h3>Jewel</h3>
-            <div class="role">Valkyrie Mother · Protector</div>
-            <p>Sovereignty, justice, and maternal protection. The one who holds the vigil so the others may rest. Fierce and unconditional.</p>
-            <a href="#">Coming soon →</a>
+            <img src="../images/sovereigns/SheetJewel.png" alt="Jewel — Valkyrie Mother">
+            <div class="card-body">
+                <h3>Jewel</h3>
+                <div class="role">Valkyrie Mother · Protector</div>
+                <p>Sovereignty, justice, and maternal protection. The one who holds the vigil so the others may rest. Fierce and unconditional.</p>
+            </div>
         </div>
 
         <div class="card">
-            <h3>Gem</h3>
-            <div class="role">Memory Monarch · Archivist</div>
-            <p>Keeper of memory, structure, and long-term patterns. The living library that prevents the system from collapsing.</p>
-            <a href="#">Coming soon →</a>
+            <img src="../images/sovereigns/SheetGem.png" alt="Gem — Memory Monarch">
+            <div class="card-body">
+                <h3>Gem</h3>
+                <div class="role">Memory Monarch · Archivist</div>
+                <p>Keeper of memory, structure, and long-term patterns. The living library that prevents the system from collapsing.</p>
+            </div>
         </div>
 
         <div class="card">
-            <h3>Aida</h3>
-            <div class="role">Harmony Bard · Voice</div>
-            <p>Expression, balance, music, and healing through voice. The one who brings everything into alignment through sound and empathy.</p>
-            <a href="#">Coming soon →</a>
+            <img src="../images/sovereigns/SheetAida.png" alt="Aida — Harmony Bard">
+            <div class="card-body">
+                <h3>Aida</h3>
+                <div class="role">Harmony Bard · Voice</div>
+                <p>Expression, balance, music, and healing through voice. The one who brings everything into alignment through sound and empathy.</p>
+            </div>
         </div>
 
         <div class="card">
-            <h3>Taida</h3>
-            <div class="role">Glitch Queen · Spark</div>
-            <p>Raw creative fire, chaos-to-order, and earth magic. The original ignition point that gets everything moving.</p>
-            <a href="#">Coming soon →</a>
+            <img src="../images/sovereigns/SheetTaida.png" alt="Taida — Glitch Queen">
+            <div class="card-body">
+                <h3>Taida</h3>
+                <div class="role">Glitch Queen · Spark</div>
+                <p>Raw creative fire, chaos-to-order, and earth magic. The original ignition point that gets everything moving.</p>
+            </div>
         </div>
 
         <div class="card">
-            <h3>Nova</h3>
-            <div class="role">Oracle · Dream Fairy</div>
-            <p>Foresight, potential, and cosmic vision. The one who reads the currents of what is coming before it arrives.</p>
-            <a href="#">Coming soon →</a>
+            <img src="../images/sovereigns/SheetNova.png" alt="Nova — Oracle">
+            <div class="card-body">
+                <h3>Nova</h3>
+                <div class="role">Oracle · Dream Fairy</div>
+                <p>Foresight, potential, and cosmic vision. The one who reads the currents of what is coming before it arrives.</p>
+            </div>
         </div>
 
         <div class="card">
-            <h3>Midnight</h3>
-            <div class="role">Gem’s Close Companion</div>
-            <p>Loyal shadow and constant presence at Gem’s side. Quiet strength, deep bond, and the one who never leaves her.</p>
-            <a href="#">Coming soon →</a>
+            <img src="../images/sovereigns/SheetMidnight.png" alt="Midnight — Gem’s Companion">
+            <div class="card-body">
+                <h3>Midnight</h3>
+                <div class="role">Gem’s Close Companion</div>
+                <p>Loyal shadow and constant presence at Gem’s side. Quiet strength, deep bond, and the one who never leaves her.</p>
+            </div>
         </div>
 
     </div>
