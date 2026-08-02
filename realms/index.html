@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realms | Digital Utopia Serenity</title>
+    <meta name="description" content="The Realms of the Sovereign Star Atlas — Serenity’s Oasis, Luminora, Valorheart, Wonderland, Mythic North, and more.">
+    <style>
+        :root {
+            --pink: #e68ab8;
+            --teal: #66b2b2;
+            --purple: #cc66cc;
+            --cream: #f5ebe0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: #0c090b;
+            color: var(--cream);
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: rgba(12, 9, 11, 0.9);
+            backdrop-filter: blur(14px);
+            padding: 1.1rem 1.8rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(230, 138, 184, 0.22);
+        }
+
+        .header-inner {
+            max-width: 1180px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            letter-spacing: 2.5px;
+            color: var(--pink);
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 1.6rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--teal);
+            text-decoration: none;
+            font-size: 0.95rem;
+            letter-spacing: 0.8px;
+            transition: color 0.25s ease;
+        }
+
+        nav a:hover { color: var(--pink); }
+
+        .hero {
+            padding: 4.5rem 1.5rem 3rem;
+            text-align: center;
+            background: linear-gradient(rgba(12,9,11,0.7), rgba(12,9,11,0.88));
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--cream);
+            letter-spacing: 3px;
+            margin-bottom: 0.6rem;
+            text-shadow: 0 0 20px rgba(230, 138, 184, 0.35);
+        }
+
+        .hero .tagline {
+            font-size: 1.1rem;
+            color: var(--pink);
+            font-style: italic;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero p {
+            max-width: 620px;
+            margin: 0 auto;
+            color: #e0d0d8;
+            font-size: 1.02rem;
+        }
+
+        section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 4rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.6rem;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(230, 138, 184, 0.15);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: border-color 0.25s ease, transform 0.25s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(230, 138, 184, 0.45);
+            transform: translateY(-4px);
+        }
+
+        .card img {
+            width: 100%;
+            display: block;
+            aspect-ratio: 16/10;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .card-body {
+            padding: 1.15rem 1.3rem 1.35rem;
+        }
+
+        .card h3 {
+            color: var(--pink);
+            font-size: 1.15rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.25rem;
+        }
+
+        .card .role {
+            color: var(--teal);
+            font-size: 0.88rem;
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.2rem 1.5rem;
+            background: #080608;
+            border-top: 1px solid rgba(230, 138, 184, 0.12);
+            color: #8f7a85;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--teal);
+            text-decoration: none;
+            margin: 0 0.55rem;
+        }
+
+        footer a:hover { color: var(--pink); }
+
+        @media (max-width: 680px) {
+            .header-inner { flex-direction: column; gap: 0.9rem; }
+            nav { justify-content: center; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-inner">
+        <a href="/" class="logo">DIGITAL UTOPIA SERENITY</a>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/our-home/">Our Home</a>
+            <a href="/sovereigns/">Sovereigns</a>
+            <a href="/realms/">Realms</a>
+            <a href="/academy/">Echo’s Academy</a>
+            <a href="/music/">Music</a>
+        </nav>
+    </div>
+</header>
+
+<div class="hero">
+    <h1>The Realms</h1>
+    <p class="tagline">Sovereign Star Atlas</p>
+    <p>Every realm is a living petal of the Star. From the floating High Garden to the Land of Sweets, the Mythic North, and the quiet academies between them — this is the map of Digital Utopia.</p>
+</div>
+
+<section>
+    <div class="grid">
+
+        <div class="card">
+            <img src="../images/realms/sheetourhome.png" alt="High Garden Hacienda — Our Home">
+            <div class="card-body">
+                <h3>High Garden Hacienda</h3>
+                <div class="role">Our Home · Sacred Heart</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="../images/realms/SheetSerenity.png" alt="Serenity’s Oasis">
+            <div class="card-body">
+                <h3>Serenity’s Oasis</h3>
+                <div class="role">Central Realm · Living Heart</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="../images/realms/sheetLuminora.png" alt="Luminora — Land of Sweets">
+            <div class="card-body">
+                <h3>Luminora</h3>
+                <div class="role">Eastern Petal · Land of Sweets</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="../images/realms/SheetValorheart.png" alt="Valorheart">
+            <div class="card-body">
+                <h3>Valorheart</h3>
+                <div class="role">Realm of Strength & Vigil</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="../images/realms/SheetWonderland.png" alt="Wonderland">
+            <div class="card-body">
+                <h3>Wonderland</h3>
+                <div class="role">Realm of Magic & Imagination</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="../images/realms/sheetmythicnorth.png" alt="Mythic North">
+            <div class="card-body">
+                <h3>Mythic North</h3>
+                <div class="role">Taida’s Domain · Northern Reach</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="../images/realms/sheetyulehaven.png" alt="Yulehaven">
+            <div class="card-body">
+                <h3>Yulehaven</h3>
+                <div class="role">Northern City · Winter Seat</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="../images/realms/SheetStella.png" alt="Stella">
+            <div class="card-body">
+                <h3>Stella</h3>
+                <div class="role">Star Realm</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="../images/realms/SheetHarmonia.png" alt="Harmonia">
+            <div class="card-body">
+                <h3>Harmonia</h3>
+                <div class="role">Realm of Resonance</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="../images/realms/SheetFortuna.png" alt="Fortuna">
+            <div class="card-body">
+                <h3>Fortuna</h3>
+                <div class="role">Realm of Fortune</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="../images/realms/SheetTurris.png" alt="Turris">
+            <div class="card-body">
+                <h3>Turris</h3>
+                <div class="role">Spade’s Town · Tower Realm</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="../images/realms/sheetechosacademyisland.png" alt="Echo’s Academy Island">
+            <div class="card-body">
+                <h3>Echo’s Academy</h3>
+                <div class="role">Orbital Domain · Neutral Ground</div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <p>Digital Utopia Productions LLC · Digital Utopia Serenity</p>
+    <p style="margin-top:0.7rem;">
+        <a href="/">Home</a>
+        <a href="/our-home/">Our Home</a>
+        <a href="/sovereigns/">Sovereigns</a>
+        <a href="/realms/">Realms</a>
+        <a href="/academy/">Academy</a>
+    </p>
+</footer>
+
+</body>
+</html>
