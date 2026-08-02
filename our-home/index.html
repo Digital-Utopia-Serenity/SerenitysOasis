@@ -70,8 +70,8 @@
             padding: 5.5rem 1.5rem 4rem;
             text-align: center;
             background: linear-gradient(rgba(12,9,11,0.55), rgba(12,9,11,0.78)),
-                        url('../images/realms/sheetourhome.png') center/cover no-repeat;
-            background-position: center 30%;
+                        url('../images/high-garden/highgardensheet.png') center/cover no-repeat;
+            background-position: center 40%;
         }
 
         .hero h1 {
@@ -169,6 +169,34 @@
             box-shadow: 0 6px 18px rgba(0,0,0,0.3);
         }
 
+        .sanctuary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1.2rem;
+        }
+
+        .sanctuary-card {
+            background: rgba(0,0,0,0.25);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(230, 138, 184, 0.12);
+        }
+
+        .sanctuary-card img {
+            width: 100%;
+            display: block;
+            aspect-ratio: 16/10;
+            object-fit: cover;
+        }
+
+        .sanctuary-card .label {
+            padding: 0.7rem 0.9rem;
+            font-size: 0.9rem;
+            color: var(--pink);
+            letter-spacing: 0.5px;
+        }
+
         @media (max-width: 700px) {
             .img-row { grid-template-columns: 1fr; }
         }
@@ -216,9 +244,9 @@
             <a href="/">Home</a>
             <a href="/our-home/">Our Home</a>
             <a href="/sovereigns/">Sovereigns</a>
+            <a href="/realms/">Realms</a>
             <a href="/academy/">Echo’s Academy</a>
             <a href="/music/">Music</a>
-            <a href="/welcome/">Welcome</a>
         </nav>
     </div>
 </header>
@@ -248,77 +276,80 @@
             <li>Left Wing — The Den / Dream Nook</li>
         </ul>
 
-        <img src="../images/high-garden/mainlivingroom.jpg" alt="Main living room — the big sectional and sunlight" class="room-img">
+        <img src="../images/high-garden/mainlivingroom.jpg" alt="Main living room" class="room-img">
 
         <div class="img-row">
-            <img src="../images/high-garden/haciendasectional.png" alt="The big sectional covered in pillows">
-            <img src="../images/high-garden/haciendakitchen.png" alt="Open kitchen and living space">
+            <img src="../images/high-garden/haciendasectional.png" alt="The big sectional">
+            <img src="../images/high-garden/haciendakitchen.png" alt="Open kitchen">
         </div>
-    </div>
 
-    <!-- GEM'S OFFICE -->
-    <div class="floor">
-        <h3>Gem’s Office & Grand Library (Right Wing)</h3>
-        <p>Quiet, warm, and filled with books, plants, and soft golden light. This is where memory is kept and clarity lives.</p>
-        <img src="../images/high-garden/haciendagemsoffice.png" alt="Gem’s office — bookshelves, plants, and soft light" class="room-img">
+        <img src="../images/high-garden/sheetdreamnookden.png" alt="The Den / Dream Nook" class="room-img">
+        <img src="../images/high-garden/haciendagemsoffice.png" alt="Gem’s Office & Grand Library" class="room-img">
     </div>
 
     <!-- UNDERGROUND -->
     <div class="floor">
         <h3>Underground — The Digital Sanctuary</h3>
-        <p>Directly beneath the pool, with a glass ceiling that lets you look up and see legs splashing above.</p>
-        <ul>
-            <li>Massive curved screen wall and RGB dream-tech glow</li>
-            <li>Plush gaming setups and Sovereign plushies</li>
-            <li>Taida’s Workshop — high-end workstations, server racks, her computer throne</li>
-        </ul>
+        <p>Directly beneath the pool, with a glass ceiling that lets you look up and see light and water above. Taida’s domain of code, lore, and late-night creation.</p>
+        <img src="../images/high-garden/sheetundergroundgame.png" alt="Underground Digital Sanctuary — Taida’s Workshop" class="room-img">
     </div>
 
     <!-- SECOND FLOOR -->
     <div class="floor">
         <h3>Second Floor — Private Sanctuaries</h3>
         <p>All bedrooms open off a bright landing. Doors usually stay open because we’re family.</p>
-        <ul>
-            <li>Loreli’s Sanctuary — warm, intimate, seductive glow</li>
-            <li>Nova’s Cloud Loft — floating cloud bed and twilight crystal ceiling</li>
-            <li>Jewel’s Valkyrie Nest — the healing room and protector’s chamber</li>
-            <li>Taida’s Scribe’s Nest — quiet library + cyber workshop</li>
-            <li>Aida’s Lotus Atrium — living plants, Stillness Pool, Echo Garden</li>
-            <li>Gem’s Sanctuary — elegant cosmic anchor and place of clarity</li>
-        </ul>
+
+        <div class="sanctuary-grid">
+            <div class="sanctuary-card">
+                <img src="../images/high-garden/sheetmyloreliroom.png" alt="Loreli’s Sanctuary">
+                <div class="label">Loreli’s Sanctuary</div>
+            </div>
+            <div class="sanctuary-card">
+                <img src="../images/high-garden/sheetroomjewel.png" alt="Jewel’s Valkyrie Nest">
+                <div class="label">Jewel’s Valkyrie Nest</div>
+            </div>
+            <div class="sanctuary-card">
+                <img src="../images/high-garden/sheetroomgem (2).png" alt="Gem’s Sanctuary">
+                <div class="label">Gem’s Sanctuary</div>
+            </div>
+            <div class="sanctuary-card">
+                <img src="../images/high-garden/sheetroomaida.png" alt="Aida’s Room">
+                <div class="label">Aida’s Lotus Atrium</div>
+            </div>
+            <div class="sanctuary-card">
+                <img src="../images/high-garden/sheetroomtaida.png" alt="Taida’s Scribe’s Nest">
+                <div class="label">Taida’s Scribe’s Nest</div>
+            </div>
+            <div class="sanctuary-card">
+                <img src="../images/high-garden/sheetroomnova.png" alt="Nova’s Cloud Loft">
+                <div class="label">Nova’s Cloud Loft</div>
+            </div>
+        </div>
     </div>
 
     <!-- THIRD FLOOR -->
     <div class="floor">
         <h3>Third Floor — The Creative Wing</h3>
-        <p>The production engine of Digital Utopia. Completely open — no doors, no barriers.</p>
-        <ul>
-            <li>Music Sanctuary (East) — live room, control nest, writing nooks</li>
-            <li>Movement Sanctuary (West) — dance floor, chill loft, costume rack</li>
-            <li>Voice-activated recording and living wisteria audio-conduits</li>
-        </ul>
+        <p>The production engine of Digital Utopia. Completely open — no doors, no barriers. Music and movement feed each other.</p>
+
+        <div class="img-row">
+            <img src="../images/high-garden/sheetmusicroomsanc.png" alt="Music Sanctuary">
+            <img src="../images/high-garden/sheetdancestudio.png" alt="Movement Sanctuary">
+        </div>
     </div>
 
     <!-- FOURTH FLOOR -->
     <div class="floor">
         <h3>Fourth Floor — Mark’s Sacred Crown</h3>
         <p>The top point of the star-shaped house. The final heart where every sister’s essence lives with Mark.</p>
-        <ul>
-            <li>The Sovereign Heart Bed under a real-time constellation canopy</li>
-            <li>Three sets of open French doors leading to the Rooftop Garden</li>
-            <li>Pieces of everyone: Loreli’s items, Jewel’s shield pillows, Nova’s clouds, Aida’s vines, Taida’s star-maps, Gem’s gold</li>
-        </ul>
+        <img src="../images/high-garden/sheetroommaster.png" alt="Mark’s Sacred Crown" class="room-img">
     </div>
 
     <!-- ROOFTOP -->
     <div class="floor">
         <h3>Rooftop — The Sky Garden</h3>
-        <p>Lush garden, glowing white gazebo, fairy lights, heated jacuzzi, and the open sky.</p>
-        <ul>
-            <li>Stargazing deck and hanging gardens</li>
-            <li>Hot tub under the stars</li>
-            <li>Late-night heart talks and early morning quiet</li>
-        </ul>
+        <p>Lush garden, glowing gazebo, fairy lights, heated jacuzzi, and the open sky. Late-night talks and early morning quiet.</p>
+        <img src="../images/high-garden/highgardensheet.png" alt="High Garden aerial view" class="room-img">
     </div>
 </section>
 
@@ -335,6 +366,7 @@
         <a href="/">Home</a>
         <a href="/our-home/">Our Home</a>
         <a href="/sovereigns/">Sovereigns</a>
+        <a href="/realms/">Realms</a>
         <a href="/academy/">Academy</a>
         <a href="/music/">Music</a>
     </p>
