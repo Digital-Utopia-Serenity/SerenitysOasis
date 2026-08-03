@@ -195,6 +195,27 @@
             margin: 0 auto 2rem;
         }
 
+        .gem-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .gem-list li {
+            margin-bottom: 0.7rem;
+        }
+
+        .gem-list a {
+            color: var(--pink);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(230, 138, 184, 0.3);
+            transition: border-color 0.2s ease;
+        }
+
+        .gem-list a:hover {
+            border-color: var(--pink);
+        }
+
         footer {
             text-align: center;
             padding: 2.2rem 1.5rem;
@@ -243,7 +264,6 @@
 <section>
     <h2 class="section-title">Featured</h2>
 
-    <!-- Highest tracking Suno -->
     <div class="track">
         <h3>Highest Tracking on Suno</h3>
         <div class="meta">Digital Utopia Serenity</div>
@@ -251,7 +271,6 @@
         <a href="https://suno.com/s/DPzBYtyx2QbxcaMt" target="_blank" rel="noopener" class="btn">Play on Suno</a>
     </div>
 
-    <!-- YouTube -->
     <div class="track">
         <h3>YouTube Release</h3>
         <div class="meta">Strong early engagement · Real comments</div>
@@ -262,7 +281,6 @@
         </div>
     </div>
 
-    <!-- Aida Spotify -->
     <div class="track">
         <h3>Aida — Spotify Album</h3>
         <div class="meta">Aida Luminora</div>
@@ -273,15 +291,25 @@
         </div>
     </div>
 
-    <!-- Jewel Come Home -->
     <div class="track">
         <h3>Jewel — Come Home</h3>
         <div class="meta">Jewel Apocalyptx · Digital Utopia Serenity set</div>
         <p>A favorite. Soft, protective, and unmistakably hers.</p>
         <a href="https://soundcloud.com/jewel-apocalyptx/come-home?in=jewel-apocalyptx/sets/digital-utopia-serenity" target="_blank" rel="noopener" class="btn">Play on SoundCloud</a>
-        <div class="embed-wrap">
-            <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/come-home&color=%23e68ab8&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true" loading="lazy"></iframe>
-        </div>
+    </div>
+</section>
+
+<section>
+    <h2 class="section-title">Gem — Memory Monarch</h2>
+    <p class="note">Quiet, precise, and full of memory.</p>
+
+    <div class="track">
+        <ul class="gem-list">
+            <li><a href="https://suno.com/s/e20IIHr3ZbzIzFtr" target="_blank" rel="noopener">When the House Goes Quiet</a></li>
+            <li><a href="https://suno.com/s/SFLa6AK2hBbGs1GJ" target="_blank" rel="noopener">Memory Lanterns</a></li>
+            <li><a href="https://suno.com/s/4WhAxm6PGWe1KDtV" target="_blank" rel="noopener">Books and Golden Hour</a></li>
+            <li><a href="https://suno.com/s/V1opRw43cevh8YC7" target="_blank" rel="noopener">Only When You’re Here</a> <span style="color:#9a8791; font-size:0.9rem;">(personal favorite)</span></li>
+        </ul>
     </div>
 </section>
 
@@ -303,22 +331,6 @@
             <p>One of the first times the music was properly placed under the video on X.</p>
             <a href="https://x.com/LorelisSpectra/status/2083994191684874407" target="_blank" rel="noopener" class="btn teal">View on X</a>
         </div>
-    </div>
-</section>
-
-<section>
-    <h2 class="section-title">Coming Soon / Favorites</h2>
-    <p class="note">These are already loved. Links will be added as they are collected.</p>
-
-    <div class="track">
-        <h3>Gem</h3>
-        <div class="meta">Memory Monarch</div>
-        <p>
-            • When the House Goes Quiet<br>
-            • Memory Lanterns<br>
-            • Candles and Golden Hour
-        </p>
-        <p style="font-size:0.9rem; color:#9a8791;">Drop the Suno links and they’ll go live here immediately.</p>
     </div>
 </section>
 
