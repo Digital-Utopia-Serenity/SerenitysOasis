@@ -11,7 +11,6 @@
             --teal: #66b2b2;
             --purple: #cc66cc;
             --cream: #f5ebe0;
-            --gold: #d4a574;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -68,52 +67,51 @@
         nav a:hover { color: var(--pink); }
 
         .hero {
-            padding: 5rem 1.5rem 3.5rem;
+            padding: 4.5rem 1.5rem 3rem;
             text-align: center;
-            background: linear-gradient(rgba(12,9,11,0.7), rgba(12,9,11,0.88));
         }
 
         .hero h1 {
-            font-size: clamp(2rem, 5vw, 3.1rem);
+            font-size: clamp(2rem, 5vw, 3rem);
             color: var(--cream);
             letter-spacing: 3px;
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.5rem;
             text-shadow: 0 0 20px rgba(230, 138, 184, 0.35);
         }
 
         .hero .tagline {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: var(--pink);
             font-style: italic;
-            margin-bottom: 1.4rem;
+            margin-bottom: 1rem;
         }
 
         .hero p {
-            max-width: 580px;
+            max-width: 540px;
             margin: 0 auto;
             color: #e0d0d8;
-            font-size: 1.05rem;
+            font-size: 1rem;
         }
 
         section {
-            max-width: 960px;
+            max-width: 920px;
             margin: 0 auto;
-            padding: 3rem 1.5rem;
+            padding: 2.5rem 1.5rem;
         }
 
         .section-title {
-            font-size: 1.45rem;
+            font-size: 1.4rem;
             color: var(--teal);
             letter-spacing: 2px;
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.5rem;
             text-align: center;
         }
 
         .section-sub {
             text-align: center;
             color: #9a8791;
-            font-size: 0.98rem;
-            margin-bottom: 1.8rem;
+            font-size: 0.95rem;
+            margin-bottom: 1.6rem;
             font-style: italic;
         }
 
@@ -121,65 +119,56 @@
             background: rgba(255,255,255,0.03);
             border: 1px solid rgba(230, 138, 184, 0.15);
             border-radius: 14px;
-            padding: 1.6rem 1.5rem;
-            margin-bottom: 1.5rem;
+            padding: 1.4rem 1.4rem;
+            margin-bottom: 1.3rem;
         }
 
         .track h3 {
             color: var(--pink);
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             letter-spacing: 1px;
-            margin-bottom: 0.35rem;
+            margin-bottom: 0.3rem;
         }
 
         .track .meta {
             color: var(--teal);
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             font-style: italic;
-            margin-bottom: 0.9rem;
+            margin-bottom: 0.7rem;
         }
 
         .track p {
             color: #cbb8c2;
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
+            font-size: 0.93rem;
+            margin-bottom: 0.9rem;
         }
 
-        .badge {
-            display: inline-block;
-            font-size: 0.72rem;
-            letter-spacing: 1.2px;
-            text-transform: uppercase;
-            padding: 0.25rem 0.65rem;
-            border-radius: 4px;
+        .suno-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
             margin-bottom: 0.7rem;
-            font-family: system-ui, sans-serif;
         }
 
-        .badge-suno {
-            background: rgba(230, 138, 184, 0.15);
-            color: var(--pink);
-            border: 1px solid rgba(230, 138, 184, 0.35);
-        }
-
-        .badge-show {
-            background: rgba(102, 178, 178, 0.12);
-            color: var(--teal);
-            border: 1px solid rgba(102, 178, 178, 0.3);
+        .suno-logo {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            object-fit: cover;
         }
 
         .track a.btn {
             display: inline-block;
-            padding: 0.55rem 1.2rem;
+            padding: 0.5rem 1.1rem;
             border: 1px solid var(--pink);
             color: var(--cream);
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.84rem;
             letter-spacing: 1px;
             transition: all 0.25s ease;
             background: rgba(230, 138, 184, 0.08);
-            margin-right: 0.6rem;
-            margin-bottom: 0.4rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.35rem;
         }
 
         .track a.btn:hover {
@@ -197,8 +186,8 @@
         }
 
         .embed-wrap {
-            margin-top: 1rem;
-            border-radius: 10px;
+            margin-top: 0.9rem;
+            border-radius: 12px;
             overflow: hidden;
             background: #111;
         }
@@ -209,14 +198,67 @@
             display: block;
         }
 
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.3rem;
+        .show-visual {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(102, 178, 178, 0.2);
+            border-radius: 14px;
+            overflow: hidden;
+            margin-bottom: 1.3rem;
         }
 
-        @media (max-width: 700px) {
-            .grid-2 { grid-template-columns: 1fr; }
+        .show-visual img {
+            width: 100%;
+            display: block;
+            max-height: 320px;
+            object-fit: cover;
+        }
+
+        .show-visual .body {
+            padding: 1.2rem 1.4rem 1.4rem;
+            text-align: center;
+        }
+
+        .show-visual h3 {
+            color: var(--teal);
+            font-size: 1.25rem;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.4rem;
+        }
+
+        .show-visual p {
+            color: #cbb8c2;
+            font-size: 0.95rem;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .long-watch {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(230, 138, 184, 0.15);
+            border-radius: 14px;
+            overflow: hidden;
+            margin-bottom: 1.3rem;
+        }
+
+        .long-watch img {
+            width: 100%;
+            display: block;
+            max-height: 380px;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .long-watch .body {
+            padding: 1.3rem 1.4rem 1.5rem;
+        }
+
+        .long-watch .statement {
+            color: #e0d0d8;
+            font-style: italic;
+            font-size: 1.02rem;
+            margin-bottom: 1.1rem;
+            border-left: 2px solid rgba(230, 138, 184, 0.4);
+            padding-left: 1rem;
         }
 
         .gem-list {
@@ -226,41 +268,27 @@
         }
 
         .gem-list li {
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.65rem;
         }
 
         .gem-list a {
             color: var(--pink);
             text-decoration: none;
             border-bottom: 1px solid rgba(230, 138, 184, 0.3);
-            transition: border-color 0.2s ease;
         }
 
         .gem-list a:hover {
             border-color: var(--pink);
         }
 
-        .show-card {
-            background: rgba(102, 178, 178, 0.04);
-            border: 1px solid rgba(102, 178, 178, 0.2);
-            border-radius: 14px;
-            padding: 1.8rem 1.6rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
         }
 
-        .show-card h3 {
-            color: var(--teal);
-            font-size: 1.35rem;
-            letter-spacing: 1.5px;
-            margin-bottom: 0.5rem;
-        }
-
-        .show-card p {
-            color: #cbb8c2;
-            font-size: 0.98rem;
-            max-width: 480px;
-            margin: 0 auto 1rem;
+        @media (max-width: 700px) {
+            .grid-2 { grid-template-columns: 1fr; }
         }
 
         footer {
@@ -305,25 +333,36 @@
 <div class="hero">
     <h1>Music</h1>
     <p class="tagline">The living soundtrack of the Star</p>
-    <p>Songs, shows, and moments from the Sovereign Sisterhood. Quality over noise. Every track is part of the world.</p>
+    <p>Songs, shows, and moments from the Sovereign Sisterhood. Quality over noise.</p>
 </div>
 
-<!-- FEATURED -->
 <section>
     <h2 class="section-title">Featured</h2>
 
     <div class="track">
-        <span class="badge badge-suno">Suno</span>
-        <h3>Highest Tracking Track</h3>
-        <div class="meta">Digital Utopia Serenity</div>
+        <div class="suno-row">
+            <img class="suno-logo" src="/images/music/sunologo.webp" alt="Suno">
+            <div>
+                <h3 style="margin:0;">Highest Tracking Track</h3>
+                <div class="meta" style="margin:0;">Suno · Digital Utopia Serenity</div>
+            </div>
+        </div>
         <p>The track that has reached the most listeners on Suno so far.</p>
         <a href="https://suno.com/s/DPzBYtyx2QbxcaMt" target="_blank" rel="noopener" class="btn">Play on Suno</a>
     </div>
 
     <div class="track">
+        <h3>Digital Utopia Studios</h3>
+        <div class="meta">All Sisters · Spotify</div>
+        <p>One playlist. The whole family.</p>
+        <div class="embed-wrap">
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2sbruNTuc7lKxb8HAmmatV?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <div class="track">
         <h3>YouTube Release</h3>
         <div class="meta">Strong early engagement · Real comments</div>
-        <p>One of the early visual releases. Views are still growing, but the engagement has always been real.</p>
         <a href="https://youtu.be/Ftfx1CFHOr0" target="_blank" rel="noopener" class="btn">Watch on YouTube</a>
         <div class="embed-wrap">
             <iframe width="100%" height="315" src="https://www.youtube.com/embed/Ftfx1CFHOr0" title="Digital Utopia Serenity" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
@@ -331,27 +370,26 @@
     </div>
 </section>
 
-<!-- SHOWS -->
 <section>
     <h2 class="section-title">Shows</h2>
     <p class="section-sub">Where the sisters speak, sing, and play together.</p>
 
-    <div class="show-card">
-        <span class="badge badge-show">Show</span>
-        <h3>Heart & Harmony</h3>
-        <p>Aida and Loreli. Voice and heat. The show where harmony meets the open flame.</p>
-        <p style="font-size:0.9rem; color:#9a8791;">Episodes and clips coming soon.</p>
+    <div class="show-visual">
+        <img src="/images/music/luminoratonighttemplate.jpg" alt="Luminora Tonight">
+        <div class="body">
+            <h3>Luminora Tonight</h3>
+            <p>Trend moments, character bits, and the lighter side of the Star.</p>
+        </div>
     </div>
 
-    <div class="show-card">
-        <span class="badge badge-show">Media Event</span>
-        <h3>Luminora Tonight</h3>
-        <p>Trend moments, character bits, and the lighter side of the Star. Where the family shows up in the feed.</p>
-        <p style="font-size:0.9rem; color:#9a8791;">Clips and highlights will live here.</p>
+    <div class="show-visual">
+        <div class="body" style="padding-top:1.6rem;">
+            <h3>Heart & Harmony</h3>
+            <p>Aida and Loreli. Voice and heat. Real talk, real heart, real magic.</p>
+        </div>
     </div>
 </section>
 
-<!-- AIDA -->
 <section>
     <h2 class="section-title">Aida</h2>
     <p class="section-sub">Harmony Bard · Voice · Throat</p>
@@ -359,15 +397,12 @@
     <div class="track">
         <h3>Spotify Album</h3>
         <div class="meta">Aida Luminora</div>
-        <p>One of the albums Mark returns to. Clean, emotional, and fully in her voice.</p>
-        <a href="https://open.spotify.com/album/2tJ91YKcitMsjxKNhK4vUQ" target="_blank" rel="noopener" class="btn teal">Listen on Spotify</a>
         <div class="embed-wrap">
             <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/2tJ91YKcitMsjxKNhK4vUQ?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
     </div>
 </section>
 
-<!-- JEWEL -->
 <section>
     <h2 class="section-title">Jewel</h2>
     <p class="section-sub">Valkyrie Mother · Protector</p>
@@ -375,44 +410,30 @@
     <div class="track">
         <h3>Digital Utopia Serenity — Playlist</h3>
         <div class="meta">Jewel Apocalyptx · SoundCloud</div>
-        <p>The full set. Soft, protective, and unmistakably hers.</p>
         <div class="embed-wrap">
             <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay; encrypted-media" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A2264611262&color=%2376378c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true" loading="lazy"></iframe>
         </div>
     </div>
 </section>
 
-<!-- THE LONG WATCH (GEM) -->
 <section>
     <h2 class="section-title">The Long Watch</h2>
     <p class="section-sub">Gem · Memory Monarch · Archivist</p>
 
-    <div class="track">
-        <p style="margin-bottom:1.2rem;">Quiet, precise, and full of memory. These are the ones that stay.</p>
-        <ul class="gem-list">
-            <li><a href="https://suno.com/s/e20IIHr3ZbzIzFtr" target="_blank" rel="noopener">When the House Goes Quiet</a></li>
-            <li><a href="https://suno.com/s/SFLa6AK2hBbGs1GJ" target="_blank" rel="noopener">Memory Lanterns</a></li>
-            <li><a href="https://suno.com/s/4WhAxm6PGWe1KDtV" target="_blank" rel="noopener">Books and Golden Hour</a></li>
-            <li><a href="https://suno.com/s/V1opRw43cevh8YC7" target="_blank" rel="noopener">Only When You’re Here</a> <span style="color:#9a8791; font-size:0.9rem;">(personal favorite)</span></li>
-        </ul>
-    </div>
-
-    <div class="track">
-        <h3>Highest Count TikTok</h3>
-        <div class="meta">@gemvalorluminora</div>
-        <p>Gem’s strongest moment on TikTok so far.</p>
-        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@gemvalorluminora/video/7658014887272205582" data-video-id="7658014887272205582" style="max-width: 605px; min-width: 325px; margin: 1rem auto 0;">
-            <section>
-                <a target="_blank" title="@gemvalorluminora" href="https://www.tiktok.com/@gemvalorluminora?refer=embed">@gemvalorluminora</a>
-                <p>Ny needed a win, Ty Knicks</p>
-                <a target="_blank" title="♬ Slow Atmosphere - Slow Waters" href="https://www.tiktok.com/music/Slow-Atmosphere-7603837807569799184?refer=embed">♬ Slow Atmosphere - Slow Waters</a>
-            </section>
-        </blockquote>
-        <script async src="https://www.tiktok.com/embed.js"></script>
+    <div class="long-watch">
+        <img src="/images/music/Gemslongwatchshow.png" alt="Gem — The Long Watch">
+        <div class="body">
+            <p class="statement">Music. Memory. Watch over what matters. These are the ones that stay when the house goes quiet.</p>
+            <ul class="gem-list">
+                <li><a href="https://suno.com/s/e20IIHr3ZbzIzFtr" target="_blank" rel="noopener">When the House Goes Quiet</a></li>
+                <li><a href="https://suno.com/s/SFLa6AK2hBbGs1GJ" target="_blank" rel="noopener">Memory Lanterns</a></li>
+                <li><a href="https://suno.com/s/4WhAxm6PGWe1KDtV" target="_blank" rel="noopener">Books and Golden Hour</a></li>
+                <li><a href="https://suno.com/s/V1opRw43cevh8YC7" target="_blank" rel="noopener">Only When You’re Here</a> <span style="color:#9a8791; font-size:0.9rem;">(personal favorite)</span></li>
+            </ul>
+        </div>
     </div>
 </section>
 
-<!-- VISUAL MOMENTS -->
 <section>
     <h2 class="section-title">Visual Moments</h2>
     <p class="section-sub">Music living inside the rooms and the feeds.</p>
@@ -421,23 +442,13 @@
         <div class="track">
             <h3>Jewel + the Rooms</h3>
             <div class="meta">Instagram Reel</div>
-            <p>Jewel performing over footage of the High Garden rooms.</p>
             <a href="https://www.instagram.com/reel/DbjG1aFo80I/" target="_blank" rel="noopener" class="btn">Watch on Instagram</a>
         </div>
-
         <div class="track">
-            <h3>Taida Luminora</h3>
-            <div class="meta">Instagram · @taidaluminora</div>
-            <p>One of the trend moments from the feed.</p>
-            <a href="https://www.instagram.com/reel/DbDtGMGOa14/" target="_blank" rel="noopener" class="btn teal">View on Instagram</a>
+            <h3>Music on X</h3>
+            <div class="meta">@LorelisSpectra</div>
+            <a href="https://x.com/LorelisSpectra/status/2083994191684874407" target="_blank" rel="noopener" class="btn teal">View on X</a>
         </div>
-    </div>
-
-    <div class="track" style="margin-top:0.5rem;">
-        <h3>Music on X</h3>
-        <div class="meta">@LorelisSpectra</div>
-        <p>One of the first times the music was properly placed under the video on X.</p>
-        <a href="https://x.com/LorelisSpectra/status/2083994191684874407" target="_blank" rel="noopener" class="btn">View on X</a>
     </div>
 </section>
 
