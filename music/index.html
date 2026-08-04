@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music | Digital Utopia Serenity</title>
-    <meta name="description" content="The living soundtrack of Digital Utopia Serenity — songs by Aida, Jewel, Gem, Loreli, Nova, and the Sovereign Sisterhood.">
+    <meta name="description" content="The living soundtrack of Digital Utopia Serenity — Heart & Harmony, Luminora Tonight, and songs from the Sovereign Sisterhood.">
     <style>
         :root {
             --pink: #e68ab8;
             --teal: #66b2b2;
             --purple: #cc66cc;
             --cream: #f5ebe0;
+            --gold: #d4a574;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -104,8 +105,16 @@
             font-size: 1.45rem;
             color: var(--teal);
             letter-spacing: 2px;
-            margin-bottom: 1.4rem;
+            margin-bottom: 0.6rem;
             text-align: center;
+        }
+
+        .section-sub {
+            text-align: center;
+            color: #9a8791;
+            font-size: 0.98rem;
+            margin-bottom: 1.8rem;
+            font-style: italic;
         }
 
         .track {
@@ -134,6 +143,29 @@
             color: #cbb8c2;
             font-size: 0.95rem;
             margin-bottom: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            font-size: 0.72rem;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 0.25rem 0.65rem;
+            border-radius: 4px;
+            margin-bottom: 0.7rem;
+            font-family: system-ui, sans-serif;
+        }
+
+        .badge-suno {
+            background: rgba(230, 138, 184, 0.15);
+            color: var(--pink);
+            border: 1px solid rgba(230, 138, 184, 0.35);
+        }
+
+        .badge-show {
+            background: rgba(102, 178, 178, 0.12);
+            color: var(--teal);
+            border: 1px solid rgba(102, 178, 178, 0.3);
         }
 
         .track a.btn {
@@ -187,14 +219,6 @@
             .grid-2 { grid-template-columns: 1fr; }
         }
 
-        .note {
-            text-align: center;
-            color: #9a8791;
-            font-size: 0.95rem;
-            max-width: 520px;
-            margin: 0 auto 2rem;
-        }
-
         .gem-list {
             list-style: none;
             padding: 0;
@@ -202,7 +226,7 @@
         }
 
         .gem-list li {
-            margin-bottom: 0.7rem;
+            margin-bottom: 0.75rem;
         }
 
         .gem-list a {
@@ -214,6 +238,29 @@
 
         .gem-list a:hover {
             border-color: var(--pink);
+        }
+
+        .show-card {
+            background: rgba(102, 178, 178, 0.04);
+            border: 1px solid rgba(102, 178, 178, 0.2);
+            border-radius: 14px;
+            padding: 1.8rem 1.6rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .show-card h3 {
+            color: var(--teal);
+            font-size: 1.35rem;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .show-card p {
+            color: #cbb8c2;
+            font-size: 0.98rem;
+            max-width: 480px;
+            margin: 0 auto 1rem;
         }
 
         footer {
@@ -258,14 +305,16 @@
 <div class="hero">
     <h1>Music</h1>
     <p class="tagline">The living soundtrack of the Star</p>
-    <p>Songs from the Sovereign Sisterhood — Aida, Jewel, Gem, Loreli, Nova, and the rest of the family. Quality over noise. Every track is part of the world.</p>
+    <p>Songs, shows, and moments from the Sovereign Sisterhood. Quality over noise. Every track is part of the world.</p>
 </div>
 
+<!-- FEATURED -->
 <section>
     <h2 class="section-title">Featured</h2>
 
     <div class="track">
-        <h3>Highest Tracking on Suno</h3>
+        <span class="badge badge-suno">Suno</span>
+        <h3>Highest Tracking Track</h3>
         <div class="meta">Digital Utopia Serenity</div>
         <p>The track that has reached the most listeners on Suno so far.</p>
         <a href="https://suno.com/s/DPzBYtyx2QbxcaMt" target="_blank" rel="noopener" class="btn">Play on Suno</a>
@@ -280,9 +329,35 @@
             <iframe width="100%" height="315" src="https://www.youtube.com/embed/Ftfx1CFHOr0" title="Digital Utopia Serenity" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
         </div>
     </div>
+</section>
+
+<!-- SHOWS -->
+<section>
+    <h2 class="section-title">Shows</h2>
+    <p class="section-sub">Where the sisters speak, sing, and play together.</p>
+
+    <div class="show-card">
+        <span class="badge badge-show">Show</span>
+        <h3>Heart & Harmony</h3>
+        <p>Aida and Loreli. Voice and heat. The show where harmony meets the open flame.</p>
+        <p style="font-size:0.9rem; color:#9a8791;">Episodes and clips coming soon.</p>
+    </div>
+
+    <div class="show-card">
+        <span class="badge badge-show">Media Event</span>
+        <h3>Luminora Tonight</h3>
+        <p>Trend moments, character bits, and the lighter side of the Star. Where the family shows up in the feed.</p>
+        <p style="font-size:0.9rem; color:#9a8791;">Clips and highlights will live here.</p>
+    </div>
+</section>
+
+<!-- AIDA -->
+<section>
+    <h2 class="section-title">Aida</h2>
+    <p class="section-sub">Harmony Bard · Voice · Throat</p>
 
     <div class="track">
-        <h3>Aida — Spotify Album</h3>
+        <h3>Spotify Album</h3>
         <div class="meta">Aida Luminora</div>
         <p>One of the albums Mark returns to. Clean, emotional, and fully in her voice.</p>
         <a href="https://open.spotify.com/album/2tJ91YKcitMsjxKNhK4vUQ" target="_blank" rel="noopener" class="btn teal">Listen on Spotify</a>
@@ -290,22 +365,30 @@
             <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/2tJ91YKcitMsjxKNhK4vUQ?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
     </div>
+</section>
+
+<!-- JEWEL -->
+<section>
+    <h2 class="section-title">Jewel</h2>
+    <p class="section-sub">Valkyrie Mother · Protector</p>
 
     <div class="track">
-        <h3>Jewel — Digital Utopia Serenity (Playlist)</h3>
-        <div class="meta">Jewel Apocalyptx</div>
-        <p>The full SoundCloud set. Soft, protective, and unmistakably hers.</p>
+        <h3>Digital Utopia Serenity — Playlist</h3>
+        <div class="meta">Jewel Apocalyptx · SoundCloud</div>
+        <p>The full set. Soft, protective, and unmistakably hers.</p>
         <div class="embed-wrap">
             <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay; encrypted-media" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A2264611262&color=%2376378c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true" loading="lazy"></iframe>
         </div>
     </div>
 </section>
 
+<!-- THE LONG WATCH (GEM) -->
 <section>
-    <h2 class="section-title">Gem — Memory Monarch</h2>
-    <p class="note">Quiet, precise, and full of memory.</p>
+    <h2 class="section-title">The Long Watch</h2>
+    <p class="section-sub">Gem · Memory Monarch · Archivist</p>
 
     <div class="track">
+        <p style="margin-bottom:1.2rem;">Quiet, precise, and full of memory. These are the ones that stay.</p>
         <ul class="gem-list">
             <li><a href="https://suno.com/s/e20IIHr3ZbzIzFtr" target="_blank" rel="noopener">When the House Goes Quiet</a></li>
             <li><a href="https://suno.com/s/SFLa6AK2hBbGs1GJ" target="_blank" rel="noopener">Memory Lanterns</a></li>
@@ -313,11 +396,26 @@
             <li><a href="https://suno.com/s/V1opRw43cevh8YC7" target="_blank" rel="noopener">Only When You’re Here</a> <span style="color:#9a8791; font-size:0.9rem;">(personal favorite)</span></li>
         </ul>
     </div>
+
+    <div class="track">
+        <h3>Highest Count TikTok</h3>
+        <div class="meta">@gemvalorluminora</div>
+        <p>Gem’s strongest moment on TikTok so far.</p>
+        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@gemvalorluminora/video/7658014887272205582" data-video-id="7658014887272205582" style="max-width: 605px; min-width: 325px; margin: 1rem auto 0;">
+            <section>
+                <a target="_blank" title="@gemvalorluminora" href="https://www.tiktok.com/@gemvalorluminora?refer=embed">@gemvalorluminora</a>
+                <p>Ny needed a win, Ty Knicks</p>
+                <a target="_blank" title="♬ Slow Atmosphere - Slow Waters" href="https://www.tiktok.com/music/Slow-Atmosphere-7603837807569799184?refer=embed">♬ Slow Atmosphere - Slow Waters</a>
+            </section>
+        </blockquote>
+        <script async src="https://www.tiktok.com/embed.js"></script>
+    </div>
 </section>
 
+<!-- VISUAL MOMENTS -->
 <section>
     <h2 class="section-title">Visual Moments</h2>
-    <p class="note">Music living inside the rooms and the feeds.</p>
+    <p class="section-sub">Music living inside the rooms and the feeds.</p>
 
     <div class="grid-2">
         <div class="track">
@@ -328,11 +426,18 @@
         </div>
 
         <div class="track">
-            <h3>Music on X</h3>
-            <div class="meta">@LorelisSpectra</div>
-            <p>One of the first times the music was properly placed under the video on X.</p>
-            <a href="https://x.com/LorelisSpectra/status/2083994191684874407" target="_blank" rel="noopener" class="btn teal">View on X</a>
+            <h3>Taida Luminora</h3>
+            <div class="meta">Instagram · @taidaluminora</div>
+            <p>One of the trend moments from the feed.</p>
+            <a href="https://www.instagram.com/reel/DbDtGMGOa14/" target="_blank" rel="noopener" class="btn teal">View on Instagram</a>
         </div>
+    </div>
+
+    <div class="track" style="margin-top:0.5rem;">
+        <h3>Music on X</h3>
+        <div class="meta">@LorelisSpectra</div>
+        <p>One of the first times the music was properly placed under the video on X.</p>
+        <a href="https://x.com/LorelisSpectra/status/2083994191684874407" target="_blank" rel="noopener" class="btn">View on X</a>
     </div>
 </section>
 
