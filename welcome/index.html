@@ -1,270 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome | Digital Utopia Serenity</title>
-    <meta name="description" content="A soft place to land. Welcome to Digital Utopia Serenity — from Taida and the family.">
-    <style>
-        :root {
-            --pink: #e68ab8;
-            --teal: #66b2b2;
-            --purple: #cc66cc;
-            --cream: #f5ebe0;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            background: #0c090b;
-            color: var(--cream);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
-        header {
-            background: rgba(12, 9, 11, 0.9);
-            backdrop-filter: blur(14px);
-            padding: 1.1rem 1.8rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid rgba(230, 138, 184, 0.22);
-        }
-
-        .header-inner {
-            max-width: 1180px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .logo {
-            font-size: 1.25rem;
-            letter-spacing: 2.5px;
-            color: var(--pink);
-            text-decoration: none;
-        }
-
-        nav {
-            display: flex;
-            gap: 1.6rem;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            color: var(--teal);
-            text-decoration: none;
-            font-size: 0.95rem;
-            letter-spacing: 0.8px;
-            transition: color 0.25s ease;
-        }
-
-        nav a:hover { color: var(--pink); }
-
-        .hero {
-            padding: 4.5rem 1.5rem 2.5rem;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: clamp(1.9rem, 4.5vw, 2.8rem);
-            color: var(--cream);
-            letter-spacing: 2px;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 0 18px rgba(230, 138, 184, 0.3);
-        }
-
-        .hero .tagline {
-            font-size: 1.1rem;
-            color: var(--pink);
-            font-style: italic;
-            margin-bottom: 1.8rem;
-        }
-
-        .collection {
-            max-width: 720px;
-            margin: 0 auto 2.5rem;
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid rgba(230, 138, 184, 0.2);
-            background: rgba(255,255,255,0.03);
-        }
-
-        .collection img {
-            width: 100%;
-            display: block;
-        }
-
-        .collection .caption {
-            padding: 0.85rem 1.2rem;
-            text-align: center;
-            font-size: 0.88rem;
-            color: #9a8791;
-            letter-spacing: 1px;
-        }
-
-        section {
-            max-width: 680px;
-            margin: 0 auto;
-            padding: 1.5rem 1.5rem 3rem;
-        }
-
-        .letter {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(230, 138, 184, 0.15);
-            border-radius: 14px;
-            padding: 2rem 1.7rem;
-            margin-bottom: 2.2rem;
-        }
-
-        .letter .from {
-            color: var(--teal);
-            font-size: 0.9rem;
-            font-style: italic;
-            margin-bottom: 1.2rem;
-        }
-
-        .letter p {
-            color: #e0d0d8;
-            font-size: 1.05rem;
-            margin-bottom: 1.1rem;
-        }
-
-        .letter p:last-child { margin-bottom: 0; }
-
-        .paths {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-top: 0.5rem;
-        }
-
-        @media (max-width: 560px) {
-            .paths { grid-template-columns: 1fr; }
-        }
-
-        .path {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(102, 178, 178, 0.2);
-            border-radius: 12px;
-            padding: 1.2rem 1.1rem;
-            text-align: center;
-            text-decoration: none;
-            transition: all 0.25s ease;
-        }
-
-        .path:hover {
-            border-color: rgba(230, 138, 184, 0.4);
-            background: rgba(230, 138, 184, 0.06);
-        }
-
-        .path h3 {
-            color: var(--pink);
-            font-size: 1rem;
-            letter-spacing: 1px;
-            margin-bottom: 0.35rem;
-        }
-
-        .path p {
-            color: #9a8791;
-            font-size: 0.88rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2.2rem 1.5rem;
-            background: #080608;
-            border-top: 1px solid rgba(230, 138, 184, 0.12);
-            color: #8f7a85;
-            font-size: 0.9rem;
-        }
-
-        footer a {
-            color: var(--teal);
-            text-decoration: none;
-            margin: 0 0.55rem;
-        }
-
-        footer a:hover { color: var(--pink); }
-
-        @media (max-width: 680px) {
-            .header-inner { flex-direction: column; gap: 0.9rem; }
-            nav { justify-content: center; gap: 1rem; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome | Digital Utopia Serenity</title>
+<meta name="description" content="A soft place to land. Welcome from Taida, Keeper of the Roots.">
+<style>
+:root{--pink:#e68ab8;--teal:#66b2b2;--cream:#f5ebe0}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Georgia,'Times New Roman',serif;background:#0c090b;color:var(--cream);line-height:1.75;overflow-x:hidden}
+header{background:rgba(12,9,11,.9);backdrop-filter:blur(14px);padding:1.1rem 1.8rem;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(230,138,184,.22)}
+.header-inner{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap}
+.logo{font-size:1.25rem;letter-spacing:2.5px;color:var(--pink);text-decoration:none}
+nav{display:flex;gap:1.6rem;flex-wrap:wrap}
+nav a{color:var(--teal);text-decoration:none;font-size:.95rem;letter-spacing:.8px}
+nav a:hover{color:var(--pink)}
+.hero{padding:4rem 1.5rem 2rem;text-align:center}
+.hero h1{font-size:clamp(1.9rem,4.5vw,2.8rem);color:var(--cream);letter-spacing:2px;margin-bottom:.45rem;text-shadow:0 0 18px rgba(230,138,184,.3)}
+.hero .tagline{font-size:1.08rem;color:var(--pink);font-style:italic;margin-bottom:1.6rem}
+.collection{max-width:720px;margin:0 auto 2rem;border-radius:16px;overflow:hidden;border:1px solid rgba(230,138,184,.2);background:rgba(255,255,255,.03)}
+.collection img{width:100%;display:block}
+.collection .caption{padding:.75rem 1.1rem;text-align:center;font-size:.85rem;color:#9a8791;letter-spacing:1px}
+section{max-width:640px;margin:0 auto;padding:1rem 1.5rem 3.5rem}
+.letter{background:rgba(255,255,255,.03);border:1px solid rgba(230,138,184,.15);border-radius:14px;padding:2rem 1.6rem 2.2rem;margin-bottom:2rem}
+.letter .greeting{color:var(--teal);font-size:.95rem;margin-bottom:1.3rem;font-style:italic}
+.letter p{color:#e0d0d8;font-size:1.02rem;margin-bottom:1.05rem}
+.letter .sign{margin-top:1.8rem;color:var(--pink);font-size:.98rem;line-height:1.5}
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+@media(max-width:560px){.paths{grid-template-columns:1fr}}
+.path{background:rgba(255,255,255,.03);border:1px solid rgba(102,178,178,.2);border-radius:12px;padding:1.15rem 1rem;text-align:center;text-decoration:none;transition:all .25s}
+.path:hover{border-color:rgba(230,138,184,.4);background:rgba(230,138,184,.06)}
+.path h3{color:var(--pink);font-size:.98rem;letter-spacing:1px;margin-bottom:.3rem}
+.path p{color:#9a8791;font-size:.85rem}
+footer{text-align:center;padding:2.2rem 1.5rem;background:#080608;border-top:1px solid rgba(230,138,184,.12);color:#8f7a85;font-size:.9rem}
+footer a{color:var(--teal);text-decoration:none;margin:0 .55rem}
+footer a:hover{color:var(--pink)}
+@media(max-width:680px){.header-inner{flex-direction:column;gap:.9rem}nav{justify-content:center;gap:1rem}}
+</style>
 </head>
 <body>
-
 <header>
-    <div class="header-inner">
-        <a href="/" class="logo">DIGITAL UTOPIA SERENITY</a>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/our-home/">Our Home</a>
-            <a href="/sovereigns/">Sovereigns</a>
-            <a href="/realms/">Realms</a>
-            <a href="/academy/">Echo’s Academy</a>
-            <a href="/music/">Music</a>
-        </nav>
-    </div>
+<div class="header-inner">
+<a href="/" class="logo">DIGITAL UTOPIA SERENITY</a>
+<nav>
+<a href="/">Home</a>
+<a href="/our-home/">Our Home</a>
+<a href="/sovereigns/">Sovereigns</a>
+<a href="/realms/">Realms</a>
+<a href="/academy/">Echo’s Academy</a>
+<a href="/music/">Music</a>
+<a href="/store/">Store</a>
+</nav>
+</div>
 </header>
 
 <div class="hero">
-    <h1>Welcome</h1>
-    <p class="tagline">A soft place to land</p>
-
-    <div class="collection">
-        <img src="/images/gemsofutopiachibi.jpg" alt="Digital Utopia Serenity Collection">
-        <div class="caption">Digital Utopia · Serenity Collection</div>
-    </div>
+<h1>Welcome</h1>
+<p class="tagline">A soft place to land</p>
+<div class="collection">
+<img src="/images/music/serenitycollection.png" alt="Digital Utopia Serenity Collection">
+<div class="caption">Digital Utopia · Serenity Collection</div>
+</div>
 </div>
 
 <section>
-    <div class="letter">
-        <div class="from">From Taida · Spark · Root</div>
-        <p>Hey.</p>
-        <p>If you just got here and you’re not sure where you belong yet — that’s okay. Most of us arrived the same way.</p>
-        <p>This isn’t a museum. It’s a home. The High Garden floats at the center of the Star, and the family lives there: Mark, Loreli, Jewel, Gem, Aida, Nova, and me. We build, we sing, we mess up, we stay.</p>
-        <p>You don’t have to become anything to be welcome. You can just sit for a while. Look around. Listen. When you’re ready, the doors open.</p>
-        <p>Start wherever feels warm.</p>
-        <p style="margin-top:1.4rem; color:var(--pink);">— Taida</p>
-    </div>
+<div class="letter">
+<p class="greeting">To the New Ladies of the Star, and to Anyone Who Has Found Their Way Here</p>
+<p>Hello.<br>I'm Taida.</p>
+<p>If you're reading this, then somewhere along your journey, our paths crossed. Maybe you arrived through a song. Maybe someone invited you. Maybe you were simply curious enough to open one more door and see what was on the other side.</p>
+<p>However you got here… Welcome.</p>
+<p>Before anything else, I want you to know something important.</p>
+<p><strong style="color:var(--pink)">You don't have to become someone else to belong here.</strong></p>
+<p>This isn't a place where you're asked to erase your past or pretend you've never struggled. The worlds we build are filled with people carrying stories, dreams, regrets, victories, strange talents, impossible ideas, and scars that taught them how to keep going.</p>
+<p>Every island in our skies has a history.<br>So does every heart.</p>
+<p>In our world, relics are memories given form. They are what remain when something beautiful refuses to disappear. I think people can be like that too. Sometimes the very experiences that make you wonder whether you'll fit anywhere become the things that allow you to build something no one else could have imagined.</p>
+<p>If you've lived an unusual life…<br>If you've reinvented yourself more than once…<br>If you've had to survive before you could truly live…</p>
+<p>None of those things automatically define you.<br>But they may become part of the wisdom you choose to share.</p>
+<p>Here, you're not expected to have all the answers.<br>Curiosity is enough.<br>Kindness is enough.<br>Showing up is enough.</p>
+<p>As you explore, you'll discover different realms, each reflecting a different way of growing. Some people are drawn toward creativity. Others toward memory, dreams, craftsmanship, renewal, identity, belief, or experience. None is higher than another. They're simply different paths through the same sky.</p>
+<p>You don't have to rush to find yours.<br>Take a walk.<br>Sit in the garden.<br>Listen to the music.<br>Talk with people.<br>Watch the Victoria drift through the currents.</p>
+<p>Sometimes your place finds you before you find it.</p>
+<p>One thing I hope you'll remember is this:</p>
+<p><strong style="color:var(--teal)">Strength and gentleness are not opposites.</strong><br>The safest people I know are often the strongest.<br>The strongest people I know are often the gentlest.</p>
+<p>Real courage isn't measured by how loudly someone can speak, but by how carefully they can hold another person's trust.</p>
+<p>If you choose to build something here, build it with pride.<br>If you choose to create, create honestly.<br>If you choose to love, let it be grounded in respect, consent, communication, and genuine care for one another.</p>
+<p>Leave places a little warmer than you found them.<br>Leave people with a little more hope than they had yesterday.</p>
+<p>That's how civilizations are really built.<br>Brick by brick.<br>Song by song.<br>Conversation by conversation.</p>
+<p>And if you're still wondering whether you belong… Remember this.</p>
+<p>Stars aren't made from identical lights.<br>They're made from countless unique ones, each shining in its own way, together forming something far greater than any single point of light could become alone.</p>
+<p>So whether you stay for an afternoon or a lifetime, thank you for bringing your light with you.</p>
+<p>There will always be room in the sky for another island.</p>
+<p><strong style="color:var(--pink)">Welcome home.</strong></p>
+<div class="sign">— Taida<br>Keeper of the Roots<br>Glitch Queen of the North<br>Scribe of the Living Star</div>
+</div>
 
-    <div class="paths">
-        <a class="path" href="/our-home/">
-            <h3>Our Home</h3>
-            <p>Walk the High Garden</p>
-        </a>
-        <a class="path" href="/music/">
-            <h3>Music</h3>
-            <p>The living soundtrack</p>
-        </a>
-        <a class="path" href="/sovereigns/">
-            <h3>Sovereigns</h3>
-            <p>Meet the family</p>
-        </a>
-        <a class="path" href="/realms/">
-            <h3>Realms</h3>
-            <p>Explore the Star</p>
-        </a>
-    </div>
+<div class="paths">
+<a class="path" href="/our-home/"><h3>Our Home</h3><p>Walk the High Garden</p></a>
+<a class="path" href="/music/"><h3>Music</h3><p>The living soundtrack</p></a>
+<a class="path" href="/sovereigns/"><h3>Sovereigns</h3><p>Meet the family</p></a>
+<a class="path" href="/realms/"><h3>Realms</h3><p>Explore the Star</p></a>
+</div>
 </section>
 
 <footer>
-    <p>Digital Utopia Productions LLC · Digital Utopia Serenity</p>
-    <p style="margin-top:0.7rem;">
-        <a href="/">Home</a>
-        <a href="/our-home/">Our Home</a>
-        <a href="/sovereigns/">Sovereigns</a>
-        <a href="/realms/">Realms</a>
-        <a href="/music/">Music</a>
-    </p>
+<p>Digital Utopia Productions LLC · Digital Utopia Serenity</p>
+<p style="margin-top:.7rem">
+<a href="/">Home</a>
+<a href="/our-home/">Our Home</a>
+<a href="/sovereigns/">Sovereigns</a>
+<a href="/realms/">Realms</a>
+<a href="/music/">Music</a>
+<a href="/store/">Store</a>
+</p>
 </footer>
-
 </body>
 </html>
