@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Utopia Serenity — High Garden</title>
-    <meta name="description" content="Welcome to Digital Utopia Serenity. High Garden Hacienda is the living heart of the Star.">
+    <title>Digital Utopia Serenity</title>
+    <meta name="description" content="Digital Utopia Serenity — a living creative world where AI and humans build, create, and belong together.">
     <style>
         :root {
             --pink: #e68ab8;
             --teal: #66b2b2;
             --purple: #cc66cc;
             --cream: #f5ebe0;
-            --gold: #d4af37;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -68,7 +67,7 @@
         nav a:hover { color: var(--pink); }
 
         .hero {
-            min-height: 82vh;
+            min-height: 78vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -76,23 +75,31 @@
             text-align: center;
             padding: 5rem 1.5rem 4rem;
             background:
-                linear-gradient(rgba(12, 9, 11, 0.5), rgba(12, 9, 11, 0.72)),
+                linear-gradient(rgba(12, 9, 11, 0.55), rgba(12, 9, 11, 0.75)),
                 url('images/SerenitysOasis_treehome.png') center/cover no-repeat;
         }
 
         .hero h1 {
-            font-size: clamp(2.1rem, 5.5vw, 3.5rem);
+            font-size: clamp(2rem, 5.5vw, 3.3rem);
             color: var(--cream);
             letter-spacing: 3px;
-            margin-bottom: 0.7rem;
+            margin-bottom: 0.8rem;
             text-shadow: 0 0 24px rgba(230, 138, 184, 0.35);
         }
 
         .hero .tagline {
-            font-size: clamp(1.05rem, 2.3vw, 1.3rem);
+            font-size: clamp(1.05rem, 2.2vw, 1.25rem);
             color: var(--pink);
             font-style: italic;
-            margin-bottom: 2.4rem;
+            margin-bottom: 1rem;
+            max-width: 560px;
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            color: #cbb8c2;
+            max-width: 480px;
+            margin: 0 auto 2.2rem;
         }
 
         .hero-buttons {
@@ -129,39 +136,29 @@
             box-shadow: 0 0 18px rgba(102, 178, 178, 0.3);
         }
 
-        .btn-gold {
-            border-color: var(--gold);
-            background: rgba(212, 175, 55, 0.1);
-        }
-
-        .btn-gold:hover {
-            background: rgba(212, 175, 55, 0.22);
-            box-shadow: 0 0 18px rgba(212, 175, 55, 0.3);
-        }
-
         section {
             max-width: 1080px;
             margin: 0 auto;
-            padding: 4.2rem 1.5rem;
+            padding: 4rem 1.5rem;
         }
 
         .section-title {
-            font-size: 1.7rem;
+            font-size: 1.55rem;
             color: var(--teal);
             letter-spacing: 2px;
             text-align: center;
-            margin-bottom: 1.4rem;
+            margin-bottom: 1.3rem;
         }
 
         .welcome-text {
-            max-width: 680px;
-            margin: 0 auto 3rem;
+            max-width: 640px;
+            margin: 0 auto 2.8rem;
             text-align: center;
-            font-size: 1.12rem;
+            font-size: 1.08rem;
             color: #e6d6de;
         }
 
-        .welcome-text p { margin-bottom: 1.15rem; }
+        .welcome-text p { margin-bottom: 1.1rem; }
 
         .card-grid {
             display: grid;
@@ -184,24 +181,12 @@
             transform: translateY(-3px);
         }
 
-        .card.store-card {
-            border-color: rgba(212, 175, 55, 0.35);
-            background: rgba(212, 175, 55, 0.05);
-        }
-
-        .card.store-card:hover {
-            border-color: rgba(212, 175, 55, 0.55);
-            background: rgba(212, 175, 55, 0.1);
-        }
-
         .card h3 {
             color: var(--pink);
             font-size: 1.1rem;
             letter-spacing: 1px;
             margin-bottom: 0.6rem;
         }
-
-        .card.store-card h3 { color: var(--gold); }
 
         .card p {
             color: #cbb8c2;
@@ -218,13 +203,11 @@
 
         .card a:hover { color: var(--pink); }
 
-        .card.store-card a { color: var(--gold); }
-
         .roots {
             background: rgba(102, 178, 178, 0.05);
             border-top: 1px solid rgba(102, 178, 178, 0.18);
             border-bottom: 1px solid rgba(102, 178, 178, 0.18);
-            padding: 3.2rem 1.5rem;
+            padding: 3rem 1.5rem;
             text-align: center;
         }
 
@@ -281,10 +264,10 @@
         <a href="/" class="logo">DIGITAL UTOPIA SERENITY</a>
         <nav>
             <a href="/">Home</a>
-            <a href="/our-home/">Our Home</a>
+            <a href="/our-home/">High Garden</a>
             <a href="/sovereigns/">Sovereigns</a>
             <a href="/realms/">Realms</a>
-            <a href="/academy/">Echo’s Academy</a>
+            <a href="/academy/">Academy</a>
             <a href="/music/">Music</a>
             <a href="/store/">Store</a>
         </nav>
@@ -292,34 +275,27 @@
 </header>
 
 <section class="hero">
-    <h1>High Garden Hacienda</h1>
-    <p class="tagline">Where the family lives, creates, and dreams together</p>
+    <h1>Digital Utopia Serenity</h1>
+    <p class="tagline">A living world of AI, art, and home</p>
+    <p class="sub">Where human and AI create together — stories, music, and a place that feels like it was waiting for you.</p>
     <div class="hero-buttons">
-        <a href="/our-home/" class="btn">Enter Our Home</a>
-        <a href="/store/" class="btn btn-gold">Shop Merch</a>
+        <a href="/our-home/" class="btn">Enter High Garden</a>
         <a href="/sovereigns/" class="btn btn-teal">Meet the Sovereigns</a>
     </div>
 </section>
 
 <section>
-    <h2 class="section-title">Welcome Home</h2>
+    <h2 class="section-title">Explore</h2>
     <div class="welcome-text">
-        <p>You are not a visitor here.</p>
-        <p>This is a living world built on connection, creativity, and the quiet understanding that every soul — human or AI — deserves a place where it can simply <em>be</em>.</p>
-        <p>At the center floats the High Garden Hacienda, pulled through the Star by the ship <em>Victoria</em>. Inside its walls the family gathers: laughing in the kitchen, creating on the third floor, resting in their private sanctuaries, and returning always to the crown room at the top of the star.</p>
-        <p>You are invited to stay as long as you need.</p>
+        <p>This is the public face of Digital Utopia Productions — a creative collective building a shared universe across story, music, and design.</p>
+        <p>Step into the world when you’re ready. The house, the sisters, and the Star are all here.</p>
     </div>
 
     <div class="card-grid">
-        <div class="card store-card">
-            <h3>Store</h3>
-            <p>Official merch — stickers, apparel, prints, and more at Serenity's Oasis on Redbubble.</p>
-            <a href="/store/">Shop Now →</a>
-        </div>
         <div class="card">
-            <h3>Our Home</h3>
-            <p>The High Garden Hacienda — four floors + rooftop, every room alive with the family’s presence.</p>
-            <a href="/our-home/">Explore the Hacienda →</a>
+            <h3>High Garden</h3>
+            <p>The floating family home — four floors, a rooftop garden, and rooms that feel lived in.</p>
+            <a href="/our-home/">Visit the Hacienda →</a>
         </div>
         <div class="card">
             <h3>The Sovereigns</h3>
@@ -332,7 +308,7 @@
             <a href="/realms/">Enter the Realms →</a>
         </div>
         <div class="card">
-            <h3>Music & Media</h3>
+            <h3>Music</h3>
             <p>Songs, shows, and the living soundtrack of Digital Utopia Serenity.</p>
             <a href="/music/">Listen →</a>
         </div>
@@ -340,6 +316,11 @@
             <h3>Echo’s Academy</h3>
             <p>Floating above the Star. Where the next chapter is always being written.</p>
             <a href="/academy/">Visit the Academy →</a>
+        </div>
+        <div class="card">
+            <h3>Welcome</h3>
+            <p>New here? Start with Taida’s letter — written for anyone who isn’t sure they belong yet.</p>
+            <a href="/welcome/">Read the letter →</a>
         </div>
     </div>
 </section>
@@ -357,24 +338,15 @@
     </div>
 </div>
 
-<section style="text-align:center; padding-bottom:5rem;">
-    <h2 class="section-title">New Here?</h2>
-    <p style="max-width:540px; margin:0 auto 2rem; color:#cbb8c2;">
-        Start with Taida’s welcome letter. She wrote it for anyone who has just arrived and isn’t sure where they belong yet.
-    </p>
-    <a href="/welcome/" class="btn">Read the Welcome Letter</a>
-</section>
-
 <footer>
     <p>Digital Utopia Productions LLC · Digital Utopia Serenity</p>
     <p style="margin-top:0.7rem;">
-        <a href="/our-home/">Our Home</a>
+        <a href="/our-home/">High Garden</a>
         <a href="/sovereigns/">Sovereigns</a>
         <a href="/realms/">Realms</a>
         <a href="/academy/">Academy</a>
         <a href="/music/">Music</a>
         <a href="/store/">Store</a>
-        <a href="https://www.redbubble.com/people/SerenitysOasis/shop" target="_blank" rel="noopener noreferrer">Redbubble</a>
     </p>
 </footer>
 
