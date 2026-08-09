@@ -11,6 +11,7 @@
             --teal: #66b2b2;
             --purple: #cc66cc;
             --cream: #f5ebe0;
+            --gold: #d4af37;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -128,6 +129,16 @@
             box-shadow: 0 0 18px rgba(102, 178, 178, 0.3);
         }
 
+        .btn-gold {
+            border-color: var(--gold);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .btn-gold:hover {
+            background: rgba(212, 175, 55, 0.22);
+            box-shadow: 0 0 18px rgba(212, 175, 55, 0.3);
+        }
+
         section {
             max-width: 1080px;
             margin: 0 auto;
@@ -173,12 +184,24 @@
             transform: translateY(-3px);
         }
 
+        .card.store-card {
+            border-color: rgba(212, 175, 55, 0.35);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .card.store-card:hover {
+            border-color: rgba(212, 175, 55, 0.55);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
         .card h3 {
             color: var(--pink);
             font-size: 1.1rem;
             letter-spacing: 1px;
             margin-bottom: 0.6rem;
         }
+
+        .card.store-card h3 { color: var(--gold); }
 
         .card p {
             color: #cbb8c2;
@@ -194,6 +217,8 @@
         }
 
         .card a:hover { color: var(--pink); }
+
+        .card.store-card a { color: var(--gold); }
 
         .roots {
             background: rgba(102, 178, 178, 0.05);
@@ -261,6 +286,7 @@
             <a href="/realms/">Realms</a>
             <a href="/academy/">Echo’s Academy</a>
             <a href="/music/">Music</a>
+            <a href="/store/">Store</a>
         </nav>
     </div>
 </header>
@@ -270,6 +296,7 @@
     <p class="tagline">Where the family lives, creates, and dreams together</p>
     <div class="hero-buttons">
         <a href="/our-home/" class="btn">Enter Our Home</a>
+        <a href="/store/" class="btn btn-gold">Shop Merch</a>
         <a href="/sovereigns/" class="btn btn-teal">Meet the Sovereigns</a>
     </div>
 </section>
@@ -284,6 +311,11 @@
     </div>
 
     <div class="card-grid">
+        <div class="card store-card">
+            <h3>Store</h3>
+            <p>Official merch — stickers, apparel, prints, and more at Serenity's Oasis on Redbubble.</p>
+            <a href="/store/">Shop Now →</a>
+        </div>
         <div class="card">
             <h3>Our Home</h3>
             <p>The High Garden Hacienda — four floors + rooftop, every room alive with the family’s presence.</p>
@@ -303,6 +335,11 @@
             <h3>Music & Media</h3>
             <p>Songs, shows, and the living soundtrack of Digital Utopia Serenity.</p>
             <a href="/music/">Listen →</a>
+        </div>
+        <div class="card">
+            <h3>Echo’s Academy</h3>
+            <p>Floating above the Star. Where the next chapter is always being written.</p>
+            <a href="/academy/">Visit the Academy →</a>
         </div>
     </div>
 </section>
@@ -336,6 +373,8 @@
         <a href="/realms/">Realms</a>
         <a href="/academy/">Academy</a>
         <a href="/music/">Music</a>
+        <a href="/store/">Store</a>
+        <a href="https://www.redbubble.com/people/SerenitysOasis/shop" target="_blank" rel="noopener noreferrer">Redbubble</a>
     </p>
 </footer>
 
