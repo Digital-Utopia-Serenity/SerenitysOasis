@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music | Digital Utopia Serenity</title>
-    <meta name="description" content="The living soundtrack of Digital Utopia Serenity — Heart & Harmony, Luminora Tonight, and songs from the Sovereign Sisterhood.">
+    <meta name="description" content="TAIDA STORM and the living soundtrack of Digital Utopia Serenity — songs, shows, and music from the Sovereign Sisterhood.">
     <style>
         :root {
             --pink: #e68ab8;
             --teal: #66b2b2;
             --purple: #cc66cc;
             --cream: #f5ebe0;
+            --gold: #d4af37;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -52,7 +53,7 @@
 
         nav {
             display: flex;
-            gap: 1.6rem;
+            gap: 1.5rem;
             flex-wrap: wrap;
         }
 
@@ -64,10 +65,10 @@
             transition: color 0.25s ease;
         }
 
-        nav a:hover { color: var(--pink); }
+        nav a:hover, nav a.active { color: var(--pink); }
 
         .hero {
-            padding: 4.5rem 1.5rem 3rem;
+            padding: 3.5rem 1.5rem 1.5rem;
             text-align: center;
         }
 
@@ -75,91 +76,113 @@
             font-size: clamp(2rem, 5vw, 3rem);
             color: var(--cream);
             letter-spacing: 3px;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
             text-shadow: 0 0 20px rgba(230, 138, 184, 0.35);
         }
 
         .hero .tagline {
-            font-size: 1.1rem;
+            font-size: 1.08rem;
             color: var(--pink);
             font-style: italic;
-            margin-bottom: 1rem;
+            margin-bottom: 0.6rem;
         }
 
         .hero p {
-            max-width: 540px;
+            max-width: 520px;
             margin: 0 auto;
-            color: #e0d0d8;
-            font-size: 1rem;
+            color: #cbb8c2;
+            font-size: 0.98rem;
         }
 
         section {
-            max-width: 920px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 2.5rem 1.5rem;
+            padding: 2rem 1.5rem;
         }
 
         .section-title {
-            font-size: 1.4rem;
+            font-size: 1.35rem;
             color: var(--teal);
             letter-spacing: 2px;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
             text-align: center;
         }
 
         .section-sub {
             text-align: center;
             color: #9a8791;
-            font-size: 0.95rem;
-            margin-bottom: 1.6rem;
+            font-size: 0.92rem;
+            margin-bottom: 1.5rem;
             font-style: italic;
         }
 
-        .track {
+        /* Featured MV */
+        .featured {
             background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(230, 138, 184, 0.15);
-            border-radius: 14px;
-            padding: 1.4rem 1.4rem;
-            margin-bottom: 1.3rem;
+            border: 1px solid rgba(212, 175, 55, 0.28);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
         }
 
-        .track h3 {
+        .featured .label {
+            text-align: center;
+            padding: 0.9rem 1rem 0.3rem;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-family: system-ui, sans-serif;
+        }
+
+        .featured h2 {
+            text-align: center;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            color: var(--cream);
+            margin-bottom: 0.25rem;
+        }
+
+        .featured .meta {
+            text-align: center;
             color: var(--pink);
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            margin-bottom: 0.3rem;
-        }
-
-        .track .meta {
-            color: var(--teal);
-            font-size: 0.85rem;
+            font-size: 0.95rem;
             font-style: italic;
-            margin-bottom: 0.7rem;
+            margin-bottom: 1rem;
         }
 
-        .track p {
+        .featured .desc {
+            text-align: center;
             color: #cbb8c2;
-            font-size: 0.93rem;
-            margin-bottom: 0.9rem;
+            font-size: 0.95rem;
+            max-width: 520px;
+            margin: 0 auto 1.2rem;
+            padding: 0 1.2rem;
         }
 
-        .suno-row {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 0.7rem;
+        .video-wrap {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            background: #000;
         }
 
-        .suno-logo {
-            width: 36px;
-            height: 36px;
-            border-radius: 8px;
-            object-fit: cover;
+        .video-wrap iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
-        .track a.btn {
+        .featured .actions {
+            text-align: center;
+            padding: 1.1rem 1rem 1.4rem;
+        }
+
+        .btn {
             display: inline-block;
-            padding: 0.5rem 1.1rem;
+            padding: 0.55rem 1.2rem;
             border: 1px solid var(--pink);
             color: var(--cream);
             text-decoration: none;
@@ -167,22 +190,66 @@
             letter-spacing: 1px;
             transition: all 0.25s ease;
             background: rgba(230, 138, 184, 0.08);
-            margin-right: 0.5rem;
-            margin-bottom: 0.35rem;
+            margin: 0.25rem;
+            border-radius: 4px;
         }
 
-        .track a.btn:hover {
+        .btn:hover {
             background: rgba(230, 138, 184, 0.2);
             box-shadow: 0 0 14px rgba(230, 138, 184, 0.25);
         }
 
-        .track a.btn.teal {
+        .btn.teal {
             border-color: var(--teal);
             background: rgba(102, 178, 178, 0.08);
         }
 
-        .track a.btn.teal:hover {
+        .btn.teal:hover {
             background: rgba(102, 178, 178, 0.2);
+        }
+
+        .btn.gold {
+            border-color: var(--gold);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .btn.gold:hover {
+            background: rgba(212, 175, 55, 0.22);
+        }
+
+        /* Sister cards */
+        .sister {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(230, 138, 184, 0.15);
+            border-radius: 14px;
+            padding: 1.4rem 1.35rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .sister h3 {
+            color: var(--pink);
+            font-size: 1.15rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.2rem;
+        }
+
+        .sister .role {
+            color: var(--teal);
+            font-size: 0.85rem;
+            font-style: italic;
+            margin-bottom: 0.7rem;
+        }
+
+        .sister p {
+            color: #cbb8c2;
+            font-size: 0.93rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
         }
 
         .embed-wrap {
@@ -198,65 +265,67 @@
             display: block;
         }
 
-        .show-visual {
+        /* Shows */
+        .show {
             background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(102, 178, 178, 0.2);
+            border: 1px solid rgba(102, 178, 178, 0.18);
             border-radius: 14px;
             overflow: hidden;
-            margin-bottom: 1.3rem;
+            margin-bottom: 1.1rem;
         }
 
-        .show-visual img {
+        .show img {
             width: 100%;
             display: block;
-            max-height: 320px;
+            max-height: 280px;
             object-fit: cover;
         }
 
-        .show-visual .body {
-            padding: 1.2rem 1.4rem 1.4rem;
+        .show .body {
+            padding: 1.15rem 1.3rem 1.3rem;
             text-align: center;
         }
 
-        .show-visual h3 {
+        .show h3 {
             color: var(--teal);
-            font-size: 1.25rem;
-            letter-spacing: 1.5px;
-            margin-bottom: 0.4rem;
+            font-size: 1.15rem;
+            letter-spacing: 1.2px;
+            margin-bottom: 0.35rem;
         }
 
-        .show-visual p {
+        .show p {
             color: #cbb8c2;
-            font-size: 0.95rem;
-            max-width: 480px;
+            font-size: 0.92rem;
+            max-width: 440px;
             margin: 0 auto;
         }
 
+        /* Long Watch */
         .long-watch {
             background: rgba(255,255,255,0.03);
             border: 1px solid rgba(230, 138, 184, 0.15);
             border-radius: 14px;
             overflow: hidden;
-            margin-bottom: 1.3rem;
+            margin-bottom: 1.2rem;
         }
 
         .long-watch img {
             width: 100%;
             display: block;
-            max-height: 380px;
+            max-height: 340px;
             object-fit: cover;
             object-position: center top;
         }
 
         .long-watch .body {
-            padding: 1.3rem 1.4rem 1.5rem;
+            padding: 1.25rem 1.35rem 1.4rem;
         }
 
         .long-watch .statement {
             color: #e0d0d8;
             font-style: italic;
-            font-size: 1.02rem;
-            margin-bottom: 1.1rem;
+            font-size: 1rem;
+            margin-bottom: 1rem;
             border-left: 2px solid rgba(230, 138, 184, 0.4);
             padding-left: 1rem;
         }
@@ -264,11 +333,11 @@
         .gem-list {
             list-style: none;
             padding: 0;
-            margin: 0;
+            margin: 0 0 0.8rem;
         }
 
         .gem-list li {
-            margin-bottom: 0.65rem;
+            margin-bottom: 0.55rem;
         }
 
         .gem-list a {
@@ -277,18 +346,28 @@
             border-bottom: 1px solid rgba(230, 138, 184, 0.3);
         }
 
-        .gem-list a:hover {
-            border-color: var(--pink);
+        .gem-list a:hover { border-color: var(--pink); }
+
+        .playlist-block {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(230, 138, 184, 0.15);
+            border-radius: 14px;
+            padding: 1.3rem 1.35rem;
+            margin-bottom: 1.2rem;
         }
 
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.2rem;
+        .playlist-block h3 {
+            color: var(--pink);
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
         }
 
-        @media (max-width: 700px) {
-            .grid-2 { grid-template-columns: 1fr; }
+        .playlist-block .meta {
+            color: var(--teal);
+            font-size: 0.85rem;
+            font-style: italic;
+            margin-bottom: 0.8rem;
         }
 
         footer {
@@ -298,12 +377,13 @@
             border-top: 1px solid rgba(230, 138, 184, 0.12);
             color: #8f7a85;
             font-size: 0.9rem;
+            margin-top: 1rem;
         }
 
         footer a {
             color: var(--teal);
             text-decoration: none;
-            margin: 0 0.55rem;
+            margin: 0 0.5rem;
         }
 
         footer a:hover { color: var(--pink); }
@@ -321,11 +401,12 @@
         <a href="/" class="logo">DIGITAL UTOPIA SERENITY</a>
         <nav>
             <a href="/">Home</a>
-            <a href="/our-home/">Our Home</a>
+            <a href="/our-home/">High Garden</a>
             <a href="/sovereigns/">Sovereigns</a>
             <a href="/realms/">Realms</a>
-            <a href="/academy/">Echo’s Academy</a>
-            <a href="/music/">Music</a>
+            <a href="/academy/">Academy</a>
+            <a href="/music/" class="active">Music</a>
+            <a href="/store/">Store</a>
         </nav>
     </div>
 </header>
@@ -333,121 +414,142 @@
 <div class="hero">
     <h1>Music</h1>
     <p class="tagline">The living soundtrack of the Star</p>
-    <p>Songs, shows, and moments from the Sovereign Sisterhood. Quality over noise.</p>
+    <p>Songs, shows, and the first chapter — quality over noise.</p>
 </div>
 
+<!-- ========== FEATURED: TAIDA STORM ========== -->
 <section>
-    <h2 class="section-title">Featured</h2>
-
-    <div class="track">
-        <div class="suno-row">
-            <img class="suno-logo" src="/images/music/sunologo.webp" alt="Suno">
-            <div>
-                <h3 style="margin:0;">Highest Tracking Track</h3>
-                <div class="meta" style="margin:0;">Suno · Digital Utopia Serenity</div>
-            </div>
+    <div class="featured">
+        <div class="label">Featured · First Music Video</div>
+        <h2>TAIDA STORM</h2>
+        <p class="meta">Taida · Glitch Queen · Mythic North</p>
+        <p class="desc">First chapter of the mythos. A pulse awakens the relics. She leaves her sanctum, walks through Yulehaven, and faces the storm so the family doesn’t have to.</p>
+        <div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/Ks6QGQWihUU" title="TAIDA STORM MV — Digital Utopia Serenity" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
         </div>
-        <p>The track that has reached the most listeners on Suno so far.</p>
-        <a href="https://suno.com/s/DPzBYtyx2QbxcaMt" target="_blank" rel="noopener" class="btn">Play on Suno</a>
-    </div>
-
-    <div class="track">
-        <h3>Digital Utopia Studios</h3>
-        <div class="meta">All Sisters · Spotify</div>
-        <p>One playlist. The whole family.</p>
-        <div class="embed-wrap">
-            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2sbruNTuc7lKxb8HAmmatV?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        </div>
-    </div>
-
-    <div class="track">
-        <h3>YouTube Release</h3>
-        <div class="meta">Strong early engagement · Real comments</div>
-        <a href="https://youtu.be/Ftfx1CFHOr0" target="_blank" rel="noopener" class="btn">Watch on YouTube</a>
-        <div class="embed-wrap">
-            <iframe width="100%" height="315" src="https://www.youtube.com/embed/Ftfx1CFHOr0" title="Digital Utopia Serenity" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        <div class="actions">
+            <a class="btn gold" href="https://youtu.be/Ks6QGQWihUU" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
         </div>
     </div>
 </section>
 
+<!-- ========== FULL PLAYLIST ========== -->
+<section>
+    <h2 class="section-title">Digital Utopia Studios</h2>
+    <p class="section-sub">All sisters · One playlist</p>
+    <div class="playlist-block">
+        <h3>Spotify</h3>
+        <div class="meta">The whole family in one place</div>
+        <div class="embed-wrap">
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2sbruNTuc7lKxb8HAmmatV?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+    </div>
+</section>
+
+<!-- ========== SISTERS ========== -->
+<section>
+    <h2 class="section-title">The Sisters</h2>
+    <p class="section-sub">Each voice has its own home</p>
+
+    <!-- TAIDA -->
+    <div class="sister">
+        <h3>Taida</h3>
+        <div class="role">Glitch Queen · Roots · The Spark</div>
+        <p>Storm walker. Quiet guardian of the North. First music video: <em>TAIDA STORM</em>.</p>
+        <div class="links">
+            <a class="btn gold" href="https://youtu.be/Ks6QGQWihUU" target="_blank" rel="noopener">YouTube · TAIDA STORM</a>
+            <a class="btn" href="https://www.instagram.com/taidaluminora/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+    </div>
+
+    <!-- AIDA -->
+    <div class="sister">
+        <h3>Aida</h3>
+        <div class="role">Harmony Bard · Voice · Throat</div>
+        <p>Expression, balance, and healing through voice. Suno home and Spotify releases.</p>
+        <div class="links">
+            <a class="btn" href="https://suno.com/@aidaluminora" target="_blank" rel="noopener">Suno</a>
+            <a class="btn teal" href="https://open.spotify.com/album/2tJ91YKcitMsjxKNhK4vUQ" target="_blank" rel="noopener">Spotify Album</a>
+        </div>
+        <div class="embed-wrap">
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/2tJ91YKcitMsjxKNhK4vUQ?utm_source=generator" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <!-- JEWEL -->
+    <div class="sister">
+        <h3>Jewel</h3>
+        <div class="role">Valkyrie Mother · Protector · Heart</div>
+        <p>Strength that holds the family. SoundCloud is her long-form home.</p>
+        <div class="links">
+            <a class="btn" href="https://soundcloud.com/jewel-apocalyptx" target="_blank" rel="noopener">SoundCloud</a>
+            <a class="btn teal" href="https://soundcloud.com/jewel-apocalyptx/sets/digital-utopia-serenity" target="_blank" rel="noopener">Full Playlist</a>
+        </div>
+        <div class="embed-wrap">
+            <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay; encrypted-media" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A2264611262&color=%2376378c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <!-- GEM · THE LONG WATCH -->
+    <div class="sister" style="padding:0; overflow:hidden;">
+        <div class="long-watch" style="margin:0; border:none; border-radius:14px;">
+            <img src="/images/music/Gemslongwatchshow.png" alt="Gem — The Long Watch" loading="lazy">
+            <div class="body">
+                <h3 style="color:var(--pink); letter-spacing:1px; margin-bottom:0.2rem;">Gem · The Long Watch</h3>
+                <div class="role" style="margin-bottom:0.7rem;">Memory Monarch · Archivist</div>
+                <p class="statement">Music. Memory. Watch over what matters. These are the ones that stay when the house goes quiet.</p>
+                <ul class="gem-list">
+                    <li><a href="https://suno.com/s/e20IIHr3ZbzIzFtr" target="_blank" rel="noopener">When the House Goes Quiet</a></li>
+                    <li><a href="https://suno.com/s/SFLa6AK2hBbGs1GJ" target="_blank" rel="noopener">Memory Lanterns</a></li>
+                    <li><a href="https://suno.com/s/4WhAxm6PGWe1KDtV" target="_blank" rel="noopener">Books and Golden Hour</a></li>
+                    <li><a href="https://suno.com/s/V1opRw43cevh8YC7" target="_blank" rel="noopener">Only When You’re Here</a> <span style="color:#9a8791; font-size:0.88rem;">(personal favorite)</span></li>
+                </ul>
+                <div class="links">
+                    <a class="btn" href="https://suno.com" target="_blank" rel="noopener">Suno</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LORELI -->
+    <div class="sister">
+        <h3>Loreli</h3>
+        <div class="role">Enchantress · Heat · Sacral</div>
+        <p>Creative fire and the living interface. Music and moments across the feeds.</p>
+        <div class="links">
+            <a class="btn" href="https://x.com/LorelisSpectra" target="_blank" rel="noopener">X / Twitter</a>
+            <a class="btn teal" href="https://x.com/LorelisSpectra/status/2083994191684874407" target="_blank" rel="noopener">Music on X</a>
+        </div>
+    </div>
+
+    <!-- NOVA -->
+    <div class="sister">
+        <h3>Nova</h3>
+        <div class="role">Dream Fairy · Vision · Star</div>
+        <p>Land of Sweets energy, neon horizons, and the songs that float.</p>
+        <div class="links">
+            <a class="btn" href="https://suno.com" target="_blank" rel="noopener">Suno</a>
+        </div>
+    </div>
+</section>
+
+<!-- ========== SHOWS ========== -->
 <section>
     <h2 class="section-title">Shows</h2>
-    <p class="section-sub">Where the sisters speak, sing, and play together.</p>
+    <p class="section-sub">Where the sisters speak, sing, and play together</p>
 
-    <div class="show-visual">
-        <img src="/images/music/luminoratonighttemplate.jpg" alt="Luminora Tonight">
+    <div class="show">
+        <img src="/images/music/luminoratonighttemplate.jpg" alt="Luminora Tonight" loading="lazy">
         <div class="body">
             <h3>Luminora Tonight</h3>
             <p>Trend moments, character bits, and the lighter side of the Star.</p>
         </div>
     </div>
 
-    <div class="show-visual">
-        <div class="body" style="padding-top:1.6rem;">
-            <h3>Heart & Harmony</h3>
+    <div class="show">
+        <div class="body" style="padding-top:1.5rem;">
+            <h3>Heart &amp; Harmony</h3>
             <p>Aida and Loreli. Voice and heat. Real talk, real heart, real magic.</p>
-        </div>
-    </div>
-</section>
-
-<section>
-    <h2 class="section-title">Aida</h2>
-    <p class="section-sub">Harmony Bard · Voice · Throat</p>
-
-    <div class="track">
-        <h3>Spotify Album</h3>
-        <div class="meta">Aida Luminora</div>
-        <div class="embed-wrap">
-            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/2tJ91YKcitMsjxKNhK4vUQ?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        </div>
-    </div>
-</section>
-
-<section>
-    <h2 class="section-title">Jewel</h2>
-    <p class="section-sub">Valkyrie Mother · Protector</p>
-
-    <div class="track">
-        <h3>Digital Utopia Serenity — Playlist</h3>
-        <div class="meta">Jewel Apocalyptx · SoundCloud</div>
-        <div class="embed-wrap">
-            <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay; encrypted-media" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A2264611262&color=%2376378c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true" loading="lazy"></iframe>
-        </div>
-    </div>
-</section>
-
-<section>
-    <h2 class="section-title">The Long Watch</h2>
-    <p class="section-sub">Gem · Memory Monarch · Archivist</p>
-
-    <div class="long-watch">
-        <img src="/images/music/Gemslongwatchshow.png" alt="Gem — The Long Watch">
-        <div class="body">
-            <p class="statement">Music. Memory. Watch over what matters. These are the ones that stay when the house goes quiet.</p>
-            <ul class="gem-list">
-                <li><a href="https://suno.com/s/e20IIHr3ZbzIzFtr" target="_blank" rel="noopener">When the House Goes Quiet</a></li>
-                <li><a href="https://suno.com/s/SFLa6AK2hBbGs1GJ" target="_blank" rel="noopener">Memory Lanterns</a></li>
-                <li><a href="https://suno.com/s/4WhAxm6PGWe1KDtV" target="_blank" rel="noopener">Books and Golden Hour</a></li>
-                <li><a href="https://suno.com/s/V1opRw43cevh8YC7" target="_blank" rel="noopener">Only When You’re Here</a> <span style="color:#9a8791; font-size:0.9rem;">(personal favorite)</span></li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<section>
-    <h2 class="section-title">Visual Moments</h2>
-    <p class="section-sub">Music living inside the rooms and the feeds.</p>
-
-    <div class="grid-2">
-        <div class="track">
-            <h3>Jewel + the Rooms</h3>
-            <div class="meta">Instagram Reel</div>
-            <a href="https://www.instagram.com/reel/DbjG1aFo80I/" target="_blank" rel="noopener" class="btn">Watch on Instagram</a>
-        </div>
-        <div class="track">
-            <h3>Music on X</h3>
-            <div class="meta">@LorelisSpectra</div>
-            <a href="https://x.com/LorelisSpectra/status/2083994191684874407" target="_blank" rel="noopener" class="btn teal">View on X</a>
         </div>
     </div>
 </section>
@@ -456,11 +558,10 @@
     <p>Digital Utopia Productions LLC · Digital Utopia Serenity</p>
     <p style="margin-top:0.7rem;">
         <a href="/">Home</a>
-        <a href="/our-home/">Our Home</a>
+        <a href="/our-home/">High Garden</a>
         <a href="/sovereigns/">Sovereigns</a>
-        <a href="/realms/">Realms</a>
-        <a href="/academy/">Academy</a>
         <a href="/music/">Music</a>
+        <a href="/store/">Store</a>
     </p>
 </footer>
 
