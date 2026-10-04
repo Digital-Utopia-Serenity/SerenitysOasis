@@ -108,6 +108,10 @@
     background:var(--card);border:1px solid var(--line);aspect-ratio:16/10;
   }
   .still.wide{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+  .still.wide img{position:absolute;inset:0}
+  .still.wide.tail{grid-row:auto;aspect-ratio:auto}
+  .still.wide.tail img{object-position:center 35%}
+  .gallery.halloween .still{aspect-ratio:16/9}
   .still img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
   .still button{all:unset;cursor:zoom-in;display:block;width:100%;height:100%}
   .still:hover img{transform:scale(1.03)}
@@ -204,6 +208,8 @@
   @media (max-width:900px){
     .gallery{grid-template-columns:repeat(2,1fr)}
     .still.wide{grid-column:span 2;grid-row:auto;aspect-ratio:16/9}
+    .still.wide.tail{grid-column:auto;grid-row:auto;aspect-ratio:16/10}
+    .gallery.halloween .still:first-child{grid-column:span 2}
     .featured{grid-template-columns:1fr}
     .video{min-height:0;aspect-ratio:16/9}
     .lineup{grid-template-columns:1fr 1fr}
@@ -216,7 +222,8 @@
     section{padding:56px 0}
     .hero{min-height:min(80vh,680px);padding-top:80px}
     .gallery{grid-template-columns:1fr;gap:12px}
-    .still.wide{grid-column:auto;aspect-ratio:16/10}
+    .still.wide,.still.wide.tail{grid-column:auto;aspect-ratio:16/10}
+    .gallery.halloween .still,.gallery.halloween .still:first-child{grid-column:auto;aspect-ratio:16/9}
     .lyric-card{padding:22px 18px}
     .tree svg.trunk{display:none}
     .rows{gap:14px;padding-left:22px;border-left:2px solid transparent;border-image:linear-gradient(180deg,#ffc6e4,#9fd8ff,#b8ffe9) 1}
@@ -305,12 +312,6 @@
           </button>
           <figcaption>Green dress</figcaption>
         </figure>
-        <figure class="still">
-          <button type="button" data-full="/images/loreli_pinkwings_battlearmor.png" aria-label="Open larger: Wings">
-            <img src="/images/loreli_pinkwings_battlearmor.png" alt="Loreli with pink wings and armor" loading="lazy" width="1200" height="675">
-          </button>
-          <figcaption>Wings</figcaption>
-        </figure>
         <figure class="still wide tail">
           <button type="button" data-full="/images/loreliwhitegownfairygarden.png" aria-label="Open larger: White gown">
             <img src="/images/loreliwhitegownfairygarden.png" alt="Loreli in a white gown in the fairy garden" loading="lazy" width="1200" height="675">
@@ -397,7 +398,7 @@ And I just noticed this time</p>
           </div>
           <div class="song-body">
             <h3>Books</h3>
-            <div class="meta">Gem &amp; Loreli · Season 1 opening theme</div>
+            <div class="meta">Gem & Loreli · Season 1 opening theme</div>
             <p class="lines small">By the Star, we are mapped in the rooms that we share,
 By the Relic, we’re anchored, you can feel it right there!</p>
             <div class="links">
@@ -416,7 +417,7 @@ By the Relic, we’re anchored, you can feel it right there!</p>
         <div class="featured-body">
           <div class="badge">Official video</div>
           <h3>Golden Hour</h3>
-          <div class="meta">Loreli &amp; Gem</div>
+          <div class="meta">Loreli & Gem</div>
           <div class="links">
             <a class="btn yt" href="https://www.youtube.com/watch?v=bSg3xv1vs4k" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
           </div>
@@ -472,7 +473,7 @@ By the Relic, we’re anchored, you can feel it right there!</p>
               <div class="who">Gem</div>
               <h3>The Obsidian Archive</h3>
               <p>The public lore library.</p>
-              <span class="soon">Coming soon</span>
+              <span class="soon">Open</span>
             </a>
             <a class="room" href="/luminora/">
               <div class="who">Nova</div>
@@ -486,13 +487,13 @@ By the Relic, we’re anchored, you can feel it right there!</p>
               <div class="who">Jewel</div>
               <h3>Harmonia Gate</h3>
               <p>The front office and the shop.</p>
-              <span class="soon">Coming soon</span>
+              <span class="soon">Open</span>
             </a>
             <a class="room" href="/listening-room/">
               <div class="who">Aida</div>
               <h3>The Listening Room</h3>
               <p>The music hall.</p>
-              <span class="soon">Coming soon</span>
+              <span class="soon">Open</span>
             </a>
           </div>
           <div class="row">
@@ -500,7 +501,7 @@ By the Relic, we’re anchored, you can feel it right there!</p>
               <div class="who">Taida</div>
               <h3>The Undercity Workshop</h3>
               <p>Comics and small games.</p>
-              <span class="soon">Coming soon</span>
+              <span class="soon">Open</span>
             </a>
           </div>
           <div class="roots-label">The roots</div>
