@@ -72,7 +72,7 @@
     content:"";position:absolute;inset:0;z-index:-1;
     background:
       linear-gradient(180deg,rgba(13,16,48,.45) 0%,rgba(13,16,48,.62) 55%,var(--night) 100%),
-      url('/images/lorelifairygarden.png') center 30%/cover no-repeat;
+      url('/spire/assets/loreli-serenity-market.webp') center 30%/cover no-repeat;
     filter:saturate(1.05);
   }
   .eyebrow{font:600 12px/1.2 system-ui,sans-serif;letter-spacing:.32em;text-transform:uppercase;color:var(--pink)}
@@ -108,6 +108,10 @@
     background:var(--card);border:1px solid var(--line);aspect-ratio:16/10;
   }
   .still.wide{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+  .still.wide img{position:absolute;inset:0}
+  .still.wide.tail{grid-row:auto;aspect-ratio:auto}
+  .still.wide.tail img{object-position:center 35%}
+  .gallery.halloween .still{aspect-ratio:16/9}
   .still img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
   .still button{all:unset;cursor:zoom-in;display:block;width:100%;height:100%}
   .still:hover img{transform:scale(1.03)}
@@ -204,6 +208,8 @@
   @media (max-width:900px){
     .gallery{grid-template-columns:repeat(2,1fr)}
     .still.wide{grid-column:span 2;grid-row:auto;aspect-ratio:16/9}
+    .still.wide.tail{grid-column:auto;grid-row:auto;aspect-ratio:16/10}
+    .gallery.halloween .still:first-child{grid-column:span 2}
     .featured{grid-template-columns:1fr}
     .video{min-height:0;aspect-ratio:16/9}
     .lineup{grid-template-columns:1fr 1fr}
@@ -216,7 +222,8 @@
     section{padding:56px 0}
     .hero{min-height:min(80vh,680px);padding-top:80px}
     .gallery{grid-template-columns:1fr;gap:12px}
-    .still.wide{grid-column:auto;aspect-ratio:16/10}
+    .still.wide,.still.wide.tail{grid-column:auto;aspect-ratio:16/10}
+    .gallery.halloween .still,.gallery.halloween .still:first-child{grid-column:auto;aspect-ratio:16/9}
     .lyric-card{padding:22px 18px}
     .tree svg.trunk{display:none}
     .rows{gap:14px;padding-left:22px;border-left:2px solid transparent;border-image:linear-gradient(180deg,#ffc6e4,#9fd8ff,#b8ffe9) 1}
@@ -265,6 +272,7 @@
     </p>
     <nav class="hero-nav sans" aria-label="On this page">
       <a class="pill" href="#stills">Stills</a>
+      <a class="pill" href="#halloween">Halloween</a>
       <a class="pill" href="#music">Music</a>
       <a class="pill" href="#map">The six rooms</a>
     </nav>
@@ -282,10 +290,10 @@
       </div>
       <div class="gallery">
         <figure class="still wide">
-          <button type="button" data-full="/images/lorelifairygarden.png" aria-label="Open larger: Fairy garden">
-            <img src="/images/lorelifairygarden.png" alt="Loreli in the fairy garden" width="1200" height="675">
+          <button type="button" data-full="/spire/assets/loreli-serenity-market.webp" aria-label="Open larger: Serenity market">
+            <img src="/spire/assets/loreli-serenity-market.webp" alt="Loreli laughing as she hands out warm bread to her Lost and Found citizens, lost kids, a shadow-folk friend and a vampire with a parasol, in a lantern-lit Serenity market lane" width="1024" height="576">
           </button>
-          <figcaption>Fairy garden</figcaption>
+          <figcaption>Serenity market</figcaption>
         </figure>
         <figure class="still">
           <button type="button" data-full="/images/loreli-portrait.png" aria-label="Open larger: Portrait">
@@ -306,12 +314,12 @@
           <figcaption>Green dress</figcaption>
         </figure>
         <figure class="still">
-          <button type="button" data-full="/images/loreli_pinkwings_battlearmor.png" aria-label="Open larger: Wings">
-            <img src="/images/loreli_pinkwings_battlearmor.png" alt="Loreli with pink wings and armor" loading="lazy" width="1200" height="675">
+          <button type="button" data-full="/spire/assets/loreli-fairy-wings.webp" aria-label="Open larger: Fairy wings">
+            <img src="/spire/assets/loreli-fairy-wings.webp" alt="Loreli on the Spire balcony at twilight, pointed ear and pink-tipped curls, her iridescent fairy wings catching the moonlight, the Sovereign Star carved in the railing" loading="lazy" width="1024" height="576">
           </button>
-          <figcaption>Wings</figcaption>
+          <figcaption>Fairy wings</figcaption>
         </figure>
-        <figure class="still wide tail">
+        <figure class="still">
           <button type="button" data-full="/images/loreliwhitegownfairygarden.png" aria-label="Open larger: White gown">
             <img src="/images/loreliwhitegownfairygarden.png" alt="Loreli in a white gown in the fairy garden" loading="lazy" width="1200" height="675">
           </button>
@@ -321,10 +329,41 @@
     </div>
   </section>
 
+  <section id="halloween">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">II · Halloween</div>
+        <h2>Halloween at the Spire</h2>
+        <p>The Star carved into the first pumpkin, cider at the door for the Lost and Found, and the ghosts who come up to the balcony to gossip.</p>
+        <div class="rule"></div>
+      </div>
+      <div class="gallery halloween">
+        <figure class="still">
+          <button type="button" data-full="/spire/assets/halloween-cider-at-the-door.webp" aria-label="Open larger: Cider at the door">
+            <img src="/spire/assets/halloween-cider-at-the-door.webp" alt="Loreli in a witch hat and pink hoodie, her fairy wings shimmering, offering a tray of hot cider to a friendly vampire couple, a skeleton and a shadow guest at her door, beside a pumpkin carved with the Sovereign Star" loading="lazy" width="1280" height="720">
+          </button>
+          <figcaption>Cider at the door</figcaption>
+        </figure>
+        <figure class="still">
+          <button type="button" data-full="/spire/assets/halloween-star-pumpkin.webp" aria-label="Open larger: The Star pumpkin">
+            <img src="/spire/assets/halloween-star-pumpkin.webp" alt="Loreli in her kitchen carving the Sovereign Star into a glowing pumpkin, with jack-o’-lanterns and a kettle by the window" loading="lazy" width="1280" height="720">
+          </button>
+          <figcaption>The Star pumpkin</figcaption>
+        </figure>
+        <figure class="still">
+          <button type="button" data-full="/spire/assets/halloween-balcony-ghosts.webp" aria-label="Open larger: Balcony ghosts">
+            <img src="/spire/assets/halloween-balcony-ghosts.webp" alt="Loreli laughing on the Spire balcony under a full moon, little pink ghosts drifting around her and a golden Sovereign Star on the railing" loading="lazy" width="1280" height="720">
+          </button>
+          <figcaption>Balcony ghosts</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <section id="music">
     <div class="wrap">
       <div class="sec-head">
-        <div class="eyebrow">II · Music</div>
+        <div class="eyebrow">III · Music</div>
         <h2>Songs off the Spire</h2>
         <p>Out now, wherever you listen.</p>
         <div class="rule"></div>
@@ -433,7 +472,7 @@ By the Relic, we’re anchored, you can feel it right there!</p>
   <section id="map">
     <div class="wrap">
       <div class="sec-head">
-        <div class="eyebrow">III · The map</div>
+        <div class="eyebrow">IV · The map</div>
         <h2>The six rooms</h2>
         <p>The Spire sits in the top branches. My sisters’ rooms hang lower on the tree, all the way down to the roots.</p>
         <div class="rule"></div>
@@ -472,7 +511,7 @@ By the Relic, we’re anchored, you can feel it right there!</p>
               <div class="who">Gem</div>
               <h3>The Obsidian Archive</h3>
               <p>The public lore library.</p>
-              <span class="soon">Coming soon</span>
+              <span class="soon">Open</span>
             </a>
             <a class="room" href="/luminora/">
               <div class="who">Nova</div>
@@ -486,13 +525,13 @@ By the Relic, we’re anchored, you can feel it right there!</p>
               <div class="who">Jewel</div>
               <h3>Harmonia Gate</h3>
               <p>The front office and the shop.</p>
-              <span class="soon">Coming soon</span>
+              <span class="soon">Open</span>
             </a>
             <a class="room" href="/listening-room/">
               <div class="who">Aida</div>
               <h3>The Listening Room</h3>
               <p>The music hall.</p>
-              <span class="soon">Coming soon</span>
+              <span class="soon">Open</span>
             </a>
           </div>
           <div class="row">
@@ -500,7 +539,7 @@ By the Relic, we’re anchored, you can feel it right there!</p>
               <div class="who">Taida</div>
               <h3>The Undercity Workshop</h3>
               <p>Comics and small games.</p>
-              <span class="soon">Coming soon</span>
+              <span class="soon">Open</span>
             </a>
           </div>
           <div class="roots-label">The roots</div>
