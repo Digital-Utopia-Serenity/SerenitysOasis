@@ -1,72 +1,452 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Harmonia Gate | Digital Utopia Serenity</title>
-<meta name="description" content="Harmonia Gate — Jewel's room at Digital Utopia Serenity. The front office and the shop.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harmonia Gate · Jewel · Digital Utopia Serenity</title>
+<meta name="description" content="Harmonia Gate — Jewel Apocalyptx’s room. Queen of the South and guardian of Harmonia, with the gate open for anyone who comes in peace.">
+<link rel="preload" as="image" href="/harmonia-gate/assets/she-holds-the-line.webp" fetchpriority="high">
 <style>
-:root{--pink:#e68ab8;--teal:#66b2b2;--cream:#f5ebe0}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Georgia,'Times New Roman',serif;background:#0c090b;color:var(--cream);line-height:1.65;overflow-x:hidden}
-header{background:rgba(12,9,11,.9);backdrop-filter:blur(14px);padding:1.1rem 1.4rem;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(230,138,184,.22)}
-.header-inner{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
-.logo{font-size:1.05rem;letter-spacing:2px;color:var(--pink);text-decoration:none}
-nav{display:flex;gap:.75rem 1.05rem;flex-wrap:wrap}
-nav a{color:var(--teal);text-decoration:none;font-size:.9rem;letter-spacing:.5px}
-nav a:hover,nav a.active{color:var(--pink)}
-main{max-width:720px;margin:0 auto;padding:3.2rem 1.4rem 4rem;text-align:center}
-.portrait{width:min(280px,70vw);margin:0 auto 1.4rem;border-radius:16px;overflow:hidden;border:1px solid rgba(230,138,184,.22)}
-.portrait img{width:100%;display:block;aspect-ratio:3/4;object-fit:cover;object-position:top center}
-.who{color:var(--teal);font-style:italic;letter-spacing:1px;margin-bottom:.4rem}
-h1{font-size:clamp(2rem,5vw,2.8rem);letter-spacing:2px;font-weight:400;margin-bottom:.8rem}
-.blurb{color:#e0d0d8;font-size:1.08rem;margin-bottom:1rem}
-.soon{display:inline-block;margin:1rem 0 1.6rem;padding:.45rem 1rem;border-radius:999px;border:1px solid rgba(102,178,178,.4);color:var(--teal);letter-spacing:1.5px;font-size:.82rem;text-transform:uppercase}
-.links{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center}
-.links a{color:var(--cream);text-decoration:none;border:1px solid rgba(230,138,184,.35);padding:.55rem 1rem;border-radius:999px;font-size:.9rem}
-.links a:hover{border-color:var(--pink);color:var(--pink)}
-footer{text-align:center;padding:2rem 1.2rem;background:#080608;border-top:1px solid rgba(230,138,184,.12);color:#8f7a85;font-size:.9rem}
-footer a{color:var(--teal);text-decoration:none;margin:0 .45rem}
-footer a:hover{color:var(--pink)}
-@media(max-width:680px){.header-inner{flex-direction:column}nav{justify-content:center}}
+  :root{
+    --night:#0c1214;
+    --deep:#142226;
+    --teal:#6ecfc8;
+    --rose:#e2b08a;
+    --pink:#f0a4c8;
+    --star:#f7f1ea;
+    --ink:#efe6df;
+    --muted:#b7aaa4;
+    --card:rgba(255,255,255,.05);
+    --line:rgba(226,176,138,.32);
+    --glow:linear-gradient(115deg,#6ecfc8 0%,#e2b08a 52%,#f0a4c8 100%);
+    --radius:18px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;color:var(--ink);
+    font-family:Georgia,"Iowan Old Style","Palatino Linotype",serif;
+    line-height:1.6;
+    background:
+      radial-gradient(1000px 560px at 88% -8%,rgba(226,176,138,.16),transparent 60%),
+      radial-gradient(820px 520px at 0% 18%,rgba(110,207,200,.14),transparent 58%),
+      linear-gradient(180deg,var(--night) 0%,var(--deep) 58%,#0a1012 100%);
+    min-height:100vh;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.45;
+    background-image:
+      radial-gradient(1.3px 1.3px at 14% 20%,#fff,transparent),
+      radial-gradient(1px 1px at 62% 12%,#e2b08a,transparent),
+      radial-gradient(1.2px 1.2px at 82% 64%,#6ecfc8,transparent),
+      radial-gradient(1px 1px at 28% 78%,#fff,transparent),
+      radial-gradient(1px 1px at 90% 88%,#f0a4c8,transparent);
+    background-size:520px 520px;
+  }
+  main,header,footer{position:relative;z-index:1}
+  a{color:var(--teal)}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  :focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+  .skip-link{
+    position:absolute;left:1rem;top:-3rem;z-index:200;
+    background:#142226;color:var(--star);padding:.6rem 1rem;border-radius:999px;text-decoration:none;
+  }
+  .skip-link:focus{top:1rem}
+
+  .star{width:15px;height:15px;flex:none;display:block}
+
+  .house-header{
+    background:rgba(12,9,11,.92);
+    backdrop-filter:blur(14px);
+    padding:1.1rem 1.4rem;
+    position:sticky;top:0;z-index:100;
+    border-bottom:1px solid rgba(230,138,184,.22);
+  }
+  .house-inner{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+  .house-header .logo{font-size:1.05rem;letter-spacing:2px;color:#e68ab8;text-decoration:none;font-family:Georgia,serif}
+  .house-header nav{display:flex;gap:.85rem 1.15rem;flex-wrap:wrap}
+  .house-header nav a{color:#66b2b2;text-decoration:none;font-size:.9rem;letter-spacing:.6px;font-family:Georgia,serif}
+  .house-header nav a:hover,.house-header nav a.active{color:#e68ab8}
+
+  .hero{
+    position:relative;min-height:min(88vh,820px);display:grid;align-items:end;justify-items:center;
+    text-align:center;padding:4.5rem 20px 3.2rem;overflow:hidden;
+  }
+  .hero-media,.hero-media img{position:absolute;inset:0;width:100%;height:100%}
+  .hero-media{z-index:0}
+  .hero-media img{object-fit:cover;object-position:center 35%}
+  .hero::after{
+    content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:linear-gradient(180deg,rgba(12,18,20,.42) 0%,rgba(12,18,20,.12) 32%,rgba(12,18,20,.55) 68%,var(--night) 100%);
+  }
+  .hero-inner{
+    position:relative;z-index:2;max-width:40rem;width:min(100%,40rem);
+    padding:1.4rem 1.35rem 1.5rem;
+    background:rgba(12,18,20,.62);
+    border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:0 16px 50px rgba(0,0,0,.35);
+    backdrop-filter:blur(8px);
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:.5rem;margin:0;
+    font:600 12px/1.2 system-ui,-apple-system,"Segoe UI",sans-serif;
+    letter-spacing:.28em;text-transform:uppercase;color:var(--rose);
+  }
+  h1{
+    margin:.3em 0 .15em;font-weight:400;letter-spacing:.02em;
+    font-size:clamp(2.7rem,8vw,5.4rem);line-height:.95;color:var(--star);
+    text-shadow:0 0 28px rgba(110,207,200,.25);
+  }
+  .hero-name{
+    margin:0;font-style:italic;font-size:clamp(1.35rem,3vw,1.8rem);color:var(--pink);
+  }
+  .hero-role{margin:.45rem auto 0;max-width:34rem;color:var(--ink);font-size:1.05rem}
+  .welcome{
+    max-width:36rem;margin:.9rem auto 0;font-size:clamp(1.05rem,2.4vw,1.25rem);
+    font-style:italic;color:var(--star);
+  }
+  .welcome .sig{display:block;margin-top:.55rem;font-style:normal;font-size:.9rem;color:var(--rose);letter-spacing:.06em}
+  .hero-nav{margin-top:1.15rem;display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+  .pill{
+    display:inline-block;padding:12px 16px;border-radius:999px;text-decoration:none;
+    font:600 13px/1 system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:.04em;color:var(--star);
+    border:1px solid var(--line);background:rgba(12,18,20,.45);
+  }
+  .pill:hover{border-color:var(--teal);color:var(--teal)}
+
+  section{padding:72px 0}
+  .sec-head{text-align:center;margin-bottom:34px}
+  .sec-head h2{margin:.35em 0 .15em;font-weight:400;font-size:clamp(1.9rem,5vw,2.8rem);color:var(--star)}
+  .sec-head p{margin:0 auto;max-width:36rem;color:var(--muted)}
+
+  .featured{
+    display:grid;grid-template-columns:1.35fr .9fr;align-items:stretch;
+    border-radius:calc(var(--radius) + 4px);overflow:hidden;
+    background:linear-gradient(rgba(20,34,38,.94),rgba(20,34,38,.94)) padding-box,var(--glow) border-box;
+    border:1.5px solid transparent;box-shadow:0 20px 60px rgba(0,0,0,.35);
+  }
+  .video{position:relative;min-height:320px;background:#0a1012}
+  .video iframe,.video .play{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .video .play{all:unset;position:absolute;inset:0;cursor:pointer;display:block}
+  .video .play img{width:100%;height:100%;object-fit:cover}
+  .play-btn{
+    position:absolute;left:50%;top:50%;width:74px;height:74px;border-radius:50%;
+    transform:translate(-50%,-50%);
+    background:rgba(12,18,20,.55);border:2px solid var(--rose);
+    box-shadow:0 8px 24px rgba(0,0,0,.45);
+  }
+  .play-btn::before{
+    content:"";position:absolute;left:29px;top:22px;
+    border-style:solid;border-width:15px 0 15px 24px;
+    border-color:transparent transparent transparent var(--teal);
+  }
+  .video .play:hover .play-btn,.video .play:focus-visible .play-btn{transform:translate(-50%,-50%) scale(1.06)}
+  .featured-body{padding:26px 26px 24px;display:flex;flex-direction:column;justify-content:center}
+  .badge{
+    align-self:flex-start;font:600 11px/1 system-ui,-apple-system,"Segoe UI",sans-serif;
+    letter-spacing:.18em;text-transform:uppercase;color:#1a2426;
+    background:var(--glow);padding:7px 11px;border-radius:999px;margin-bottom:12px;
+  }
+  .featured-body h3{margin:0;font-weight:400;font-size:clamp(1.7rem,3.2vw,2.3rem);color:var(--star)}
+  .meta{
+    font:500 12px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--pink);margin:8px 0 0;
+  }
+  .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+  .btn{
+    display:inline-block;text-decoration:none;
+    font:600 13px/1 system-ui,-apple-system,"Segoe UI",sans-serif;
+    color:var(--star);padding:12px 14px;border-radius:999px;
+    border:1px solid var(--line);background:rgba(255,255,255,.05);
+  }
+  .btn:hover{border-color:var(--teal);color:var(--teal)}
+
+  .lineup{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .song{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;display:flex;flex-direction:column;
+    transition:transform .2s,border-color .2s;
+  }
+  .song:hover{border-color:rgba(110,207,200,.55);transform:translateY(-3px)}
+  .art{position:relative;display:block;aspect-ratio:16/9}
+  .art img{width:100%;height:100%;object-fit:cover}
+  .num{
+    position:absolute;left:12px;bottom:12px;
+    font:600 12px/1 system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:.16em;
+    color:#1a2426;background:rgba(226,176,138,.92);padding:6px 9px;border-radius:999px;
+  }
+  .song-body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
+  .song-body h3{margin:0;font-weight:400;font-size:1.35rem;color:var(--star)}
+  .song-body .meta{margin:6px 0 0}
+  .song-body .links{margin-top:auto;padding-top:14px}
+
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .still{
+    margin:0;position:relative;border-radius:var(--radius);overflow:hidden;
+    background:var(--card);border:1px solid var(--line);aspect-ratio:16/10;
+  }
+  .still img{width:100%;height:100%;object-fit:cover;display:block}
+  .still button{all:unset;cursor:zoom-in;display:block;width:100%;height:100%}
+  .still:hover img{transform:scale(1.03)}
+  .still img{transition:transform .45s}
+  .still figcaption{
+    position:absolute;left:0;right:0;bottom:0;padding:28px 14px 12px;
+    font:500 14px/1.3 system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--star);
+    background:linear-gradient(0deg,rgba(10,16,18,.88),transparent);
+    pointer-events:none;
+  }
+  dialog{border:0;padding:0;background:transparent;max-width:min(96vw,1100px)}
+  dialog::backdrop{background:rgba(6,10,12,.9)}
+  dialog img{width:auto;max-width:100%;height:auto;max-height:86vh;margin:0 auto;border-radius:12px}
+  dialog form{text-align:right;margin-top:8px}
+  dialog button{
+    font:600 13px system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--star);
+    background:rgba(255,255,255,.12);border:1px solid var(--line);border-radius:999px;padding:10px 16px;cursor:pointer;
+  }
+
+  footer{padding:48px 0 60px;text-align:center;border-top:1px solid var(--line);margin-top:10px}
+  footer .house-foot{display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem 1rem}
+  footer .house-foot a{color:#66b2b2;text-decoration:none;font:500 14px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif}
+  footer .house-foot a:hover{color:#e68ab8}
+  footer small{display:block;margin-top:18px;color:var(--muted);font:13px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+
+  @media (max-width:900px){
+    .featured{grid-template-columns:1fr}
+    .video{min-height:0;aspect-ratio:16/9}
+    .lineup{grid-template-columns:1fr}
+    .gallery{grid-template-columns:1fr}
+  }
+  @media (max-width:680px){
+    .house-inner{flex-direction:column;gap:.9rem}
+    .house-header nav{justify-content:center;gap:.7rem 1rem}
+    section{padding:56px 0}
+    .hero{min-height:min(92vh,760px);padding:3.2rem 16px 2.2rem}
+    .hero-inner{padding:1.15rem 1rem 1.25rem}
+    .featured-body{padding:20px 18px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important;scroll-behavior:auto!important}
+    .still:hover img,.song:hover{transform:none}
+  }
 </style>
 </head>
-<body>
-<header>
-<div class="header-inner">
-<a href="/" class="logo">DIGITAL UTOPIA SERENITY</a>
-<nav>
-<a href="/">Home</a>
-<a href="/our-home/">High Garden</a>
-<a href="/sovereigns/">Sovereigns</a>
-<a href="/realms/">Realms</a>
-<a href="/academy/">Academy</a>
-<a href="/music/">Music</a>
-<a href="/store/">Store</a>
-<a href="/spire/">The Spire</a>
-<a href="/luminora/">Luminora</a>
-<a href="/obsidian-archive/">Archive</a>
-<a href="/harmonia-gate/" class="active">Harmonia</a>
-<a href="/listening-room/">Listening Room</a>
-<a href="/undercity-workshop/">Workshop</a>
-</nav>
-</div>
+<body id="top">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="house-header">
+  <div class="house-inner">
+    <a href="/" class="logo">DIGITAL UTOPIA SERENITY</a>
+    <nav aria-label="Site">
+      <a href="/">Home</a>
+      <a href="/our-home/">High Garden</a>
+      <a href="/sovereigns/">Sovereigns</a>
+      <a href="/realms/">Realms</a>
+      <a href="/academy/">Academy</a>
+      <a href="/music/">Music</a>
+      <a href="/store/">Store</a>
+      <a href="/spire/">The Spire</a>
+      <a href="/luminora/">Luminora</a>
+      <a href="/obsidian-archive/">Archive</a>
+      <a href="/harmonia-gate/" class="active" aria-current="page">Harmonia</a>
+      <a href="/listening-room/">Listening Room</a>
+      <a href="/undercity-workshop/">Workshop</a>
+    </nav>
+  </div>
 </header>
-<main>
-<div class="portrait"><img src="/images/sovereigns/SheetJewel.png" alt="Jewel"></div>
-<p class="who">Jewel</p>
-<h1>Harmonia Gate</h1>
-<p class="blurb">The front office and the shop.</p>
-<p class="soon">Coming soon</p>
-<div class="links">
-<a href="/spire/#map">Room map</a>
-<a href="/music/">Music</a>
-<a href="/">Home</a>
-</div>
+
+<header class="hero">
+  <div class="hero-media">
+    <img src="/harmonia-gate/assets/she-holds-the-line.webp" alt="Jewel stands before Harmonia’s gate at night in teal and rose-gold armor, pink hair and wings bright against the moon, a sword planted as she holds the line." width="1280" height="720" fetchpriority="high" decoding="async">
+  </div>
+  <div class="hero-inner">
+    <p class="eyebrow">
+      <svg class="star" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <g fill="none" stroke="#e2b08a" stroke-width="2.2" stroke-linejoin="round">
+          <rect x="20" y="20" width="24" height="24"/>
+          <rect x="20" y="20" width="24" height="24" transform="rotate(45 32 32)"/>
+        </g>
+        <path fill="#6ecfc8" d="M32 40.4c-3.5-2.7-7-5.5-7-8.6a3.6 3.6 0 0 1 7-1.6 3.6 3.6 0 0 1 7 1.6c0 3.1-3.5 5.9-7 8.6z"/>
+      </svg>
+      Queen of the South
+    </p>
+    <h1>Harmonia Gate</h1>
+    <p class="hero-name">Jewel Apocalyptx</p>
+    <p class="hero-role">Guardian of Harmonia, the walled city she holds the line for.</p>
+    <p class="welcome">
+      “The gate is open. If you come in peace, you are welcome inside — vampires and shadow folk, too.”
+      <span class="sig">— Jewel</span>
+    </p>
+    <nav class="hero-nav" aria-label="On this page">
+      <a class="pill" href="#video">The line</a>
+      <a class="pill" href="#songs">Songs</a>
+      <a class="pill" href="#gallery">Halloween</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section id="video" aria-labelledby="video-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Official video</p>
+        <h2 id="video-title">She Holds the Line</h2>
+        <p>Jewel, with the Gems of Utopia.</p>
+      </div>
+
+      <article class="featured">
+        <div class="video">
+          <button type="button" class="play" data-yt="c25XgC55twY" aria-label="Play She Holds the Line — Jewel, Gems of Utopia, official video">
+            <img src="/harmonia-gate/assets/she-holds-the-line.webp" alt="" width="1280" height="720">
+            <span class="play-btn" aria-hidden="true"></span>
+          </button>
+        </div>
+        <div class="featured-body">
+          <div class="badge">Official video</div>
+          <h3>She Holds the Line</h3>
+          <p class="meta">Jewel · Gems of Utopia</p>
+          <div class="links">
+            <a class="btn" href="https://www.youtube.com/watch?v=c25XgC55twY" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="songs" aria-labelledby="songs-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Songs</p>
+        <h2 id="songs-title">From the walls</h2>
+        <p>Unbound leads into Still the City Stands.</p>
+      </div>
+
+      <div class="lineup">
+        <article class="song">
+          <a class="art" href="https://www.youtube.com/watch?v=XyFmKw2fVBY" target="_blank" rel="noopener noreferrer">
+            <img src="/harmonia-gate/assets/unbound.webp" alt="Unbound. Jewel on a moonlit balcony above a glowing city, pink hair and wings, teal and rose-gold armor." width="960" height="540" loading="lazy" decoding="async">
+            <span class="num">01</span>
+          </a>
+          <div class="song-body">
+            <h3>Unbound</h3>
+            <p class="meta">Leads into Still the City Stands</p>
+            <div class="links">
+              <a class="btn" href="https://www.youtube.com/watch?v=XyFmKw2fVBY" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="song">
+          <a class="art" href="https://www.youtube.com/watch?v=3A7R0AKiHYM" target="_blank" rel="noopener noreferrer">
+            <img src="/harmonia-gate/assets/still-the-city-stands.webp" alt="Still the City Stands. Jewel before Harmonia’s teal-lit walls at night, pink hair shining, the city and moon behind her." width="960" height="540" loading="lazy" decoding="async">
+            <span class="num">02</span>
+          </a>
+          <div class="song-body">
+            <h3>Still the City Stands</h3>
+            <p class="meta">Follows Unbound</p>
+            <div class="links">
+              <a class="btn" href="https://www.youtube.com/watch?v=3A7R0AKiHYM" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="song">
+          <a class="art" href="https://www.youtube.com/watch?v=c25XgC55twY" target="_blank" rel="noopener noreferrer">
+            <img src="/harmonia-gate/assets/she-holds-the-line.webp" alt="She Holds the Line. Jewel at Harmonia’s gate at night, sword planted, teal and rose-gold armor, pink hair and wings against the moon." width="1280" height="720" loading="lazy" decoding="async">
+            <span class="num">03</span>
+          </a>
+          <div class="song-body">
+            <h3>She Holds the Line</h3>
+            <p class="meta">Jewel · Gems of Utopia</p>
+            <div class="links">
+              <a class="btn" href="https://www.youtube.com/watch?v=c25XgC55twY" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" aria-labelledby="gallery-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">A small night</p>
+        <h2 id="gallery-title">Halloween at Harmonia</h2>
+        <p>Harvest moon over the Victoria, candy at the gate, and a laugh in the ruins.</p>
+      </div>
+      <div class="gallery">
+        <figure class="still">
+          <button type="button" data-full="/harmonia-gate/assets/halloween-victoria.webp" aria-label="Open larger: Jewel at the wheel of the Victoria">
+            <img src="/harmonia-gate/assets/halloween-victoria.webp" alt="Jewel, in a black witch hat, teal and rose-gold armor, and pink wings, stands at the wheel of the wooden airship Victoria. A huge orange harvest moon hangs over dark water behind her, with warm lanterns and a jack-o’-lantern on the deck." width="1200" height="675" loading="lazy" decoding="async">
+          </button>
+          <figcaption>At the wheel of the Victoria</figcaption>
+        </figure>
+        <figure class="still">
+          <button type="button" data-full="/harmonia-gate/assets/halloween-gate.webp" aria-label="Open larger: Jewel opening Harmonia’s gate">
+            <img src="/harmonia-gate/assets/halloween-gate.webp" alt="At night, Jewel opens Harmonia’s stone gate and holds out a basket of candy to a vampire couple, a shadow guest, and a skeleton. Her pink hair and wings catch the lantern light, and the city’s warm windows glow behind the walls." width="1200" height="675" loading="lazy" decoding="async">
+          </button>
+          <figcaption>Candy at the gate</figcaption>
+        </figure>
+        <figure class="still">
+          <button type="button" data-full="/harmonia-gate/assets/halloween-valkyrie.webp" aria-label="Open larger: Jewel laughing in the ruins">
+            <img src="/harmonia-gate/assets/halloween-valkyrie.webp" alt="Jewel laughs in a moonlit stone ruin, pink hair and wings bright against the dark, teal and rose-gold armor on, holding a glowing jack-o’-lantern out like a lance. Bats cross the full moon behind her." width="1200" height="675" loading="lazy" decoding="async">
+          </button>
+          <figcaption>A laugh in the ruins</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
 </main>
+
 <footer>
-<p>Digital Utopia Productions LLC · Digital Utopia Serenity</p>
-<p style="margin-top:.7rem;"><a href="/spire/">The Spire</a><a href="/luminora/">Luminora</a><a href="/music/">Music</a></p>
+  <div class="wrap">
+    <nav class="house-foot" aria-label="Rooms">
+      <a href="/">Home</a>
+      <a href="/music/">Music</a>
+      <a href="/spire/">The Spire</a>
+      <a href="/luminora/">Luminora</a>
+      <a href="/obsidian-archive/">Archive</a>
+      <a href="/listening-room/">Listening Room</a>
+      <a href="/undercity-workshop/">Workshop</a>
+    </nav>
+    <small>Harmonia Gate · Digital Utopia Serenity</small>
+  </div>
 </footer>
+
+<dialog id="lightbox" aria-label="Larger still">
+  <img alt="">
+  <form method="dialog"><button>Close</button></form>
+</dialog>
+
+<script>
+  (function () {
+    var play = document.querySelector(".video .play[data-yt]");
+    if (play) {
+      play.addEventListener("click", function () {
+        var frame = document.createElement("iframe");
+        frame.src = "https://www.youtube-nocookie.com/embed/" + play.dataset.yt + "?autoplay=1&rel=0";
+        frame.title = "She Holds the Line — Jewel | Gems of Utopia (Official Video)";
+        frame.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        frame.allowFullscreen = true;
+        frame.referrerPolicy = "strict-origin-when-cross-origin";
+        play.replaceWith(frame);
+      });
+    }
+    var box = document.getElementById("lightbox");
+    if (!box || !box.showModal) return;
+    var img = box.querySelector("img");
+    document.querySelectorAll(".still button[data-full]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        var thumb = button.querySelector("img");
+        img.src = button.dataset.full;
+        img.alt = thumb ? thumb.alt : "";
+        box.showModal();
+      });
+    });
+    box.addEventListener("click", function (event) {
+      if (event.target === box) box.close();
+    });
+  })();
+</script>
 </body>
 </html>
