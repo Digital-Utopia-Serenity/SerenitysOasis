@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Luminora Stage · Nova · Digital Utopia Serenity</title>
-  <meta name="description" content="Luminora Stage: the public stage of Nova, Queen of East Luminora, the Land of Sweets.">
+  <meta name="description" content="Luminora Stage: Nova, the Dreamweaver, fairy princess of Luminora, the candy-sky kingdom.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -317,11 +317,18 @@
     .song-featured .song-body { padding: clamp(1.5rem, 4vw, 2.75rem); justify-content: center; gap: 1.1rem; }
     .song-featured .song-title {
       font-size: clamp(2.4rem, 5.5vw, 3.6rem); font-weight: 700;
+      background: none; background-clip: border-box; -webkit-background-clip: border-box;
+      color: var(--color-text); -webkit-text-fill-color: var(--color-text);
       text-shadow: 0 0 18px rgba(255,159,216,.45);
     }
     .song-featured .song-desc { margin: 0; color: var(--color-text-muted); max-width: 30rem; }
     .song-featured .btn { padding: .7rem 1.25rem; font-size: .95rem; }
     .song-featured .song-actions { margin-top: .25rem; }
+    /* Featured video reads as one block: player, then title and links. */
+    #video .song-featured { grid-template-columns: 1fr; }
+    #video .song-featured .song-cover { aspect-ratio: 16 / 9; min-height: 0; height: auto; }
+    #video .song-featured .video-frame { height: 100%; min-height: 0; }
+    #video .song-featured .song-body { padding: 1.35rem 1.5rem 1.5rem; }
 
     @media (max-width: 900px) {
       .songs-grid { grid-template-columns: repeat(2, 1fr); }
@@ -361,6 +368,20 @@
     .still--4 { background: linear-gradient(150deg, #8ff3ff 0%, #9fc8ff 40%, #7a63d9 100%); }
     .still--5 { background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.7) 0 6%, transparent 25%), linear-gradient(200deg, #c9a8ff 0%, #ff9fd8 60%, #ffcfa8 100%); }
     .still--6 { background: radial-gradient(circle at 50% 110%, #8ff3ff 0 10%, transparent 45%), linear-gradient(180deg, #0f0a2a 0%, #2b1a6b 100%); }
+    .stills-grid.halloween-grid { max-width: 1040px; }
+    .stills-grid.halloween-grid .still { aspect-ratio: 16 / 9; }
+    @media (max-width: 760px) {
+      .stills-grid.halloween-grid { grid-template-columns: 1fr; }
+      .stills-grid.halloween-grid .still { aspect-ratio: 16 / 9; }
+    }
+
+    .realm-intro {
+      max-width: 46rem; margin-inline: auto; text-align: center;
+      padding: clamp(1.6rem, 4vw, 2.6rem);
+    }
+    .realm-intro h2 { margin-bottom: .85rem; }
+    .realm-intro p:not(.eyebrow) { margin: 0 0 .9rem; color: var(--color-text-muted); }
+    .realm-intro p:last-child { margin-bottom: 0; }
 
     /* ---------- Snug Bug corner ---------- */
     .snug {
@@ -557,11 +578,56 @@
         <img src="/images/realms/sheetLuminora.png" alt="Luminora — Land of Sweets" fetchpriority="high">
       </picture>
       <div class="hero-inner">
-        <p class="eyebrow">Queen of East Luminora</p>
+        <p class="eyebrow">East · The Dreamweaver</p>
         <h1 id="hero-title">Luminora Stage</h1>
         <p class="hero-name">Nova</p>
         <p class="hero-tagline">I used to watch the world from afar. Now I dance in the center of it.</p>
         <p class="hero-location">Luminora · Land of Sweets</p>
+      </div>
+    </section>
+
+    <!-- ========== REALM ========== -->
+    <section id="realm" aria-labelledby="realm-title">
+      <div class="wrap">
+        <article class="realm-intro card">
+          <p class="eyebrow">The candy-sky kingdom</p>
+          <h2 id="realm-title">Luminora</h2>
+          <p>Luminora is the candy-sky kingdom of the East, ruled by Queen Clara, where the clouds keep a little sugar and the streets glow violet, sapphire, and soft pastel.</p>
+          <p>Nova is its fairy princess, the Dreamweaver: black hair tipped with blue, a violet bow, sapphire eyes, and clear iridescent wings.</p>
+          <p>When someone cannot sleep, she stitches a gentle dream and lets it drift down through the sweet dark. The stage is open, and the kingdom is glad you came.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========== FEATURED VIDEO ========== -->
+    <section id="video" aria-labelledby="video-heading">
+      <div class="wrap">
+        <article class="song-featured card" aria-labelledby="video-heading">
+          <span class="song-badge song-badge--pink">Official video</span>
+          <div class="song-cover">
+            <div class="video-frame">
+              <iframe src="https://www.youtube-nocookie.com/embed/TJCi1MEJuy8" title="Melt the Candy Sky — Nova (Official Video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+          </div>
+          <div class="song-body">
+            <div>
+              <h2 class="song-title" id="video-heading">Melt the Candy Sky</h2>
+              <p class="song-meta">Nova · Official Video</p>
+            </div>
+            <p class="song-desc">Official Video.</p>
+            <div class="song-actions">
+              <a class="btn btn--youtube" href="https://www.youtube.com/watch?v=TJCi1MEJuy8" target="_blank" rel="noopener noreferrer">Official video
+                <svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M5 3.5v9l7.5-4.5z"/></svg>
+                <span class="visually-hidden">(Melt the Candy Sky — Nova (Official Video), opens in a new tab)</span></a>
+              <a class="btn btn--youtube" href="https://www.youtube.com/watch?v=HG7JqR9nvRg" target="_blank" rel="noopener noreferrer">YouTube
+                <svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M5 3.5v9l7.5-4.5z"/></svg>
+                <span class="visually-hidden">(Melt the Candy Sky video, opens in a new tab)</span></a>
+              <a class="btn btn--suno" href="https://suno.com/song/7274416b-ab7b-49c5-8d2e-ada9acaeeefa" target="_blank" rel="noopener noreferrer">Suno
+                <svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h7v7M13 3 4 12"/></svg>
+                <span class="visually-hidden">(Melt the Candy Sky, opens in a new tab)</span></a>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -572,33 +638,6 @@
           <p class="eyebrow">Now playing</p>
           <h2 id="songs-title">Released Songs</h2>
         </div>
-
-        <article class="song-featured card" aria-labelledby="song-melt">
-          <span class="song-badge song-badge--pink">Official video</span>
-          <div class="song-cover">
-            <div class="video-frame">
-              <iframe src="https://www.youtube-nocookie.com/embed/TJCi1MEJuy8" title="Melt the Candy Sky official video — Nova" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-            </div>
-          </div>
-          <div class="song-body">
-            <div>
-              <h3 class="song-title" id="song-melt">Melt the Candy Sky</h3>
-              <p class="song-meta">Nova</p>
-            </div>
-            <p class="song-desc">Official video.</p>
-            <div class="song-actions">
-              <a class="btn btn--youtube" href="https://www.youtube.com/watch?v=TJCi1MEJuy8" target="_blank" rel="noopener noreferrer">Official video
-                <svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M5 3.5v9l7.5-4.5z"/></svg>
-                <span class="visually-hidden">(Melt the Candy Sky official video, opens in a new tab)</span></a>
-              <a class="btn btn--youtube" href="https://www.youtube.com/watch?v=HG7JqR9nvRg" target="_blank" rel="noopener noreferrer">YouTube
-                <svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M5 3.5v9l7.5-4.5z"/></svg>
-                <span class="visually-hidden">(Melt the Candy Sky video, opens in a new tab)</span></a>
-              <a class="btn btn--suno" href="https://suno.com/song/7274416b-ab7b-49c5-8d2e-ada9acaeeefa" target="_blank" rel="noopener noreferrer">Suno
-                <svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h7v7M13 3 4 12"/></svg>
-                <span class="visually-hidden">(Melt the Candy Sky, opens in a new tab)</span></a>
-            </div>
-          </div>
-        </article>
 
         <div class="songs-grid">
           <article class="song-card card" aria-labelledby="song-sweets">
@@ -622,6 +661,29 @@
             </div>
           </article>
 
+          <article class="song-card card" aria-labelledby="song-melt">
+            <div class="song-cover">
+              <img src="https://i.ytimg.com/vi/TJCi1MEJuy8/hqdefault.jpg" alt="Melt the Candy Sky — Nova (Official Video)" loading="lazy" width="480" height="360">
+            </div>
+            <div class="song-body">
+              <div>
+                <h3 class="song-title" id="song-melt">Melt the Candy Sky</h3>
+                <p class="song-meta">Nova</p>
+              </div>
+              <div class="song-actions">
+                <a class="btn btn--youtube" href="https://www.youtube.com/watch?v=TJCi1MEJuy8" target="_blank" rel="noopener noreferrer">Official video
+                  <svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M5 3.5v9l7.5-4.5z"/></svg>
+                  <span class="visually-hidden">(Melt the Candy Sky — Nova (Official Video), opens in a new tab)</span></a>
+                <a class="btn btn--youtube" href="https://www.youtube.com/watch?v=HG7JqR9nvRg" target="_blank" rel="noopener noreferrer">YouTube
+                  <svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M5 3.5v9l7.5-4.5z"/></svg>
+                  <span class="visually-hidden">(Melt the Candy Sky video, opens in a new tab)</span></a>
+                <a class="btn btn--suno" href="https://suno.com/song/7274416b-ab7b-49c5-8d2e-ada9acaeeefa" target="_blank" rel="noopener noreferrer">Suno
+                  <svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h7v7M13 3 4 12"/></svg>
+                  <span class="visually-hidden">(Melt the Candy Sky, opens in a new tab)</span></a>
+              </div>
+            </div>
+          </article>
+
           <article class="song-card card" aria-labelledby="song-sky">
             <span class="song-badge">Newest</span>
             <div class="song-cover">
@@ -630,7 +692,7 @@
             <div class="song-body">
               <div>
                 <h3 class="song-title" id="song-sky">Sky's Too Big</h3>
-                <p class="song-meta">Nova · Newest release</p>
+                <p class="song-meta">Nova · Newest</p>
               </div>
               <div class="song-actions">
                 <a class="btn btn--suno" href="https://suno.com/song/3a5a01aa-8148-47ee-a80d-a50d6c3e1a4a" target="_blank" rel="noopener noreferrer">Suno
@@ -654,6 +716,23 @@
               </div>
             </div>
           </article>
+
+          <article class="song-card card" aria-labelledby="song-static">
+            <div class="song-cover">
+              <img src="https://i.ytimg.com/vi/uIT0LPeiYRs/hqdefault.jpg" alt="Forever in the Static" loading="lazy" width="480" height="360">
+            </div>
+            <div class="song-body">
+              <div>
+                <h3 class="song-title" id="song-static">Forever in the Static</h3>
+                <p class="song-meta">Nova</p>
+              </div>
+              <div class="song-actions">
+                <a class="btn btn--youtube" href="https://www.youtube.com/watch?v=uIT0LPeiYRs" target="_blank" rel="noopener noreferrer">Watch on YouTube
+                  <svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M5 3.5v9l7.5-4.5z"/></svg>
+                  <span class="visually-hidden">(Forever in the Static, opens in a new tab)</span></a>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -662,14 +741,23 @@
     <section id="stills" aria-labelledby="stills-title">
       <div class="wrap">
         <div class="section-head">
-          <p class="eyebrow">Gallery</p>
-          <h2 id="stills-title">Stills</h2>
+          <p class="eyebrow">Halloween</p>
+          <h2 id="stills-title">A night in Luminora</h2>
+          <p class="section-lede">Three stills from the candy kingdom in its sweet season.</p>
         </div>
-        <div class="stills-grid">
-          <figure class="still"><img src="/images/realms/sheetLuminora.png" alt="Luminora — Land of Sweets" loading="lazy"><figcaption>Luminora</figcaption></figure>
-          <figure class="still"><img src="/images/sovereigns/SheetNova.png" alt="Nova" loading="lazy"><figcaption>Nova</figcaption></figure>
-          <figure class="still"><img src="/images/high-garden/sheetroomnova.png" alt="Nova’s room in High Garden" loading="lazy"><figcaption>Nova’s room</figcaption></figure>
-          <figure class="still"><img src="/images/music/luminoratonighttemplate.jpg" alt="Luminora Tonight" loading="lazy"><figcaption>Luminora Tonight</figcaption></figure>
+        <div class="stills-grid halloween-grid">
+          <figure class="still">
+            <img src="/luminora/images/candy-storm.jpg" alt="Candy storm. Nova in dark licorice armor on a candy-cane ridge, jack-o'-lanterns swirling in a purple storm sky, and the Sovereign Star, an eight-pointed star with a heart center, carved sapphire into a pumpkin." width="1280" height="720" loading="lazy">
+            <figcaption>Candy storm<small>On the candy-cane ridge</small></figcaption>
+          </figure>
+          <figure class="still">
+            <img src="/luminora/images/candy-town.jpg" alt="Candy town. Nova leads a friendly trick-or-treat walk, a vampire couple, a shadow guest, and a skeleton, through a melted gingerbread town under a harvest moon, carrying a Star lantern." width="1280" height="720" loading="lazy">
+            <figcaption>Candy town<small>A friendly trick-or-treat walk</small></figcaption>
+          </figure>
+          <figure class="still">
+            <img src="/luminora/images/candy-corn-tower.jpg" alt="Candy-corn tower. Nova in a witch hat on a candy-corn tower, stitching dream threads into little bats and ghosts, with the Star in stained sugar glass." width="1280" height="720" loading="lazy">
+            <figcaption>Candy-corn tower<small>Dream threads in the sugar glass</small></figcaption>
+          </figure>
         </div>
       </div>
     </section>
