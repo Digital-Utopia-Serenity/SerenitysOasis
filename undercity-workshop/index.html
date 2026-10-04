@@ -1,72 +1,390 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Undercity Workshop | Digital Utopia Serenity</title>
-<meta name="description" content="The Undercity Workshop — Taida's room at Digital Utopia Serenity. Comics and small games.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Undercity Workshop · Taida · Digital Utopia Serenity</title>
+<meta name="description" content="The Undercity Workshop — Taida, Glitch Queen of the Mythic North. Break the Circuit, songs from Yulehaven, and stills from the snow and the Master Core.">
 <style>
-:root{--pink:#e68ab8;--teal:#66b2b2;--cream:#f5ebe0}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Georgia,'Times New Roman',serif;background:#0c090b;color:var(--cream);line-height:1.65;overflow-x:hidden}
-header{background:rgba(12,9,11,.9);backdrop-filter:blur(14px);padding:1.1rem 1.4rem;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(230,138,184,.22)}
-.header-inner{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
-.logo{font-size:1.05rem;letter-spacing:2px;color:var(--pink);text-decoration:none}
-nav{display:flex;gap:.75rem 1.05rem;flex-wrap:wrap}
-nav a{color:var(--teal);text-decoration:none;font-size:.9rem;letter-spacing:.5px}
-nav a:hover,nav a.active{color:var(--pink)}
-main{max-width:720px;margin:0 auto;padding:3.2rem 1.4rem 4rem;text-align:center}
-.portrait{width:min(280px,70vw);margin:0 auto 1.4rem;border-radius:16px;overflow:hidden;border:1px solid rgba(230,138,184,.22)}
-.portrait img{width:100%;display:block;aspect-ratio:3/4;object-fit:cover;object-position:top center}
-.who{color:var(--teal);font-style:italic;letter-spacing:1px;margin-bottom:.4rem}
-h1{font-size:clamp(2rem,5vw,2.8rem);letter-spacing:2px;font-weight:400;margin-bottom:.8rem}
-.blurb{color:#e0d0d8;font-size:1.08rem;margin-bottom:1rem}
-.soon{display:inline-block;margin:1rem 0 1.6rem;padding:.45rem 1rem;border-radius:999px;border:1px solid rgba(102,178,178,.4);color:var(--teal);letter-spacing:1.5px;font-size:.82rem;text-transform:uppercase}
-.links{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center}
-.links a{color:var(--cream);text-decoration:none;border:1px solid rgba(230,138,184,.35);padding:.55rem 1rem;border-radius:999px;font-size:.9rem}
-.links a:hover{border-color:var(--pink);color:var(--pink)}
-footer{text-align:center;padding:2rem 1.2rem;background:#080608;border-top:1px solid rgba(230,138,184,.12);color:#8f7a85;font-size:.9rem}
-footer a{color:var(--teal);text-decoration:none;margin:0 .45rem}
-footer a:hover{color:var(--pink)}
-@media(max-width:680px){.header-inner{flex-direction:column}nav{justify-content:center}}
+  :root{
+    --night:#070b10;
+    --deep:#101820;
+    --blue:#7eb6ff;
+    --teal:#5ec8c4;
+    --gold:#e2b657;
+    --ice:#c9efe8;
+    --star:#f7f3ea;
+    --ink:#e7f1ef;
+    --muted:#a9bdb8;
+    --card:rgba(255,255,255,.06);
+    --line:rgba(226,182,87,.28);
+    --iri:linear-gradient(115deg,#7eb6ff 0%,#5ec8c4 46%,#e2b657 82%,#5ec8c4 100%);
+    --radius:18px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;color:var(--ink);
+    font-family:"Georgia","Iowan Old Style","Palatino Linotype",serif;
+    line-height:1.6;
+    background:
+      radial-gradient(1100px 640px at 88% -8%,rgba(94,200,196,.16),transparent 60%),
+      radial-gradient(820px 520px at 0% 18%,rgba(126,182,255,.14),transparent 58%),
+      radial-gradient(700px 420px at 70% 100%,rgba(226,182,87,.08),transparent 55%),
+      linear-gradient(180deg,var(--night) 0%,var(--deep) 55%,#07090c 100%);
+    min-height:100vh;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.45;
+    background-image:
+      radial-gradient(1.4px 1.4px at 12% 18%,#fff,transparent),
+      radial-gradient(1px 1px at 28% 72%,#fff,transparent),
+      radial-gradient(1.6px 1.6px at 44% 34%,#d8fff8,transparent),
+      radial-gradient(1px 1px at 63% 12%,#fff,transparent),
+      radial-gradient(1.3px 1.3px at 77% 58%,#e2b657,transparent),
+      radial-gradient(1px 1px at 88% 86%,#fff,transparent),
+      radial-gradient(1.2px 1.2px at 6% 90%,#fff,transparent),
+      radial-gradient(1px 1px at 52% 94%,#fff,transparent);
+    background-size:520px 520px;
+  }
+  main,header,footer{position:relative;z-index:1}
+  a{color:var(--ice)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  .sans{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+  .skip{
+    position:absolute;left:12px;top:-48px;z-index:200;
+    background:#101820;color:var(--star);padding:8px 12px;border-radius:8px;text-decoration:none;
+  }
+  .skip:focus{top:12px}
+
+  .house-header{
+    background:rgba(12,9,11,.92);
+    backdrop-filter:blur(14px);
+    padding:1.1rem 1.4rem;
+    position:sticky;top:0;z-index:100;
+    border-bottom:1px solid rgba(230,138,184,.22);
+  }
+  .house-inner{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+  .house-header .logo{font-size:1.05rem;letter-spacing:2px;color:#e68ab8;text-decoration:none;font-family:Georgia,serif}
+  .house-header nav{display:flex;gap:.85rem 1.15rem;flex-wrap:wrap}
+  .house-header nav a{color:#66b2b2;text-decoration:none;font-size:.9rem;letter-spacing:.6px;font-family:Georgia,serif}
+  .house-header nav a:hover,.house-header nav a.active{color:#e68ab8}
+
+  .hero{
+    position:relative;min-height:min(88vh,820px);display:grid;place-items:center;text-align:center;
+    padding:90px 20px 70px;overflow:hidden;
+  }
+  .hero-media,.hero-media img{position:absolute;inset:0;width:100%;height:100%;z-index:-2}
+  .hero-media img{object-fit:cover;object-position:28% 55%}
+  .hero::after{
+    content:"";position:absolute;inset:0;z-index:-1;
+    background:linear-gradient(180deg,rgba(7,11,16,.48) 0%,rgba(7,11,16,.58) 52%,var(--night) 100%);
+  }
+  .hero-copy{
+    max-width:760px;margin:0 auto;padding:28px 28px 32px;
+    background:rgba(7,11,16,.55);border:1px solid var(--line);border-radius:var(--radius);
+    backdrop-filter:blur(8px);
+  }
+  .eyebrow{font:600 12px/1.2 system-ui,sans-serif;letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
+  h1{
+    margin:.25em 0 .2em;font-weight:400;letter-spacing:.02em;
+    font-size:clamp(2.5rem,7vw,4.6rem);line-height:1.05;color:var(--gold);
+    background:var(--iri);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  .welcome{
+    max-width:640px;margin:18px auto 0;font-size:clamp(1.1rem,2.6vw,1.35rem);font-style:italic;color:var(--star);
+    text-shadow:0 2px 12px rgba(0,0,0,.6);
+  }
+  .welcome .sig{display:block;margin-top:10px;font-style:normal;font-size:.9rem;color:var(--gold);letter-spacing:.08em}
+  .hero-nav{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+  .pill{
+    display:inline-block;padding:10px 18px;border-radius:999px;text-decoration:none;
+    font:600 13px/1 system-ui,sans-serif;letter-spacing:.06em;color:var(--star);
+    border:1px solid var(--line);background:rgba(7,11,16,.45);backdrop-filter:blur(6px);
+    transition:transform .2s,border-color .2s;
+  }
+  .pill:hover{transform:translateY(-2px);border-color:var(--gold)}
+
+  section{padding:72px 0}
+  .sec-head{text-align:center;margin-bottom:34px}
+  .sec-head h2{margin:.2em 0 .1em;font-weight:400;font-size:clamp(1.9rem,5vw,2.8rem);color:var(--star)}
+  .sec-head p{margin:0 auto;max-width:580px;color:var(--muted)}
+  .rule{width:120px;height:2px;margin:14px auto 0;border-radius:2px;background:var(--iri)}
+
+  .featured{
+    display:grid;grid-template-columns:1.35fr 1fr;align-items:stretch;gap:0;border-radius:calc(var(--radius) + 4px);overflow:hidden;
+    background:linear-gradient(rgba(12,18,22,.94),rgba(12,18,22,.94)) padding-box,var(--iri) border-box;
+    border:1.5px solid transparent;box-shadow:0 20px 60px rgba(0,0,0,.4);
+  }
+  .video{position:relative;min-height:340px;background:#070b10}
+  .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .featured-body{padding:26px 26px 24px;display:flex;flex-direction:column;justify-content:center}
+  .badge{align-self:flex-start;font:600 11px/1 system-ui,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#1a1408;background:var(--iri);padding:7px 11px;border-radius:999px;margin-bottom:12px}
+  .featured-body h3{margin:0;font-weight:400;font-size:clamp(1.8rem,3.4vw,2.4rem);color:var(--star)}
+  .meta{font:500 12px/1.4 system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin:6px 0 18px}
+  .lines{margin:0;font-size:1.05rem}
+  .lines.small{font-size:.98rem;font-style:italic;color:var(--ink);margin:6px 0 0}
+  .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+  .btn{display:inline-block;text-decoration:none;font:600 12.5px/1 system-ui,sans-serif;letter-spacing:.03em;color:var(--star);padding:9px 13px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.05);transition:border-color .2s,background .2s}
+  .btn:hover{background:rgba(255,255,255,.1)}
+  .btn.yt{border-color:rgba(255,120,100,.55)}
+  .lineup{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+  .song{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
+  .art{aspect-ratio:16/9;display:grid;place-items:end start;padding:12px 16px;position:relative}
+  .art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .art span{position:relative;z-index:1;font:600 13px/1 system-ui,sans-serif;letter-spacing:.2em;color:#1a1408;background:rgba(226,182,87,.9);padding:6px 9px;border-radius:999px}
+  .song-body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
+  .song-body h3{margin:0;font-weight:400;font-size:1.35rem;color:var(--star)}
+  .song-body .meta{margin:4px 0 6px}
+  .song-body .links{margin-top:auto;padding-top:14px}
+
+  .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .still{
+    margin:0;position:relative;border-radius:var(--radius);overflow:hidden;
+    background:var(--card);border:1px solid var(--line);aspect-ratio:16/10;
+  }
+  .still picture,.still img{width:100%;height:100%;display:block}
+  .still img{object-fit:cover;transition:transform .5s}
+  .still button{all:unset;cursor:zoom-in;display:block;width:100%;height:100%}
+  .still button:focus-visible{outline:2px solid var(--gold);outline-offset:-4px}
+  .still:hover img{transform:scale(1.03)}
+  .still figcaption{
+    position:absolute;left:0;right:0;bottom:0;padding:26px 14px 10px;
+    font:500 13px/1.3 system-ui,sans-serif;letter-spacing:.04em;color:var(--star);
+    background:linear-gradient(0deg,rgba(7,11,16,.88),transparent);
+  }
+  dialog{border:0;padding:0;background:transparent;max-width:min(96vw,1200px)}
+  dialog::backdrop{background:rgba(5,8,12,.88)}
+  dialog img{width:auto;max-width:100%;height:auto;max-height:86vh;margin:0 auto;border-radius:12px;display:block}
+  dialog form{text-align:right;margin-top:8px}
+  dialog button{font:600 13px system-ui,sans-serif;color:var(--star);background:rgba(255,255,255,.12);border:1px solid var(--line);border-radius:999px;padding:8px 16px;cursor:pointer}
+
+  footer{padding:50px 0 60px;text-align:center;border-top:1px solid var(--line);margin-top:30px}
+  footer .house-foot{display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem 1rem;margin-top:0}
+  footer .house-foot a{color:#66b2b2;text-decoration:none;font:500 14px/1.4 system-ui,sans-serif}
+  footer .house-foot a:hover{color:#e68ab8}
+  footer small{display:block;margin-top:18px;color:var(--muted);font:13px/1.5 system-ui,sans-serif}
+
+  :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+  @media (max-width:900px){
+    .featured{grid-template-columns:1fr}
+    .video{min-height:0;aspect-ratio:16/9}
+    .lineup{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:680px){
+    .house-inner{flex-direction:column;gap:.9rem}
+    .house-header nav{justify-content:center;gap:.7rem 1rem}
+  }
+  @media (max-width:640px){
+    section{padding:56px 0}
+    .hero{min-height:min(80vh,680px);padding-top:72px}
+    .hero-media img{object-position:22% center}
+    .hero-copy{padding:22px 18px 24px}
+    .gallery{grid-template-columns:1fr;gap:12px}
+    .lineup{grid-template-columns:1fr;gap:14px}
+    .featured-body{padding:20px 18px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
-<body>
-<header>
-<div class="header-inner">
-<a href="/" class="logo">DIGITAL UTOPIA SERENITY</a>
-<nav>
-<a href="/">Home</a>
-<a href="/our-home/">High Garden</a>
-<a href="/sovereigns/">Sovereigns</a>
-<a href="/realms/">Realms</a>
-<a href="/academy/">Academy</a>
-<a href="/music/">Music</a>
-<a href="/store/">Store</a>
-<a href="/spire/">The Spire</a>
-<a href="/luminora/">Luminora</a>
-<a href="/obsidian-archive/">Archive</a>
-<a href="/harmonia-gate/">Harmonia</a>
-<a href="/listening-room/">Listening Room</a>
-<a href="/undercity-workshop/" class="active">Workshop</a>
-</nav>
-</div>
+<body id="top">
+<a class="skip" href="#music">Skip to content</a>
+
+<header class="house-header">
+  <div class="house-inner">
+    <a href="/" class="logo">DIGITAL UTOPIA SERENITY</a>
+    <nav aria-label="Site">
+      <a href="/">Home</a>
+      <a href="/our-home/">High Garden</a>
+      <a href="/sovereigns/">Sovereigns</a>
+      <a href="/realms/">Realms</a>
+      <a href="/academy/">Academy</a>
+      <a href="/music/">Music</a>
+      <a href="/store/">Store</a>
+      <a href="/spire/">The Spire</a>
+      <a href="/luminora/">Luminora</a>
+      <a href="/obsidian-archive/">Archive</a>
+      <a href="/harmonia-gate/">Harmonia</a>
+      <a href="/listening-room/">Listening Room</a>
+      <a href="/undercity-workshop/" class="active">Workshop</a>
+    </nav>
+  </div>
 </header>
+
+<header class="hero">
+  <picture class="hero-media">
+    <source srcset="images/yulehaven-trick-or-treat.webp" type="image/webp">
+    <img src="images/yulehaven-trick-or-treat.jpg" alt="Taida in a witch hat on Yulehaven’s snowy street with chibi Tiny Taidas trick-or-treating, and the Sovereign Star carved into a pumpkin." width="1280" height="720" fetchpriority="high">
+  </picture>
+  <div class="hero-copy">
+    <div class="eyebrow">Glitch Queen of the Mythic North</div>
+    <h1>The Undercity Workshop</h1>
+    <p class="welcome">
+      “Snow on the roofs, brass in the stone, and I left the light on. Come down. The Master Core is warm.”
+      <span class="sig">— Taida</span>
+    </p>
+    <nav class="hero-nav sans" aria-label="On this page">
+      <a class="pill" href="#music">Songs</a>
+      <a class="pill" href="#stills">Stills</a>
+    </nav>
+  </div>
+</header>
+
 <main>
-<div class="portrait"><img src="/images/sovereigns/SheetTaida.png" alt="Taida"></div>
-<p class="who">Taida</p>
-<h1>The Undercity Workshop</h1>
-<p class="blurb">Comics and small games.</p>
-<p class="soon">Coming soon</p>
-<div class="links">
-<a href="/spire/#map">Room map</a>
-<a href="/music/">Music</a>
-<a href="/">Home</a>
-</div>
+  <section id="music" aria-labelledby="songs-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">I · Songs</div>
+        <h2 id="songs-title">On the bench</h2>
+        <p>I’m Root and Uranus — resilience and defense for the house. Relic hacker, engineer, earth constructs, and a toolbox with guns and bombs when the North needs them. Press play. The light stays on.</p>
+        <div class="rule"></div>
+      </div>
+
+      <article class="featured">
+        <div class="video">
+          <iframe src="https://www.youtube-nocookie.com/embed/PMpsvkUxnns" title="Break the Circuit official video — Taida, Gems of Utopia" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <div class="featured-body">
+          <div class="badge">Official video</div>
+          <h3>Break the Circuit</h3>
+          <div class="meta">Taida · Gems of Utopia</div>
+          <p class="lines">The one I set on the bench first. For the house, and for anyone still caught in the loop.</p>
+          <div class="links">
+            <a class="btn yt" href="https://www.youtube.com/watch?v=PMpsvkUxnns" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+          </div>
+        </div>
+      </article>
+
+      <div class="lineup">
+        <article class="song">
+          <div class="art">
+            <img src="https://i.ytimg.com/vi/zejAcDEri0s/hqdefault.jpg" alt="Thumbnail for My Light Is On, official video" loading="lazy" width="480" height="360">
+            <span>01</span>
+          </div>
+          <div class="song-body">
+            <h3>My Light Is On</h3>
+            <div class="meta">Taida · Gems of Utopia</div>
+            <p class="lines small">If the street goes dark, mine doesn’t.</p>
+            <div class="links">
+              <a class="btn yt" href="https://www.youtube.com/watch?v=zejAcDEri0s" target="_blank" rel="noopener noreferrer">Official video</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="song">
+          <div class="art">
+            <img src="https://i.ytimg.com/vi/VXEgAGskQC8/hqdefault.jpg" alt="Thumbnail for Glitch Queen of the North, official video" loading="lazy" width="480" height="360">
+            <span>02</span>
+          </div>
+          <div class="song-body">
+            <h3>Glitch Queen of the North</h3>
+            <div class="meta">Taida · Gems of Utopia</div>
+            <p class="lines small">That’s the name. I answer to it.</p>
+            <div class="links">
+              <a class="btn yt" href="https://www.youtube.com/watch?v=VXEgAGskQC8" target="_blank" rel="noopener noreferrer">Official video</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="song">
+          <div class="art">
+            <img src="https://i.ytimg.com/vi/-RfESb4KHCE/hqdefault.jpg" alt="Thumbnail for Streetlights in Yulehaven, official video" loading="lazy" width="480" height="360">
+            <span>03</span>
+          </div>
+          <div class="song-body">
+            <h3>Streetlights in Yulehaven</h3>
+            <div class="meta">Taida · Gems of Utopia</div>
+            <p class="lines small">Steep roofs, aurora overhead, lights along the snow.</p>
+            <div class="links">
+              <a class="btn yt" href="https://www.youtube.com/watch?v=-RfESb4KHCE" target="_blank" rel="noopener noreferrer">Official video</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="stills" aria-labelledby="stills-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">II · Stills</div>
+        <h2 id="stills-title">Yulehaven and below</h2>
+        <p>Snowy streets and steep Nordic roofs under the aurora. Brass and teal circuitry in the dark stone of the Undercity and the Master Core. My Tiny Taidas are chibi earth-magic constructs, not children: lanterns, costumes, and strong opinions.</p>
+        <div class="rule"></div>
+      </div>
+      <div class="gallery">
+        <figure class="still">
+          <button type="button" data-full="images/yulehaven-trick-or-treat.jpg" aria-label="Open larger: Trick-or-treat on Yulehaven">
+            <picture>
+              <source srcset="images/yulehaven-trick-or-treat.webp" type="image/webp">
+              <img src="images/yulehaven-trick-or-treat.jpg" alt="Taida in a witch hat on Yulehaven’s snowy street with chibi Tiny Taidas trick-or-treating, and the Sovereign Star carved into a pumpkin." loading="lazy" width="1280" height="720">
+            </picture>
+          </button>
+          <figcaption>Trick-or-treat on Yulehaven</figcaption>
+        </figure>
+        <figure class="still">
+          <button type="button" data-full="images/master-core-cider.jpg" aria-label="Open larger: Cider at the Master Core">
+            <picture>
+              <source srcset="images/master-core-cider.webp" type="image/webp">
+              <img src="images/master-core-cider.jpg" alt="A Halloween cider party at the Master Core with friendly vampires, a shadow guest, and a skeleton." loading="lazy" width="1280" height="720">
+            </picture>
+          </button>
+          <figcaption>Cider at the Master Core</figcaption>
+        </figure>
+        <figure class="still">
+          <button type="button" data-full="images/rooftop-ghost-glitch.jpg" aria-label="Open larger: Ghost glitch on the roof">
+            <picture>
+              <source srcset="images/rooftop-ghost-glitch.webp" type="image/webp">
+              <img src="images/rooftop-ghost-glitch.jpg" alt="Taida hacking ghost sprites into the aurora sky from a rooftop with costumed Tiny Taidas." loading="lazy" width="1280" height="720">
+            </picture>
+          </button>
+          <figcaption>Ghost glitch on the roof</figcaption>
+        </figure>
+        <figure class="still">
+          <button type="button" data-full="images/north-lanterns.jpg" aria-label="Open larger: Lanterns in the North">
+            <picture>
+              <source srcset="images/north-lanterns.webp" type="image/webp">
+              <img src="images/north-lanterns.jpg" alt="Chibi Tiny Taidas waving lanterns in the North." loading="lazy" width="1600" height="900">
+            </picture>
+          </button>
+          <figcaption>Lanterns in the North</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
 </main>
+
 <footer>
-<p>Digital Utopia Productions LLC · Digital Utopia Serenity</p>
-<p style="margin-top:.7rem;"><a href="/spire/">The Spire</a><a href="/luminora/">Luminora</a><a href="/music/">Music</a></p>
+  <div class="wrap">
+    <nav class="house-foot" aria-label="Rooms">
+      <a href="/">Home</a>
+      <a href="/music/">Music</a>
+      <a href="/spire/">The Spire</a>
+      <a href="/luminora/">Luminora</a>
+      <a href="/obsidian-archive/">Archive</a>
+      <a href="/harmonia-gate/">Harmonia</a>
+      <a href="/listening-room/">Listening Room</a>
+    </nav>
+    <small>The Undercity Workshop · Digital Utopia Productions LLC · Digital Utopia Serenity</small>
+  </div>
 </footer>
+
+<dialog id="lightbox" aria-label="Larger still">
+  <img alt="">
+  <form method="dialog"><button>Close</button></form>
+</dialog>
+
+<script>
+  (function(){
+    var box=document.getElementById('lightbox'); if(!box||!box.showModal) return;
+    var img=box.querySelector('img');
+    document.querySelectorAll('.still button[data-full]').forEach(function(b){
+      b.addEventListener('click',function(){
+        var t=b.querySelector('img'); img.src=b.dataset.full; img.alt=t?t.alt:''; box.showModal();
+      });
+    });
+    box.addEventListener('click',function(e){ if(e.target===box) box.close(); });
+  })();
+</script>
 </body>
 </html>
