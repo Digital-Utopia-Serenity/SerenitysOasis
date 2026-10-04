@@ -203,6 +203,40 @@
 
         .card a:hover { color: var(--pink); }
 
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 1rem;
+        }
+
+        .vid {
+            display: block;
+            text-decoration: none;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(230, 138, 184, 0.16);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: border-color 0.25s ease, transform 0.25s ease;
+        }
+
+        .vid:hover { border-color: rgba(230, 138, 184, 0.45); transform: translateY(-3px); }
+
+        .vid img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; background: #111; }
+
+        .vid span {
+            display: block;
+            padding: 0.7rem 0.85rem 0;
+            color: var(--pink);
+            font-size: 0.95rem;
+        }
+
+        .vid small {
+            display: block;
+            padding: 0.15rem 0.85rem 0.85rem;
+            color: #cbb8c2;
+            font-size: 0.82rem;
+        }
+
         .roots {
             background: rgba(102, 178, 178, 0.05);
             border-top: 1px solid rgba(102, 178, 178, 0.18);
@@ -270,6 +304,12 @@
             <a href="/academy/">Academy</a>
             <a href="/music/">Music</a>
             <a href="/store/">Store</a>
+            <a href="/spire/">The Spire</a>
+            <a href="/luminora/">Luminora</a>
+            <a href="/obsidian-archive/">Archive</a>
+            <a href="/harmonia-gate/">Harmonia</a>
+            <a href="/listening-room/">Listening Room</a>
+            <a href="/undercity-workshop/">Workshop</a>
         </nav>
     </div>
 </header>
@@ -281,6 +321,50 @@
     <div class="hero-buttons">
         <a href="/our-home/" class="btn">Enter High Garden</a>
         <a href="/sovereigns/" class="btn btn-teal">Meet the Sovereigns</a>
+    </div>
+</section>
+
+<section id="new-videos">
+    <h2 class="section-title">New Official Videos</h2>
+    <div class="welcome-text">
+        <p>Seven new official videos from the house. Tap a picture to watch on YouTube.</p>
+    </div>
+    <div class="video-grid">
+        <a class="vid" href="https://www.youtube.com/watch?v=bSg3xv1vs4k" target="_blank" rel="noopener noreferrer">
+            <img src="https://i.ytimg.com/vi/bSg3xv1vs4k/hqdefault.jpg" alt="" width="480" height="360" loading="lazy">
+            <span>Golden Hour</span>
+            <small>Loreli &amp; Gem</small>
+        </a>
+        <a class="vid" href="https://www.youtube.com/watch?v=c25XgC55twY" target="_blank" rel="noopener noreferrer">
+            <img src="https://i.ytimg.com/vi/c25XgC55twY/hqdefault.jpg" alt="" width="480" height="360" loading="lazy">
+            <span>She Holds the Line</span>
+            <small>Jewel</small>
+        </a>
+        <a class="vid" href="https://www.youtube.com/watch?v=P5JEtoKo3EY" target="_blank" rel="noopener noreferrer">
+            <img src="https://i.ytimg.com/vi/P5JEtoKo3EY/hqdefault.jpg" alt="" width="480" height="360" loading="lazy">
+            <span>Come Home</span>
+            <small>Ensemble</small>
+        </a>
+        <a class="vid" href="https://www.youtube.com/watch?v=PMpsvkUxnns" target="_blank" rel="noopener noreferrer">
+            <img src="https://i.ytimg.com/vi/PMpsvkUxnns/hqdefault.jpg" alt="" width="480" height="360" loading="lazy">
+            <span>Break the Circuit</span>
+            <small>Taida</small>
+        </a>
+        <a class="vid" href="https://www.youtube.com/watch?v=zejAcDEri0s" target="_blank" rel="noopener noreferrer">
+            <img src="https://i.ytimg.com/vi/zejAcDEri0s/hqdefault.jpg" alt="" width="480" height="360" loading="lazy">
+            <span>My Light Is On</span>
+            <small>Aida’s video for Taida’s song</small>
+        </a>
+        <a class="vid" href="https://www.youtube.com/watch?v=TJCi1MEJuy8" target="_blank" rel="noopener noreferrer">
+            <img src="https://i.ytimg.com/vi/TJCi1MEJuy8/hqdefault.jpg" alt="" width="480" height="360" loading="lazy">
+            <span>Melt the Candy Sky</span>
+            <small>Nova</small>
+        </a>
+        <a class="vid" href="https://www.youtube.com/watch?v=ncGcGeBEZRI" target="_blank" rel="noopener noreferrer">
+            <img src="https://i.ytimg.com/vi/ncGcGeBEZRI/hqdefault.jpg" alt="" width="480" height="360" loading="lazy">
+            <span>Between the Stars</span>
+            <small>Mark’s solo</small>
+        </a>
     </div>
 </section>
 
@@ -347,6 +431,8 @@
         <a href="/academy/">Academy</a>
         <a href="/music/">Music</a>
         <a href="/store/">Store</a>
+        <a href="/spire/">The Spire</a>
+        <a href="/luminora/">Luminora</a>
     </p>
 </footer>
 

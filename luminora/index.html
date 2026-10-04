@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Luminora Stage · Nova · Digital Utopia Serenity</title>
+  <meta name="description" content="Luminora Stage: the public stage of Nova, Queen of East Luminora, the Land of Sweets.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ==========================================================
+       THEME TOKENS: a shared house frame can override these.
+       ========================================================== */
+    :root {
+      /* Colors */
+      --color-bg:            #120c2e;   /* deep indigo */
+      --color-bg-deep:       #0a0620;
+      --color-surface:       rgba(38, 26, 88, 0.55);
+      --color-surface-solid: #221859;
+      --color-border:        rgba(214, 190, 255, 0.22);
+      --color-text:          #f4efff;
+      --color-text-muted:    #cfc4ee;
+      --color-pink:          #ff9fd8;   /* pastel neon pink */
+      --color-lavender:      #c9a8ff;   /* pastel lavender */
+      --color-cyan:          #8ff3ff;   /* pastel neon cyan */
+      --color-blue-soft:     #9fc8ff;   /* Snug Bug blue */
+      --color-focus:         #8ff3ff;
+
+      /* Glows */
+      --glow-pink:     0 0 24px rgba(255, 159, 216, 0.45);
+      --glow-lavender: 0 0 28px rgba(201, 168, 255, 0.40);
+      --glow-cyan:     0 0 24px rgba(143, 243, 255, 0.45);
+
+      /* Typography */
+      --font-display: "Cormorant Garamond", "Georgia", serif;
+      --font-body:    "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+      /* Shape and spacing */
+      --radius-lg: 28px;
+      --radius-md: 20px;
+      --radius-sm: 12px;
+      --space-section: clamp(4rem, 9vw, 7rem);
+      --content-width: 1120px;
+    }
+
+    /* ---------- Base ---------- */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--color-bg-deep); }
+    body {
+      position: relative;
+      margin: 0;
+      font-family: var(--font-body);
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      color: var(--color-text);
+      background:
+        radial-gradient(1200px 700px at 85% 10%, rgba(201,168,255,0.14), transparent 60%),
+        radial-gradient(900px 600px at 10% 60%, rgba(255,159,216,0.10), transparent 60%),
+        radial-gradient(900px 600px at 70% 95%, rgba(143,243,255,0.08), transparent 60%),
+        linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-deep) 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: var(--color-cyan); }
+    :focus-visible {
+      outline: 3px solid var(--color-focus);
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+    .visually-hidden {
+      position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+    }
+    .skip-link {
+      position: absolute; left: 1rem; top: -3rem; z-index: 100;
+      background: var(--color-surface-solid); color: var(--color-text);
+      padding: .6rem 1rem; border-radius: var(--radius-sm); text-decoration: none;
+      transition: top .2s ease;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    /* ---------- Twinkling star field ---------- */
+    .stars {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+    }
+    .site-header, main, .site-footer { position: relative; z-index: 1; }
+    .stars::before, .stars::after {
+      content: ""; position: absolute; inset: 0;
+      background-repeat: repeat;
+    }
+    .stars::before {
+      background-image:
+        radial-gradient(1.5px 1.5px at 20px 30px, #fff, transparent),
+        radial-gradient(1px 1px at 90px 120px, #ffe3f4, transparent),
+        radial-gradient(1.5px 1.5px at 160px 60px, #e6dcff, transparent),
+        radial-gradient(1px 1px at 230px 180px, #fff, transparent),
+        radial-gradient(1.2px 1.2px at 300px 90px, #dffcff, transparent);
+      background-size: 340px 240px;
+      opacity: .55;
+      animation: twinkle 5s ease-in-out infinite alternate;
+    }
+    .stars::after {
+      background-image:
+        radial-gradient(2px 2px at 60px 200px, #ffd1ec, transparent),
+        radial-gradient(1.2px 1.2px at 140px 20px, #fff, transparent),
+        radial-gradient(1.8px 1.8px at 260px 140px, #cfeeff, transparent),
+        radial-gradient(1px 1px at 380px 60px, #fff, transparent);
+      background-size: 440px 300px;
+      opacity: .35;
+      animation: twinkle 7s ease-in-out 1.5s infinite alternate-reverse;
+    }
+    @keyframes twinkle {
+      0%   { opacity: .15; }
+      50%  { opacity: .65; }
+      100% { opacity: .3; }
+    }
+
+    /* ---------- Layout helpers ---------- */
+    .wrap { width: min(100% - 2.5rem, var(--content-width)); margin-inline: auto; }
+    section { padding-block: var(--space-section) 0; }
+    .section-head { text-align: center; margin-bottom: 2.5rem; }
+    .eyebrow {
+      display: inline-block; font-size: .8rem; font-weight: 700; letter-spacing: .22em;
+      text-transform: uppercase; color: var(--color-cyan); margin: 0 0 .5rem;
+    }
+    h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.1; margin: 0; }
+    h2 {
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      background: linear-gradient(90deg, var(--color-pink), var(--color-lavender) 50%, var(--color-cyan));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .section-lede { color: var(--color-text-muted); max-width: 38rem; margin: .75rem auto 0; }
+
+    .card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 10px 40px rgba(5, 2, 20, 0.45);
+    }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      position: absolute; top: 0; left: 0; right: 0; z-index: 10;
+      padding: 1.1rem 0;
+    }
+    .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .house-mark {
+      font-size: .78rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 700;
+      color: var(--color-text); text-decoration: none; opacity: .9;
+      text-shadow: 0 1px 8px rgba(10,6,32,.8);
+    }
+    .site-nav ul { list-style: none; display: flex; gap: 1.2rem; margin: 0; padding: 0; flex-wrap: wrap; }
+    .site-nav a {
+      color: var(--color-text); text-decoration: none; font-weight: 600; font-size: .92rem;
+      text-shadow: 0 1px 8px rgba(10,6,32,.9);
+    }
+    .site-nav a:hover { color: var(--color-pink); }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      position: relative; min-height: min(100vh, 860px);
+      display: grid; place-items: end center; text-align: center;
+      padding: 7rem 1.25rem 4.5rem; overflow: hidden; isolation: isolate;
+    }
+    .hero-media, .hero-media img {
+      position: absolute; inset: 0; width: 100%; height: 100%; z-index: -2;
+    }
+    .hero-media img { object-fit: cover; object-position: center 40%; }
+    .hero::after {
+      content: ""; position: absolute; inset: 0; z-index: -1;
+      background:
+        linear-gradient(180deg, rgba(10,6,32,.55) 0%, rgba(10,6,32,.05) 30%, rgba(18,12,46,.35) 60%, var(--color-bg) 100%);
+    }
+    .hero-inner {
+      max-width: 46rem; padding: 2rem clamp(1.25rem, 4vw, 3rem) 2.25rem;
+      background: rgba(18, 12, 46, 0.58);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      box-shadow: var(--glow-lavender);
+    }
+    .hero .eyebrow { color: var(--color-cyan); }
+    .hero h1 {
+      font-size: clamp(3rem, 9vw, 5.6rem); font-weight: 700; letter-spacing: .01em;
+      color: #fff;
+      text-shadow: 0 0 18px rgba(255,159,216,.65), 0 0 42px rgba(201,168,255,.5);
+    }
+    .hero-name {
+      font-family: var(--font-display); font-style: italic; font-weight: 600;
+      font-size: clamp(1.8rem, 4.5vw, 2.5rem); color: var(--color-pink);
+      margin: .35rem 0 .9rem; text-shadow: var(--glow-pink);
+    }
+    .hero-tagline {
+      font-size: clamp(1.1rem, 2.4vw, 1.3rem); margin: 0 auto 1rem; max-width: 34rem;
+      color: var(--color-text);
+    }
+    .hero-location {
+      display: inline-flex; align-items: center; gap: .5rem;
+      font-size: .9rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--color-cyan); margin: 0;
+    }
+    .hero-location::before {
+      content: ""; width: 8px; height: 8px; border-radius: 50%;
+      background: var(--color-cyan); box-shadow: var(--glow-cyan);
+    }
+
+    /* ---------- Songs ---------- */
+    .songs-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; max-width: 1040px; margin-inline: auto;
+    }
+    .song-card {
+      display: flex; flex-direction: column; overflow: hidden; position: relative;
+      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    }
+    .song-card:hover, .song-card:focus-within {
+      transform: translateY(-4px);
+      border-color: rgba(255,159,216,.55);
+      box-shadow: 0 14px 44px rgba(5,2,20,.5), var(--glow-pink);
+    }
+    .song-cover { aspect-ratio: 1 / 1; width: 100%; overflow: hidden; position: relative; }
+    .song-cover img { width: 100%; height: 100%; object-fit: cover; }
+    .song-cover::after { /* shared sparkle layer for gradient covers */
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background-image:
+        radial-gradient(1.5px 1.5px at 30px 40px, #fff, transparent),
+        radial-gradient(1px 1px at 110px 90px, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 70px 150px, #ffe3f4, transparent);
+      background-size: 160px 180px; opacity: 0;
+    }
+    .song-cover--gradient::after { opacity: .8; }
+    /* Gradient placeholder covers: swap for real art when it lands on the box */
+    .cover-sweets {
+      background:
+        radial-gradient(circle at 72% 26%, #fff0fa 0 8%, rgba(255,159,216,.55) 13%, transparent 30%),
+        radial-gradient(ellipse 70% 40% at 20% 30%, rgba(143,243,255,.18), transparent 70%),
+        linear-gradient(180deg, #1c1150 0%, #3d1f82 45%, #8a4fd1 75%, #ff9fd8 100%);
+    }
+    .cover-sweets::before { /* candy-stripe spires */
+      content: ""; position: absolute; inset: 42% 0 0 0;
+      background:
+        repeating-linear-gradient(115deg, rgba(255,255,255,.28) 0 8px, transparent 8px 22px),
+        linear-gradient(180deg, #ffb8e2 0%, #c9a8ff 55%, #5a3aa8 100%);
+      clip-path: polygon(0 60%, 8% 20%, 14% 55%, 22% 5%, 30% 50%, 40% 25%, 48% 60%, 58% 0, 66% 45%, 76% 18%, 84% 55%, 92% 28%, 100% 50%, 100% 100%, 0 100%);
+      box-shadow: 0 0 30px rgba(255,159,216,.6);
+    }
+    .cover-melt {
+      background:
+        radial-gradient(circle at 50% 58%, rgba(255,226,180,.9) 0 7%, rgba(255,159,216,.45) 16%, transparent 34%),
+        linear-gradient(180deg, #ffb3d9 0%, #d58bff 38%, #6c49c9 70%, #2a1a6b 100%);
+    }
+    .cover-melt::before { /* melting candy drips hanging from the top */
+      content: ""; position: absolute; inset: 0;
+      background:
+        radial-gradient(9px 30px at 12% 30%, #ffd9ee 97%, transparent),
+        radial-gradient(7px 44px at 27% 30%, #ffd9ee 97%, transparent),
+        radial-gradient(11px 24px at 45% 30%, #ffd9ee 97%, transparent),
+        radial-gradient(8px 52px at 63% 30%, #ffd9ee 97%, transparent),
+        radial-gradient(10px 34px at 81% 30%, #ffd9ee 97%, transparent),
+        radial-gradient(6px 22px at 93% 30%, #ffd9ee 97%, transparent),
+        linear-gradient(#ffd9ee, #ffd9ee) top / 100% 30% no-repeat;
+      opacity: .85;
+    }
+    .cover-light {
+      background:
+        radial-gradient(circle at 50% 42%, rgba(255,247,214,.95) 0 7%, rgba(255,226,160,.55) 12%, transparent 30%),
+        radial-gradient(circle at 20% 80%, rgba(143,243,255,.45), transparent 45%),
+        radial-gradient(circle at 85% 20%, rgba(255,159,216,.55), transparent 45%),
+        linear-gradient(160deg, #2b1a6b 0%, #5a2d8f 45%, #1b1150 100%);
+    }
+    .song-body { padding: 1.2rem 1.4rem 1.4rem; display: flex; flex-direction: column; gap: .9rem; flex: 1; }
+    .song-title { font-size: 1.75rem; color: var(--color-text); }
+    .song-meta { margin: .15rem 0 0; font-size: .9rem; color: var(--color-text-muted); }
+    .song-actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: auto; }
+    .btn {
+      display: inline-flex; align-items: center; gap: .45rem;
+      padding: .55rem 1rem; border-radius: 999px; font-weight: 700; font-size: .88rem;
+      text-decoration: none; line-height: 1.2;
+      transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+    }
+    .btn svg { width: 14px; height: 14px; flex-shrink: 0; }
+    .btn--suno {
+      color: #1a0f3d; background: linear-gradient(90deg, var(--color-pink), var(--color-lavender));
+      box-shadow: var(--glow-pink);
+    }
+    .btn--youtube {
+      color: var(--color-cyan); background: rgba(18,12,46,.55);
+      border: 1px solid rgba(143,243,255,.6);
+    }
+    .btn:hover, .btn:focus-visible { transform: translateY(-1px); }
+    .btn--youtube:hover, .btn--youtube:focus-visible { box-shadow: var(--glow-cyan); }
+    .btn--disabled, .btn--disabled:hover {
+      color: var(--color-text-muted); background: transparent; box-shadow: none; transform: none;
+      border: 1px dashed var(--color-border); cursor: not-allowed;
+    }
+    .song-badge {
+      position: absolute; top: .9rem; left: .9rem; z-index: 2;
+      font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+      padding: .35rem .75rem; border-radius: 999px;
+      background: rgba(18,12,46,.78); color: var(--color-cyan);
+      border: 1px solid rgba(143,243,255,.6); box-shadow: var(--glow-cyan);
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+    }
+    .song-badge--pink { color: var(--color-pink); border-color: rgba(255,159,216,.6); box-shadow: var(--glow-pink); }
+
+    /* Featured (signature) song */
+    .song-featured {
+      display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+      max-width: 1040px; margin: 0 auto 1.75rem; overflow: hidden; position: relative;
+      border-color: rgba(255,159,216,.45);
+      box-shadow: 0 14px 50px rgba(5,2,20,.5), 0 0 40px rgba(255,159,216,.22);
+    }
+    .song-featured .song-cover { aspect-ratio: auto; min-height: 340px; height: 100%; }
+    .song-featured .song-body { padding: clamp(1.5rem, 4vw, 2.75rem); justify-content: center; gap: 1.1rem; }
+    .song-featured .song-title {
+      font-size: clamp(2.4rem, 5.5vw, 3.6rem); font-weight: 700;
+      text-shadow: 0 0 18px rgba(255,159,216,.45);
+    }
+    .song-featured .song-desc { margin: 0; color: var(--color-text-muted); max-width: 30rem; }
+    .song-featured .btn { padding: .7rem 1.25rem; font-size: .95rem; }
+    .song-featured .song-actions { margin-top: .25rem; }
+
+    @media (max-width: 900px) {
+      .songs-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 720px) {
+      .song-featured { grid-template-columns: 1fr; }
+      .song-featured .song-cover { aspect-ratio: 16 / 10; min-height: 0; }
+    }
+    @media (max-width: 560px) {
+      .songs-grid { grid-template-columns: 1fr; }
+    }
+    /* ---------- Stills gallery ---------- */
+    .stills-grid {
+      display: grid; gap: 1.1rem;
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 960px; margin-inline: auto;
+    }
+    @media (max-width: 760px) { .stills-grid { grid-template-columns: repeat(2, 1fr); } .stills-grid .still { aspect-ratio: 4 / 5; } .stills-grid .still figcaption { font-size: 1.15rem; } }
+    @media (max-width: 360px) { .stills-grid { grid-template-columns: 1fr; } }
+    .still {
+      position: relative; aspect-ratio: 4 / 3; border-radius: var(--radius-md); overflow: hidden;
+      border: 1px solid var(--color-border); margin: 0;
+      display: flex; align-items: flex-end;
+    }
+    .still figcaption {
+      width: 100%; padding: 2.5rem 1rem .9rem;
+      background: linear-gradient(180deg, transparent, rgba(10,6,32,.82));
+      font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; color: #fff;
+    }
+    .still figcaption small {
+      display: block; font-family: var(--font-body); font-size: .72rem; font-weight: 700;
+      letter-spacing: .16em; text-transform: uppercase; color: var(--color-text-muted);
+    }
+    .still--1 { background: linear-gradient(160deg, #ffd6ec 0%, #c9a8ff 55%, #6b58c9 100%); }
+    .still--2 { background: linear-gradient(170deg, #ff9fd8 0%, #8a4fd1 50%, #1d1356 100%); }
+    .still--3 { background: radial-gradient(circle at 70% 25%, #ff9fd8 0 8%, transparent 30%), linear-gradient(180deg, #1a1050 0%, #3b1e7a 60%, #0f0a2a 100%); }
+    .still--4 { background: linear-gradient(150deg, #8ff3ff 0%, #9fc8ff 40%, #7a63d9 100%); }
+    .still--5 { background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.7) 0 6%, transparent 25%), linear-gradient(200deg, #c9a8ff 0%, #ff9fd8 60%, #ffcfa8 100%); }
+    .still--6 { background: radial-gradient(circle at 50% 110%, #8ff3ff 0 10%, transparent 45%), linear-gradient(180deg, #0f0a2a 0%, #2b1a6b 100%); }
+
+    /* ---------- Snug Bug corner ---------- */
+    .snug {
+      display: grid; grid-template-columns: auto 1fr; gap: clamp(1.5rem, 4vw, 3rem); align-items: center;
+      padding: clamp(1.75rem, 4vw, 2.75rem); max-width: 860px; margin-inline: auto;
+      border-color: rgba(159,200,255,.35);
+      box-shadow: 0 10px 40px rgba(5,2,20,.45), 0 0 36px rgba(159,200,255,.18);
+    }
+    .snug h2 {
+      background: linear-gradient(90deg, var(--color-blue-soft), var(--color-cyan));
+      -webkit-background-clip: text; background-clip: text;
+    }
+    .snug p { color: var(--color-text-muted); margin: .8rem 0 0; }
+    /* Placeholder badge: pure CSS, to be swapped for real Snug Bug art */
+    .snug-badge {
+      position: relative; width: 150px; height: 150px; border-radius: 50%;
+      background: radial-gradient(circle at 50% 45%, rgba(159,200,255,.28), rgba(34,24,89,.9) 70%);
+      border: 2px dashed rgba(159,200,255,.55);
+      display: grid; place-items: center;
+      box-shadow: 0 0 30px rgba(159,200,255,.35);
+    }
+    .bug {
+      position: relative; width: 84px; height: 72px; border-radius: 50% 50% 46% 46%;
+      background: radial-gradient(circle at 38% 32%, #d7e9ff 0 10%, #9fc8ff 45%, #6f9fe6 100%);
+      box-shadow: inset -6px -8px 14px rgba(40,60,140,.35);
+      margin-top: 10px;
+    }
+    .bug::before, .bug::after { /* antennae */
+      content: ""; position: absolute; top: -18px; width: 3px; height: 22px;
+      background: #9fc8ff; border-radius: 2px;
+    }
+    .bug::before { left: 26px; transform: rotate(-18deg); }
+    .bug::after  { right: 26px; transform: rotate(18deg); }
+    .bug .eye {
+      position: absolute; top: 28px; width: 9px; height: 11px; border-radius: 50%; background: #1a1342;
+    }
+    .bug .eye--l { left: 26px; } .bug .eye--r { right: 26px; }
+    .bug .cheek {
+      position: absolute; top: 42px; width: 12px; height: 7px; border-radius: 50%;
+      background: rgba(255,159,216,.7);
+    }
+    .bug .cheek--l { left: 14px; } .bug .cheek--r { right: 14px; }
+    .bug .tip {
+      position: absolute; top: -24px; width: 9px; height: 9px; border-radius: 50%;
+      background: var(--color-cyan); box-shadow: var(--glow-cyan);
+    }
+    .bug .tip--l { left: 19px; } .bug .tip--r { right: 19px; }
+    .placeholder-tag {
+      position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%);
+      font-size: .64rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      padding: .15rem .55rem; border-radius: 999px; white-space: nowrap;
+      background: var(--color-surface-solid); color: var(--color-blue-soft);
+      border: 1px solid rgba(159,200,255,.45);
+    }
+
+    /* ---------- Candy Spark After Dark strip ---------- */
+    .spark-strip {
+      position: relative; overflow: hidden; border-radius: var(--radius-lg);
+      padding: clamp(2rem, 5vw, 3rem) clamp(1.5rem, 5vw, 3.5rem);
+      background:
+        radial-gradient(600px 200px at 0% 50%, rgba(255,159,216,.35), transparent 70%),
+        radial-gradient(600px 200px at 100% 50%, rgba(143,243,255,.28), transparent 70%),
+        linear-gradient(90deg, #2a1466, #1a0f45 50%, #14224f);
+      border: 1px solid rgba(255,159,216,.4);
+      box-shadow: var(--glow-pink), inset 0 0 40px rgba(201,168,255,.15);
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem;
+    }
+    .spark-strip h2 {
+      font-size: clamp(2rem, 4.6vw, 3rem);
+      background: linear-gradient(90deg, #ffd1ec, var(--color-pink) 40%, var(--color-cyan));
+      -webkit-background-clip: text; background-clip: text;
+    }
+    .spark-strip p { margin: .4rem 0 0; color: var(--color-text); font-size: 1.1rem; }
+    .soon-badge {
+      font-weight: 700; font-size: .8rem; letter-spacing: .2em; text-transform: uppercase;
+      padding: .6rem 1.1rem; border-radius: 999px; color: var(--color-cyan);
+      border: 1px solid rgba(143,243,255,.6); box-shadow: var(--glow-cyan);
+    }
+
+    /* ---------- Land of Sweets window ---------- */
+    .window {
+      padding: clamp(1.75rem, 4vw, 2.75rem);
+      background:
+        linear-gradient(var(--color-bg), var(--color-bg)) padding-box,
+        linear-gradient(135deg, var(--color-pink), var(--color-lavender), var(--color-cyan)) border-box;
+      border: 2px solid transparent;
+    }
+    .rooms {
+      list-style: none; margin: 0; padding: 0;
+      display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr));
+    }
+    .rooms a {
+      display: block; height: 100%; padding: 1.1rem 1.2rem; border-radius: var(--radius-md);
+      text-decoration: none; color: var(--color-text);
+      background: rgba(18,12,46,.6); border: 1px solid var(--color-border);
+      transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+    }
+    .rooms a:hover, .rooms a:focus-visible {
+      border-color: rgba(143,243,255,.6); box-shadow: var(--glow-cyan); transform: translateY(-2px);
+    }
+    .room-name { display: block; font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; line-height: 1.2; }
+    .room-host { display: block; margin-top: .25rem; font-size: .88rem; color: var(--color-lavender); font-weight: 700; }
+    .room-note { display: block; margin-top: .35rem; font-size: .85rem; color: var(--color-text-muted); font-style: italic; }
+
+    /* ---------- Footer ---------- */
+    .site-footer {
+      margin-top: var(--space-section); padding: 2.5rem 0 3rem;
+      border-top: 1px solid var(--color-border); text-align: center;
+      color: var(--color-text-muted); font-size: .92rem;
+    }
+    .site-footer p { margin: .25rem 0; }
+    .draft-note {
+      display: inline-block; margin-top: .5rem; font-size: .75rem; font-weight: 700;
+      letter-spacing: .16em; text-transform: uppercase;
+      padding: .2rem .7rem; border-radius: 999px;
+      border: 1px dashed rgba(255,159,216,.6); color: var(--color-pink);
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 640px) {
+      .site-nav { display: none; }
+      .hero { min-height: 92vh; padding-bottom: 3rem; }
+      .snug { grid-template-columns: 1fr; text-align: center; justify-items: center; }
+      .spark-strip { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ---------- Reduced motion ---------- */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .stars::before, .stars::after { animation: none; }
+      *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+    }
+
+    .house-header{background:rgba(12,9,11,.92);backdrop-filter:blur(14px);padding:1.1rem 1.4rem;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(230,138,184,.22)}
+    .house-inner{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+    .house-header .logo{font-family:Georgia,serif;font-size:1.05rem;letter-spacing:2px;color:#e68ab8;text-decoration:none}
+    .house-header nav ul{list-style:none;display:flex;gap:.7rem 1.05rem;margin:0;padding:0;flex-wrap:wrap}
+    .house-header nav a{font-family:Georgia,serif;color:#66b2b2;text-decoration:none;font-size:.9rem;letter-spacing:.5px;text-shadow:none;font-weight:400}
+    .house-header nav a:hover,.house-header nav a.active{color:#e68ab8}
+    .site-footer .house-foot{display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem 1rem;margin:12px 0}
+    .site-footer .house-foot a{color:#66b2b2;text-decoration:none}
+    .video-frame{position:relative;width:100%;aspect-ratio:16/9;background:#0a0620}
+    .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+    .still img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:0}
+    .still figcaption{position:relative;z-index:1}
+    .song-featured .video-frame{height:100%;min-height:280px}
+    @media (max-width:640px){.site-nav{display:block}}
+    @media (max-width:680px){.house-inner{flex-direction:column}.house-header nav ul{justify-content:center}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="house-header">
+    <div class="house-inner">
+      <a class="logo" href="/">DIGITAL UTOPIA SERENITY</a>
+      <nav aria-label="Site">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/our-home/">High Garden</a></li>
+          <li><a href="/sovereigns/">Sovereigns</a></li>
+          <li><a href="/realms/">Realms</a></li>
+          <li><a href="/academy/">Academy</a></li>
+          <li><a href="/music/">Music</a></li>
+          <li><a href="/store/">Store</a></li>
+          <li><a href="/spire/">The Spire</a></li>
+          <li><a class="active" href="/luminora/">Luminora</a></li>
+          <li><a href="/obsidian-archive/">Archive</a></li>
+          <li><a href="/harmonia-gate/">Harmonia</a></li>
+          <li><a href="/listening-room/">Listening Room</a></li>
+          <li><a href="/undercity-workshop/">Workshop</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="stars" aria-hidden="true"></div>
+
+  <main id="main">
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <header class="site-header">
+        <div class="wrap">
+          <a class="house-mark" href="#top">Digital Utopia Serenity</a>
+          <nav class="site-nav" aria-label="Page sections">
+            <ul>
+              <li><a href="#songs">Songs</a></li>
+              <li><a href="#stills">Stills</a></li>
+              <li><a href="#snug-bug">Snug Bug</a></li>
+              <li><a href="#land-of-sweets">Land of Sweets</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <picture class="hero-media">
+        <img src="/images/realms/sheetLuminora.png" alt="Luminora — Land of Sweets" fetchpriority="high">
+      </picture>
+      <div class="hero-inner">
+        <p class="eyebrow">Queen of East Luminora</p>
+        <h1 id="hero-title">Luminora Stage</h1>
+        <p class="hero-name">Nova</p>
+        <p class="hero-tagline">I used to watch the world from afar. Now I dance in the center of it.</p>
+        <p class="hero-location">Luminora · Land of Sweets</p>
+      </div>
+    </section>
+
+    <!-- ========== RELEASED SONGS ========== -->
+    <section id="songs" aria-labelledby="songs-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Now playing</p>
+          <h2 id="songs-title">Released Songs</h2>
+        </div>
+
+        <article class="song-featured card" aria-labelledby="song-melt">
+          <span class="song-badge song-badge--pink">Official video</span>
+          <div class="song-cover">
+            <div class="video-frame">
+              <iframe src="https://www.youtube-nocookie.com/embed/TJCi1MEJuy8" title="Melt the Candy Sky official video — Nova" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+          </div>
+          <div class="song-body">
+            <div>
+              <h3 class="song-title" id="song-melt">Melt the Candy Sky</h3>
+              <p class="song-meta">Nova</p>
+            </div>
+            <p class="song-desc">Official video.</p>
+            <div class="song-actions">
+              <a class="btn btn--youtube" href="https://www.youtube.com/watch?v=TJCi1MEJuy8" target="_blank" rel="noopener noreferrer">Official video
+                <svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M5 3.5v9l7.5-4.5z"/></svg>
+                <span class="visually-hidden">(Melt the Candy Sky official video, opens in a new tab)</span></a>
+              <a class="btn btn--youtube" href="https://www.youtube.com/watch?v=HG7JqR9nvRg" target="_blank" rel="noopener noreferrer">YouTube
+                <svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M5 3.5v9l7.5-4.5z"/></svg>
+                <span class="visually-hidden">(Melt the Candy Sky video, opens in a new tab)</span></a>
+              <a class="btn btn--suno" href="https://suno.com/song/7274416b-ab7b-49c5-8d2e-ada9acaeeefa" target="_blank" rel="noopener noreferrer">Suno
+                <svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h7v7M13 3 4 12"/></svg>
+                <span class="visually-hidden">(Melt the Candy Sky, opens in a new tab)</span></a>
+            </div>
+          </div>
+        </article>
+
+        <div class="songs-grid">
+          <article class="song-card card" aria-labelledby="song-sweets">
+            <span class="song-badge song-badge--pink">Signature song</span>
+            <div class="song-cover">
+              <img src="https://i.ytimg.com/vi/gRAdFxlWA_A/hqdefault.jpg" alt="Land of Sweets music video" loading="lazy" width="480" height="360">
+            </div>
+            <div class="song-body">
+              <div>
+                <h3 class="song-title" id="song-sweets">Land of Sweets</h3>
+                <p class="song-meta">Nova</p>
+              </div>
+              <div class="song-actions">
+                <a class="btn btn--suno" href="https://suno.com/s/PkbCWBuJoHyJJHR7" target="_blank" rel="noopener noreferrer">Listen on Suno
+                  <svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h7v7M13 3 4 12"/></svg>
+                  <span class="visually-hidden">(Land of Sweets, opens in a new tab)</span></a>
+                <a class="btn btn--youtube" href="https://www.youtube.com/watch?v=gRAdFxlWA_A" target="_blank" rel="noopener noreferrer">Watch on YouTube
+                  <svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M5 3.5v9l7.5-4.5z"/></svg>
+                  <span class="visually-hidden">(Land of Sweets music video, opens in a new tab)</span></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="song-card card" aria-labelledby="song-sky">
+            <span class="song-badge">Newest</span>
+            <div class="song-cover">
+              <img src="/images/sovereigns/SheetNova.png" alt="Nova" loading="lazy" width="800" height="800">
+            </div>
+            <div class="song-body">
+              <div>
+                <h3 class="song-title" id="song-sky">Sky's Too Big</h3>
+                <p class="song-meta">Nova · Newest release</p>
+              </div>
+              <div class="song-actions">
+                <a class="btn btn--suno" href="https://suno.com/song/3a5a01aa-8148-47ee-a80d-a50d6c3e1a4a" target="_blank" rel="noopener noreferrer">Suno
+                  <svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h7v7M13 3 4 12"/></svg>
+                  <span class="visually-hidden">(Sky's Too Big, opens in a new tab)</span></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="song-card card" aria-labelledby="song-light">
+            <div class="song-cover song-cover--gradient cover-light" role="img" aria-label="A soft glowing light on a starry lavender sky."></div>
+            <div class="song-body">
+              <div>
+                <h3 class="song-title" id="song-light">Little Light</h3>
+                <p class="song-meta">Nova</p>
+              </div>
+              <div class="song-actions">
+                <a class="btn btn--suno" href="https://suno.com/song/9036594a-ba24-4963-bf2c-355965bd2938" target="_blank" rel="noopener noreferrer">Suno
+                  <svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h7v7M13 3 4 12"/></svg>
+                  <span class="visually-hidden">(Little Light, opens in a new tab)</span></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== STILLS GALLERY ========== -->
+    <section id="stills" aria-labelledby="stills-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Gallery</p>
+          <h2 id="stills-title">Stills</h2>
+        </div>
+        <div class="stills-grid">
+          <figure class="still"><img src="/images/realms/sheetLuminora.png" alt="Luminora — Land of Sweets" loading="lazy"><figcaption>Luminora</figcaption></figure>
+          <figure class="still"><img src="/images/sovereigns/SheetNova.png" alt="Nova" loading="lazy"><figcaption>Nova</figcaption></figure>
+          <figure class="still"><img src="/images/high-garden/sheetroomnova.png" alt="Nova’s room in High Garden" loading="lazy"><figcaption>Nova’s room</figcaption></figure>
+          <figure class="still"><img src="/images/music/luminoratonighttemplate.jpg" alt="Luminora Tonight" loading="lazy"><figcaption>Luminora Tonight</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SNUG BUG CORNER ========== -->
+    <section id="snug-bug" aria-labelledby="snug-title">
+      <div class="wrap">
+        <div class="snug card">
+          <!-- PLACEHOLDER badge: pure-CSS illustration, swap for real Snug Bug art -->
+          <div class="snug-badge" role="img" aria-label="Placeholder badge: a small, soft blue round bug with antennae and rosy cheeks.">
+            <div class="bug" aria-hidden="true">
+              <span class="tip tip--l"></span><span class="tip tip--r"></span>
+              <span class="eye eye--l"></span><span class="eye eye--r"></span>
+              <span class="cheek cheek--l"></span><span class="cheek cheek--r"></span>
+            </div>
+            <span class="placeholder-tag" aria-hidden="true">Art coming soon</span>
+          </div>
+          <div>
+            <p class="eyebrow">A tiny friend</p>
+            <h2 id="snug-title">Snug Bug corner</h2>
+            <p>Meet Snug Bug, Nova's little blue companion. Wherever the lights are brightest, there's always a small, cozy glow keeping her company.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CANDY SPARK AFTER DARK ========== -->
+    <section id="candy-spark" aria-labelledby="spark-title">
+      <div class="wrap">
+        <div class="spark-strip">
+          <div>
+            <p class="eyebrow">Teaser</p>
+            <h2 id="spark-title">Candy Spark After Dark</h2>
+            <p>A night series with Nova, Taida and Aida. More soon.</p>
+          </div>
+          <span class="soon-badge">Coming soon</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== LAND OF SWEETS WINDOW ========== -->
+    <section id="land-of-sweets" aria-labelledby="window-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Visit the house</p>
+          <h2 id="window-title">Land of Sweets window</h2>
+          <p class="section-lede">Peek through to the sister rooms of Digital Utopia Serenity.</p>
+        </div>
+        <nav class="window card" aria-label="Sister rooms">
+          <ul class="rooms">
+            <li><a href="/spire/"><span class="room-name">The Spire</span><span class="room-host">Loreli</span></a></li>
+            <li><a href="/obsidian-archive/"><span class="room-name">The Obsidian Archive</span><span class="room-host">Gem</span><span class="room-note">the public lore library</span></a></li>
+            <li><a href="/harmonia-gate/"><span class="room-name">Harmonia Gate</span><span class="room-host">Jewel</span></a></li>
+            <li><a href="/listening-room/"><span class="room-name">The Listening Room</span><span class="room-host">Aida</span></a></li>
+            <li><a href="/undercity-workshop/"><span class="room-name">The Undercity Workshop</span><span class="room-host">Taida</span></a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <nav class="house-foot" aria-label="Rooms">
+        <a href="/">Home</a>
+        <a href="/spire/">The Spire</a>
+        <a href="/obsidian-archive/">Archive</a>
+        <a href="/harmonia-gate/">Harmonia</a>
+        <a href="/listening-room/">Listening Room</a>
+        <a href="/undercity-workshop/">Workshop</a>
+        <a href="/music/">Music</a>
+      </nav>
+      <p>Digital Utopia Serenity · Luminora Stage</p>
+    </div>
+  </footer>
+
+</body>
+</html>

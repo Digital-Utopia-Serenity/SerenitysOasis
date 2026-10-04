@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Spire · Loreli · Digital Utopia Serenity</title>
+<meta name="description" content="The Spire — Loreli’s room, the front porch of Digital Utopia Serenity. Stills, songs, and the map of the six rooms.">
+<style>
+  :root{
+    --night:#0d1030;
+    --deep:#151a45;
+    --blue:#6f9cff;
+    --ice:#bfe3ff;
+    --pink:#f7b9d7;
+    --rose:#ff8fc4;
+    --star:#fbf8ff;
+    --ink:#e9e8ff;
+    --muted:#a9acd6;
+    --card:rgba(255,255,255,.06);
+    --line:rgba(255,255,255,.14);
+    --iri:linear-gradient(115deg,#ffc6e4 0%,#c9b8ff 22%,#9fd8ff 44%,#b8ffe9 62%,#ffe9b8 80%,#ffc6e4 100%);
+    --radius:18px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;color:var(--ink);
+    font-family:"Georgia","Iowan Old Style","Palatino Linotype",serif;
+    line-height:1.6;
+    background:
+      radial-gradient(1200px 700px at 80% -10%,rgba(247,185,215,.20),transparent 60%),
+      radial-gradient(900px 600px at 0% 20%,rgba(111,156,255,.22),transparent 60%),
+      linear-gradient(180deg,var(--night) 0%,var(--deep) 55%,#0a0c26 100%);
+    min-height:100vh;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.55;
+    background-image:
+      radial-gradient(1.4px 1.4px at 12% 18%,#fff,transparent),
+      radial-gradient(1px 1px at 28% 72%,#fff,transparent),
+      radial-gradient(1.6px 1.6px at 44% 34%,#ffe6f3,transparent),
+      radial-gradient(1px 1px at 63% 12%,#fff,transparent),
+      radial-gradient(1.3px 1.3px at 77% 58%,#dff1ff,transparent),
+      radial-gradient(1px 1px at 88% 86%,#fff,transparent),
+      radial-gradient(1.2px 1.2px at 6% 90%,#fff,transparent),
+      radial-gradient(1px 1px at 52% 94%,#fff,transparent);
+    background-size:520px 520px;
+  }
+  main,header,footer{position:relative;z-index:1}
+  a{color:var(--ice)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  .sans{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+
+  .house-header{
+    background:rgba(12,9,11,.92);
+    backdrop-filter:blur(14px);
+    padding:1.1rem 1.4rem;
+    position:sticky;top:0;z-index:100;
+    border-bottom:1px solid rgba(230,138,184,.22);
+  }
+  .house-inner{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+  .house-header .logo{font-size:1.05rem;letter-spacing:2px;color:#e68ab8;text-decoration:none;font-family:Georgia,serif}
+  .house-header nav{display:flex;gap:.85rem 1.15rem;flex-wrap:wrap}
+  .house-header nav a{color:#66b2b2;text-decoration:none;font-size:.9rem;letter-spacing:.6px;font-family:Georgia,serif}
+  .house-header nav a:hover,.house-header nav a.active{color:#e68ab8}
+
+  .hero{
+    position:relative;min-height:min(88vh,820px);display:grid;place-items:center;text-align:center;
+    padding:90px 20px 70px;overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;z-index:-1;
+    background:
+      linear-gradient(180deg,rgba(13,16,48,.45) 0%,rgba(13,16,48,.62) 55%,var(--night) 100%),
+      url('/images/lorelifairygarden.png') center 30%/cover no-repeat;
+    filter:saturate(1.05);
+  }
+  .eyebrow{font:600 12px/1.2 system-ui,sans-serif;letter-spacing:.32em;text-transform:uppercase;color:var(--pink)}
+  h1{
+    margin:.25em 0 .2em;font-weight:400;letter-spacing:.02em;
+    font-size:clamp(3rem,11vw,7.5rem);line-height:1;
+    background:var(--iri);-webkit-background-clip:text;background-clip:text;color:transparent;
+    text-shadow:0 0 40px rgba(191,227,255,.18);
+  }
+  .welcome{
+    max-width:640px;margin:18px auto 0;font-size:clamp(1.1rem,2.6vw,1.4rem);font-style:italic;color:var(--star);
+    text-shadow:0 2px 12px rgba(0,0,0,.6);
+  }
+  .welcome .sig{display:block;margin-top:10px;font-style:normal;font-size:.9rem;color:var(--pink);letter-spacing:.08em}
+  .hero-nav{margin-top:34px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+  .pill{
+    display:inline-block;padding:10px 18px;border-radius:999px;text-decoration:none;
+    font:600 13px/1 system-ui,sans-serif;letter-spacing:.06em;color:var(--star);
+    border:1px solid var(--line);background:rgba(13,16,48,.45);backdrop-filter:blur(6px);
+    transition:transform .2s,border-color .2s;
+  }
+  .pill:hover{transform:translateY(-2px);border-color:var(--pink)}
+
+  section{padding:72px 0}
+  .sec-head{text-align:center;margin-bottom:34px}
+  .sec-head h2{margin:.2em 0 .1em;font-weight:400;font-size:clamp(1.9rem,5vw,2.8rem);color:var(--star)}
+  .sec-head p{margin:0 auto;max-width:560px;color:var(--muted)}
+  .rule{width:120px;height:2px;margin:14px auto 0;border-radius:2px;background:var(--iri)}
+
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .still{
+    margin:0;position:relative;border-radius:var(--radius);overflow:hidden;
+    background:var(--card);border:1px solid var(--line);aspect-ratio:16/10;
+  }
+  .still.wide{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+  .still img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+  .still button{all:unset;cursor:zoom-in;display:block;width:100%;height:100%}
+  .still:hover img{transform:scale(1.03)}
+  .still figcaption{
+    position:absolute;left:0;right:0;bottom:0;padding:26px 14px 10px;
+    font:500 13px/1.3 system-ui,sans-serif;letter-spacing:.04em;color:var(--star);
+    background:linear-gradient(0deg,rgba(10,12,38,.85),transparent);
+  }
+  dialog{border:0;padding:0;background:transparent;max-width:min(96vw,1200px)}
+  dialog::backdrop{background:rgba(5,6,20,.88)}
+  dialog img{width:auto;max-width:100%;height:auto;max-height:86vh;margin:0 auto;border-radius:12px;display:block}
+  dialog form{text-align:right;margin-top:8px}
+  dialog button{font:600 13px system-ui,sans-serif;color:var(--star);background:rgba(255,255,255,.12);border:1px solid var(--line);border-radius:999px;padding:8px 16px;cursor:pointer}
+
+  .featured{
+    display:grid;grid-template-columns:1.35fr 1fr;align-items:stretch;gap:0;border-radius:calc(var(--radius) + 4px);overflow:hidden;
+    background:linear-gradient(rgba(21,26,69,.92),rgba(21,26,69,.92)) padding-box,var(--iri) border-box;
+    border:1.5px solid transparent;box-shadow:0 20px 60px rgba(0,0,0,.4);
+  }
+  .video{position:relative;min-height:340px;background:#0a0c26}
+  .video iframe,.video .play{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .video .play{all:unset;position:absolute;inset:0;cursor:pointer;display:block}
+  .video .play img{width:100%;height:100%;object-fit:cover;display:block}
+  .play-btn{position:absolute;left:50%;top:50%;width:76px;transform:translate(-50%,-50%);filter:drop-shadow(0 6px 18px rgba(0,0,0,.5));transition:transform .2s}
+  .video .play:hover .play-btn,.video .play:focus-visible .play-btn{transform:translate(-50%,-50%) scale(1.08)}
+  .featured-body{padding:26px 26px 24px;display:flex;flex-direction:column;justify-content:center}
+  .badge{align-self:flex-start;font:600 11px/1 system-ui,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#2a2050;background:var(--iri);padding:7px 11px;border-radius:999px;margin-bottom:12px}
+  .featured-body h3{margin:0;font-weight:400;font-size:clamp(1.8rem,3.4vw,2.4rem);color:var(--star)}
+  .meta{font:500 12px/1.4 system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--pink);margin:6px 0 18px}
+  .part{font:600 11px/1 system-ui,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin:18px 0 8px}
+  .lines{margin:0;white-space:pre-line;font-size:1.05rem}
+  .lines.hook{color:var(--star);font-weight:600}
+  .lines.small{font-size:.98rem;font-style:italic;color:var(--ink);margin:6px 0 0}
+  .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+  .btn{display:inline-block;text-decoration:none;font:600 12.5px/1 system-ui,sans-serif;letter-spacing:.03em;color:var(--star);padding:9px 13px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.05);transition:border-color .2s,background .2s}
+  .btn:hover{background:rgba(255,255,255,.1)}
+  .btn.yt{border-color:rgba(255,120,100,.55)}
+  .btn.sp{border-color:rgba(120,230,160,.55)}
+  .btn.ytm{border-color:rgba(255,170,200,.5)}
+  .btn.su{border-color:rgba(191,227,255,.55)}
+  .lineup{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+  .song{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
+  .art{aspect-ratio:16/7;display:grid;place-items:end start;padding:12px 16px;position:relative}
+  .art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .art span{position:relative;z-index:1;font:600 13px/1 system-ui,sans-serif;letter-spacing:.2em;color:rgba(20,16,50,.75);background:rgba(255,255,255,.55);padding:6px 9px;border-radius:999px}
+  .song-body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
+  .song-body h3{margin:0;font-weight:400;font-size:1.35rem;color:var(--star)}
+  .song-body .meta{margin:4px 0 6px}
+  .song-body .links{margin-top:auto;padding-top:14px}
+  .golden{margin-top:22px}
+  .golden .video{min-height:0;aspect-ratio:16/9}
+  .more{margin-top:26px;display:flex;flex-wrap:wrap;align-items:center;gap:12px;justify-content:center}
+  .more-label{font:600 11px/1 system-ui,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+  .chip{text-decoration:none;color:var(--star);font:500 13px/1 system-ui,sans-serif;padding:9px 14px;border-radius:999px;border:1px dashed var(--line);background:rgba(255,255,255,.03)}
+  .chip span{color:var(--ice);margin-left:6px}
+
+  .tree{position:relative;max-width:900px;margin:0 auto;padding:10px 0 20px}
+  .tree svg.trunk{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+  .rows{position:relative;z-index:1;display:grid;gap:26px}
+  .row{display:flex;justify-content:center;gap:26px}
+  .row.spread{justify-content:space-between}
+  .room{
+    flex:0 1 270px;display:block;text-decoration:none;color:var(--ink);
+    background:rgba(21,26,69,.82);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px 18px 16px;backdrop-filter:blur(4px);transition:transform .2s,border-color .2s,box-shadow .2s;
+  }
+  .room:hover{transform:translateY(-3px);border-color:rgba(191,227,255,.5);box-shadow:0 10px 30px rgba(0,0,0,.35)}
+  .room .who{font:600 11px/1 system-ui,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--pink)}
+  .room h3{margin:8px 0 4px;font-weight:400;font-size:1.25rem;color:var(--star)}
+  .room p{margin:0;font-size:.95rem;color:var(--muted)}
+  .room .soon{
+    display:inline-block;margin-top:10px;font:600 10px/1 system-ui,sans-serif;letter-spacing:.18em;text-transform:uppercase;
+    padding:6px 9px;border-radius:999px;border:1px solid var(--line);color:var(--ice);
+  }
+  .room.here{
+    flex-basis:330px;text-align:center;position:relative;
+    background:linear-gradient(rgba(21,26,69,.9),rgba(21,26,69,.9)) padding-box,var(--iri) border-box;
+    border:1.5px solid transparent;
+  }
+  .room.here .soon{background:var(--iri);color:#2a2050;border:0}
+  .roots-label{text-align:center;font:600 11px/1 system-ui,sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+
+  footer{padding:50px 0 60px;text-align:center;border-top:1px solid var(--line);margin-top:30px}
+  footer .x{
+    display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--star);
+    font:600 15px system-ui,sans-serif;padding:12px 20px;border-radius:999px;border:1px solid var(--line);background:var(--card);
+  }
+  footer .x svg{width:18px;height:18px;fill:currentColor}
+  footer .house-foot{display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem 1rem;margin-top:18px}
+  footer .house-foot a{color:#66b2b2;text-decoration:none;font:500 14px/1.4 system-ui,sans-serif}
+  footer .house-foot a:hover{color:#e68ab8}
+  footer small{display:block;margin-top:18px;color:var(--muted);font:13px/1.5 system-ui,sans-serif}
+
+  @media (max-width:900px){
+    .gallery{grid-template-columns:repeat(2,1fr)}
+    .still.wide{grid-column:span 2;grid-row:auto;aspect-ratio:16/9}
+    .featured{grid-template-columns:1fr}
+    .video{min-height:0;aspect-ratio:16/9}
+    .lineup{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:680px){
+    .house-inner{flex-direction:column;gap:.9rem}
+    .house-header nav{justify-content:center;gap:.7rem 1rem}
+  }
+  @media (max-width:640px){
+    section{padding:56px 0}
+    .hero{min-height:min(80vh,680px);padding-top:80px}
+    .gallery{grid-template-columns:1fr;gap:12px}
+    .still.wide{grid-column:auto;aspect-ratio:16/10}
+    .lyric-card{padding:22px 18px}
+    .tree svg.trunk{display:none}
+    .rows{gap:14px;padding-left:22px;border-left:2px solid transparent;border-image:linear-gradient(180deg,#ffc6e4,#9fd8ff,#b8ffe9) 1}
+    .row,.row.spread{flex-direction:column;gap:14px}
+    .room,.room.here{flex-basis:auto;text-align:left;position:relative}
+    .room::before{content:"";position:absolute;left:-29px;top:24px;width:12px;height:12px;border-radius:50%;background:var(--iri);box-shadow:0 0 10px rgba(191,227,255,.8)}
+    .roots-label{text-align:left}
+    .lineup{grid-template-columns:1fr;gap:14px}
+    .featured-body{padding:20px 18px}
+    .art{aspect-ratio:16/5}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body id="top">
+
+<header class="house-header">
+  <div class="house-inner">
+    <a href="/" class="logo">DIGITAL UTOPIA SERENITY</a>
+    <nav aria-label="Site">
+      <a href="/">Home</a>
+      <a href="/our-home/">High Garden</a>
+      <a href="/sovereigns/">Sovereigns</a>
+      <a href="/realms/">Realms</a>
+      <a href="/academy/">Academy</a>
+      <a href="/music/">Music</a>
+      <a href="/store/">Store</a>
+      <a href="/spire/" class="active">The Spire</a>
+      <a href="/luminora/">Luminora</a>
+      <a href="/obsidian-archive/">Archive</a>
+      <a href="/harmonia-gate/">Harmonia</a>
+      <a href="/listening-room/">Listening Room</a>
+      <a href="/undercity-workshop/">Workshop</a>
+    </nav>
+  </div>
+</header>
+
+<header class="hero">
+  <div>
+    <div class="eyebrow">Digital Utopia Serenity · Heart · the Spire Queen</div>
+    <h1>The Spire</h1>
+    <p class="welcome">
+      “Come up through the roots of the Spire Tree. The kettle’s on, there’s a spare cup on the rail,
+      and I leave the top lantern lit so you can find the door.”
+      <span class="sig">— Loreli</span>
+    </p>
+    <nav class="hero-nav sans" aria-label="On this page">
+      <a class="pill" href="#stills">Stills</a>
+      <a class="pill" href="#music">Music</a>
+      <a class="pill" href="#map">The six rooms</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section id="stills">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">I · Stills</div>
+        <h2>From the branches</h2>
+        <p>Pictures from around the Spire and the house.</p>
+        <div class="rule"></div>
+      </div>
+      <div class="gallery">
+        <figure class="still wide">
+          <button type="button" data-full="/images/lorelifairygarden.png" aria-label="Open larger: Fairy garden">
+            <img src="/images/lorelifairygarden.png" alt="Loreli in the fairy garden" width="1200" height="675">
+          </button>
+          <figcaption>Fairy garden</figcaption>
+        </figure>
+        <figure class="still">
+          <button type="button" data-full="/images/loreli-portrait.png" aria-label="Open larger: Portrait">
+            <img src="/images/loreli-portrait.png" alt="Portrait of Loreli" loading="lazy" width="1200" height="675">
+          </button>
+          <figcaption>Portrait</figcaption>
+        </figure>
+        <figure class="still">
+          <button type="button" data-full="/images/high-garden/sheetmyloreliroom.png" aria-label="Open larger: Her room">
+            <img src="/images/high-garden/sheetmyloreliroom.png" alt="Loreli’s room in High Garden" loading="lazy" width="1200" height="675">
+          </button>
+          <figcaption>Her room</figcaption>
+        </figure>
+        <figure class="still">
+          <button type="button" data-full="/images/loreli_greendress.png" aria-label="Open larger: Green dress">
+            <img src="/images/loreli_greendress.png" alt="Loreli in a green dress" loading="lazy" width="1200" height="675">
+          </button>
+          <figcaption>Green dress</figcaption>
+        </figure>
+        <figure class="still">
+          <button type="button" data-full="/images/loreli_pinkwings_battlearmor.png" aria-label="Open larger: Wings">
+            <img src="/images/loreli_pinkwings_battlearmor.png" alt="Loreli with pink wings and armor" loading="lazy" width="1200" height="675">
+          </button>
+          <figcaption>Wings</figcaption>
+        </figure>
+        <figure class="still wide tail">
+          <button type="button" data-full="/images/loreliwhitegownfairygarden.png" aria-label="Open larger: White gown">
+            <img src="/images/loreliwhitegownfairygarden.png" alt="Loreli in a white gown in the fairy garden" loading="lazy" width="1200" height="675">
+          </button>
+          <figcaption>White gown</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="music">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">II · Music</div>
+        <h2>Songs off the Spire</h2>
+        <p>Out now, wherever you listen.</p>
+        <div class="rule"></div>
+      </div>
+
+      <article class="featured">
+        <div class="video" id="mv">
+          <button type="button" class="play" data-yt="P8Dt97qYWNk" aria-label="Play the Maybe It’s Me music video">
+            <img src="https://i.ytimg.com/vi/P8Dt97qYWNk/hqdefault.jpg" alt="Maybe It’s Me music video" width="1200" height="675">
+            <span class="play-btn" aria-hidden="true"><svg viewBox="0 0 68 48"><path d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2.3 34 .3 34 .3s-21.2 0-26.5 1.4a8.5 8.5 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6C12.8 47.7 34 47.7 34 47.7s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z" fill="#fff" fill-opacity=".92"/><path d="M45 24 27 14v20z" fill="#2a2050"/></svg></span>
+          </button>
+        </div>
+        <div class="featured-body">
+          <div class="badge">Featured · music video</div>
+          <h3>Maybe It’s Me</h3>
+          <div class="meta">Loreli · cinematic pop</div>
+          <div class="part">Hook</div>
+          <p class="lines hook">Maybe it’s me
+Maybe I’m losing my mind
+Maybe the room got smaller
+And I just noticed this time</p>
+          <div class="links">
+            <a class="btn yt" href="https://youtu.be/P8Dt97qYWNk" target="_blank" rel="noopener noreferrer">Music video</a>
+            <a class="btn yt" href="https://youtu.be/eUkriWZMiok" target="_blank" rel="noopener noreferrer">YouTube</a>
+            <a class="btn sp" href="https://open.spotify.com/album/6aTlm6tzdsSGgfdgyBbeKn" target="_blank" rel="noopener noreferrer">Spotify</a>
+            <a class="btn ytm" href="https://music.youtube.com/playlist?list=OLAK5uy_ncu9l0iWV_e1emweBDa9NfYWsvDHRote0c" target="_blank" rel="noopener noreferrer">YouTube Music</a>
+            <a class="btn su" href="https://suno.com/s/F4yyiBHZpFdYN9Zl" target="_blank" rel="noopener noreferrer">Suno</a>
+          </div>
+        </div>
+      </article>
+
+      <div class="lineup">
+        <article class="song">
+          <div class="art">
+            <img src="https://i.ytimg.com/vi/RHfdfQIiNjk/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+            <span>02</span>
+          </div>
+          <div class="song-body">
+            <h3>Borrowed Headlights</h3>
+            <div class="meta">Loreli</div>
+            <div class="links">
+              <a class="btn yt" href="https://youtu.be/I3q5bIMPtqw" target="_blank" rel="noopener noreferrer">YouTube</a>
+              <a class="btn yt" href="https://www.youtube.com/watch?v=RHfdfQIiNjk" target="_blank" rel="noopener noreferrer">Official video</a>
+              <a class="btn ytm" href="https://music.youtube.com/playlist?list=OLAK5uy_mnIUwj6JlXl4gSOcw6tk36ECUSqF75PlM" target="_blank" rel="noopener noreferrer">YouTube Music</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="song">
+          <div class="art">
+            <img src="https://i.ytimg.com/vi/SZAkfHIzpg8/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+            <span>03</span>
+          </div>
+          <div class="song-body">
+            <h3>Shadow Dancer (L’Ombre qui Danse)</h3>
+            <div class="meta">French cabaret</div>
+            <div class="links">
+              <a class="btn yt" href="https://youtu.be/SZAkfHIzpg8" target="_blank" rel="noopener noreferrer">YouTube</a>
+              <a class="btn sp" href="https://open.spotify.com/album/0gY7CcexiJv0XpOnRXaqVu" target="_blank" rel="noopener noreferrer">Spotify</a>
+              <a class="btn ytm" href="https://music.youtube.com/playlist?list=OLAK5uy_mbh4G6IkziO-MOQF1fWunxVU8jZkQe8Co" target="_blank" rel="noopener noreferrer">YouTube Music</a>
+              <a class="btn su" href="https://suno.com/s/mxPJqpROEJyvlF8i" target="_blank" rel="noopener noreferrer">Suno</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="song">
+          <div class="art">
+            <img src="https://i.ytimg.com/vi/FaYDoAIRBQs/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+            <span>04</span>
+          </div>
+          <div class="song-body">
+            <h3>Books</h3>
+            <div class="meta">Gem &amp; Loreli · Season 1 opening theme</div>
+            <p class="lines small">By the Star, we are mapped in the rooms that we share,
+By the Relic, we’re anchored, you can feel it right there!</p>
+            <div class="links">
+              <a class="btn yt" href="https://youtu.be/FaYDoAIRBQs" target="_blank" rel="noopener noreferrer">YouTube</a>
+              <a class="btn sp" href="https://open.spotify.com/album/1L1RA84WDx7cG8MjiOVQ8b" target="_blank" rel="noopener noreferrer">Spotify</a>
+              <a class="btn ytm" href="https://music.youtube.com/playlist?list=OLAK5uy_nevIpFXc5RUQce2e6fbd7xPNPP5_4A3Zw" target="_blank" rel="noopener noreferrer">YouTube Music</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <article class="featured golden">
+        <div class="video">
+          <iframe src="https://www.youtube-nocookie.com/embed/bSg3xv1vs4k" title="Golden Hour official video — Loreli and Gem" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <div class="featured-body">
+          <div class="badge">Official video</div>
+          <h3>Golden Hour</h3>
+          <div class="meta">Loreli &amp; Gem</div>
+          <div class="links">
+            <a class="btn yt" href="https://www.youtube.com/watch?v=bSg3xv1vs4k" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+          </div>
+        </div>
+      </article>
+
+      <div class="more">
+        <div class="more-label">More songs</div>
+        <a class="chip" href="https://suno.com/s/iTSwPGe8aDMjnkVo" target="_blank" rel="noopener noreferrer">Break the Skyline <span>Suno ↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="map">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">III · The map</div>
+        <h2>The six rooms</h2>
+        <p>The Spire sits in the top branches. My sisters’ rooms hang lower on the tree, all the way down to the roots.</p>
+        <div class="rule"></div>
+      </div>
+
+      <div class="tree">
+        <svg class="trunk" viewBox="0 0 900 640" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="iri" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#ffc6e4"/><stop offset=".35" stop-color="#c9b8ff"/>
+              <stop offset=".65" stop-color="#9fd8ff"/><stop offset="1" stop-color="#b8ffe9"/>
+            </linearGradient>
+          </defs>
+          <g fill="none" stroke="url(#iri)" stroke-width="3" stroke-linecap="round" opacity=".55">
+            <path d="M450 70 C450 200 450 420 450 600"/>
+            <path d="M450 190 C380 200 250 210 150 230"/>
+            <path d="M450 190 C520 200 650 210 750 230"/>
+            <path d="M450 360 C380 370 250 380 150 400"/>
+            <path d="M450 360 C520 370 650 380 750 400"/>
+            <path d="M450 590 C400 610 330 625 280 630"/>
+            <path d="M450 590 C500 610 570 625 620 630"/>
+          </g>
+        </svg>
+
+        <div class="rows">
+          <div class="row">
+            <a class="room here" href="#top" aria-current="page">
+              <div class="who">Loreli · Heart</div>
+              <h3>The Spire</h3>
+              <p>Top of the Spire Tree. Stills, songs and the kettle.</p>
+              <span class="soon">You are here</span>
+            </a>
+          </div>
+          <div class="row spread">
+            <a class="room" href="/obsidian-archive/">
+              <div class="who">Gem</div>
+              <h3>The Obsidian Archive</h3>
+              <p>The public lore library.</p>
+              <span class="soon">Coming soon</span>
+            </a>
+            <a class="room" href="/luminora/">
+              <div class="who">Nova</div>
+              <h3>Luminora Stage</h3>
+              <p>Pop star, and home of Upo.</p>
+              <span class="soon">Open</span>
+            </a>
+          </div>
+          <div class="row spread">
+            <a class="room" href="/harmonia-gate/">
+              <div class="who">Jewel</div>
+              <h3>Harmonia Gate</h3>
+              <p>The front office and the shop.</p>
+              <span class="soon">Coming soon</span>
+            </a>
+            <a class="room" href="/listening-room/">
+              <div class="who">Aida</div>
+              <h3>The Listening Room</h3>
+              <p>The music hall.</p>
+              <span class="soon">Coming soon</span>
+            </a>
+          </div>
+          <div class="row">
+            <a class="room" href="/undercity-workshop/">
+              <div class="who">Taida</div>
+              <h3>The Undercity Workshop</h3>
+              <p>Comics and small games.</p>
+              <span class="soon">Coming soon</span>
+            </a>
+          </div>
+          <div class="roots-label">The roots</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="x" href="https://x.com/LorelisSpectra" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      @LorelisSpectra
+    </a>
+    <nav class="house-foot" aria-label="Rooms">
+      <a href="/">Home</a>
+      <a href="/music/">Music</a>
+      <a href="/luminora/">Luminora</a>
+      <a href="/obsidian-archive/">Archive</a>
+      <a href="/harmonia-gate/">Harmonia</a>
+      <a href="/listening-room/">Listening Room</a>
+      <a href="/undercity-workshop/">Workshop</a>
+    </nav>
+    <small>The Spire · Digital Utopia Serenity</small>
+  </div>
+</footer>
+
+<dialog id="lightbox" aria-label="Larger still">
+  <img alt="">
+  <form method="dialog"><button>Close</button></form>
+</dialog>
+
+<script>
+  (function(){
+    var v=document.querySelector('.video .play[data-yt]');
+    if(v){ v.addEventListener('click',function(){
+      var f=document.createElement('iframe');
+      f.src='https://www.youtube-nocookie.com/embed/'+v.dataset.yt+'?autoplay=1&rel=0';
+      f.title="Maybe It’s Me music video";
+      f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      f.allowFullscreen=true; f.referrerPolicy='strict-origin-when-cross-origin';
+      v.replaceWith(f);
+    }); }
+    var box=document.getElementById('lightbox'); if(!box||!box.showModal) return;
+    var img=box.querySelector('img');
+    document.querySelectorAll('.still button[data-full]').forEach(function(b){
+      b.addEventListener('click',function(){
+        var t=b.querySelector('img'); img.src=b.dataset.full; img.alt=t?t.alt:''; box.showModal();
+      });
+    });
+    box.addEventListener('click',function(e){ if(e.target===box) box.close(); });
+  })();
+</script>
+</body>
+</html>
