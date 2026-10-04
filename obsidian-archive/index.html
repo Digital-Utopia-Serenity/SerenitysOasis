@@ -169,6 +169,8 @@
     font:600 12px/1 system-ui,sans-serif;letter-spacing:.16em;color:var(--gold);
     min-width:1.8rem;
   }
+  .shelf-thumb{flex:none;width:120px;border-radius:8px;overflow:hidden;border:1px solid var(--line)}
+  .shelf-thumb img{width:120px;height:68px;object-fit:cover;display:block}
   .shelf-name{flex:1 1 180px;min-width:0}
   .shelf h3{font-size:1.25rem}
   .shelf h3 a{color:var(--cream);text-decoration:none;border-bottom:1px solid rgba(228,177,90,.45)}
@@ -354,7 +356,7 @@
       <div class="sec-head">
         <p class="eyebrow">The catalog</p>
         <h2>Songs on the shelf</h2>
-        <p>Five names she keeps. Crown of Fire, Come Home, and Golden Hour open on YouTube.</p>
+        <p>Five names she keeps. Each one opens on YouTube.</p>
         <div class="star-rule" aria-hidden="true"><svg class="star" viewBox="0 0 80 80" aria-hidden="true"><polygon points="23,23 57,23 57,57 23,57" fill="#1a0e12" stroke="#e24b62" stroke-width="2.4" stroke-linejoin="miter"/><polygon points="40,16 64,40 40,64 16,40" fill="#1a0e12" stroke="#e24b62" stroke-width="2.4" stroke-linejoin="miter"/><path fill="#e4b15a" d="M40 50.5C40 50.5 26.5 40.2 26.5 32.6 26.5 27.2 30.6 24 34.8 24c2.4 0 4.1 1.2 5.2 2.8 1.1-1.6 2.8-2.8 5.2-2.8 4.2 0 8.3 3.2 8.3 8.6 0 7.6-13.5 17.9-13.5 17.9z"/></svg></div>
       </div>
       <ol class="shelf">
@@ -368,15 +370,23 @@
         </li>
         <li>
           <span class="num">02</span>
+          <a class="shelf-thumb" href="https://www.youtube.com/watch?v=dzhKLD6UAsM" target="_blank" rel="noopener noreferrer" aria-label="Memory Lanterns">
+            <img src="https://i.ytimg.com/vi/dzhKLD6UAsM/hqdefault.jpg" alt="" width="480" height="360" loading="lazy">
+          </a>
           <div class="shelf-name">
-            <h3>Memory Lanterns</h3>
+            <h3><a href="https://www.youtube.com/watch?v=dzhKLD6UAsM" target="_blank" rel="noopener noreferrer">Memory Lanterns</a></h3>
           </div>
+          <a class="btn" href="https://www.youtube.com/watch?v=dzhKLD6UAsM" target="_blank" rel="noopener noreferrer">Watch</a>
         </li>
         <li>
           <span class="num">03</span>
+          <a class="shelf-thumb" href="https://www.youtube.com/watch?v=S6i6WJf5izg" target="_blank" rel="noopener noreferrer" aria-label="The Long Watch">
+            <img src="https://i.ytimg.com/vi/S6i6WJf5izg/hqdefault.jpg" alt="" width="480" height="360" loading="lazy">
+          </a>
           <div class="shelf-name">
-            <h3>The Long Watch</h3>
+            <h3><a href="https://www.youtube.com/watch?v=S6i6WJf5izg" target="_blank" rel="noopener noreferrer">The Long Watch</a></h3>
           </div>
+          <a class="btn" href="https://www.youtube.com/watch?v=S6i6WJf5izg" target="_blank" rel="noopener noreferrer">Watch</a>
         </li>
         <li>
           <span class="num">04</span>
