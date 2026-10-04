@@ -324,6 +324,11 @@
     .song-featured .song-desc { margin: 0; color: var(--color-text-muted); max-width: 30rem; }
     .song-featured .btn { padding: .7rem 1.25rem; font-size: .95rem; }
     .song-featured .song-actions { margin-top: .25rem; }
+    /* Featured video reads as one block: player, then title and links. */
+    #video .song-featured { grid-template-columns: 1fr; }
+    #video .song-featured .song-cover { aspect-ratio: 16 / 9; min-height: 0; height: auto; }
+    #video .song-featured .video-frame { height: 100%; min-height: 0; }
+    #video .song-featured .song-body { padding: 1.35rem 1.5rem 1.5rem; }
 
     @media (max-width: 900px) {
       .songs-grid { grid-template-columns: repeat(2, 1fr); }
