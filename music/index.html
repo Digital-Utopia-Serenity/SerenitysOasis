@@ -217,6 +217,24 @@
             background: rgba(212, 175, 55, 0.22);
         }
 
+
+        .poster-stage {
+            max-width: 720px;
+            margin: 0 auto;
+            background: #000;
+        }
+
+        .poster-stage video,
+        .poster-stage img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .sugar {
+            border-color: rgba(255, 120, 190, 0.45);
+        }
+
         /* Sister cards */
         .sister {
             background: rgba(255,255,255,0.03);
@@ -473,6 +491,25 @@
     </div>
 </section>
 
+
+<!-- ========== CANON COVER: SUGAR RUSH APOCALYPSE ========== -->
+<section id="sugar-rush">
+    <div class="featured sugar">
+        <div class="label">Canon · Living Poster</div>
+        <h2>SUGAR RUSH APOCALYPSE</h2>
+        <p class="meta">Nova U-Pop · Digital Utopia Serenity</p>
+        <p class="desc">Nova’s glitter-metal anthem. Candy city, little crew, excessive sweetness. The cover is canon. The poster is alive. Written by Mark Barzola.</p>
+        <div class="poster-stage">
+            <video poster="/images/music/sugar-rush-apocalypse.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Sugar Rush Apocalypse living poster">
+                <source src="/images/music/sugar-rush-apocalypse.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="actions">
+            <a class="btn gold" href="/images/music/sugar-rush-apocalypse.jpg">Open the cover</a>
+        </div>
+    </div>
+</section>
+
 <!-- ========== NEW OFFICIAL VIDEOS ========== -->
 <section id="new-videos">
     <h2 class="section-title">New Official Videos</h2>
@@ -606,12 +643,12 @@
     </div>
 
     <!-- NOVA -->
-    <div class="sister">
-        <h3>Nova</h3>
+    <div class="sister" id="nova">
+        <h3>Nova U-Pop</h3>
         <div class="role">Dream Fairy · Vision · Star</div>
-        <p>Land of Sweets energy, neon horizons, and the songs that float.</p>
+        <p>Land of Sweets energy, neon horizons, and the songs that float. Canon cover: <em>Sugar Rush Apocalypse</em>.</p>
         <div class="links">
-            <a class="btn" href="https://suno.com" target="_blank" rel="noopener">Suno</a>
+            <a class="btn gold" href="#sugar-rush">Sugar Rush Apocalypse</a>
         </div>
     </div>
 </section>
